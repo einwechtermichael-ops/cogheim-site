@@ -51,17 +51,17 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python3 site/generate_captains_log.py --site-dir site --if-empty skip
+          python3 site/generate_captains_log.py --site-dir site
 
       - name: Commit and push if anything changed
         run: |
-          if git diff --quiet; then
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
             echo "No queued entry today — nothing to publish."
             exit 0
           fi
           git config user.name "COGHEIM Devlog Bot"
           git config user.email "devlog-bot@users.noreply.github.com"
-          git add site/captains-log.html site/devlog_queue.md site/.captains_log_counter
+          git add site/
           git commit -m "Captain's Log — auto-publish $(date -u +%Y-%m-%d)"
           git push
 
