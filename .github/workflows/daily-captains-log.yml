@@ -18,12 +18,17 @@
 # token, same as any other Direct Upload deploy, just automated.
 #
 # REQUIRED REPO SECRETS (Settings → Secrets and variables → Actions):
-#   ANTHROPIC_API_KEY    — a real Anthropic API key with billing enabled.
-#                          This is a metered API call, NOT covered by a
-#                          Claude.ai/Cowork subscription. Budget for it.
-#   CLOUDFLARE_API_TOKEN — scoped to Account → Cloudflare Pages → Edit.
-#                          (Account ID is hardcoded below — it's not a
-#                          sensitive value on its own, no need to secret it.)
+#   ANTHROPIC_API_KEY           — a real Anthropic API key with billing enabled.
+#                                 This is a metered API call, NOT covered by a
+#                                 Claude.ai/Cowork subscription. Budget for it.
+#   CLOUDFLARE_API_TOKEN        — scoped to Account → Cloudflare Pages → Edit.
+#                                 (Account ID is hardcoded below — it's not a
+#                                 sensitive value on its own, no need to secret it.)
+#   DISCORD_DEVLOG_WEBHOOK      — Discord webhook URL for the #devlog-updates
+#                                 channel. Optional — if unset, the notify step
+#                                 just logs and skips, doesn't fail the workflow.
+#   DISCORD_CAPTAINSLOG_WEBHOOK — Discord webhook URL for the #captains-log
+#                                 channel. Same optional behavior.
 #
 # TIMEZONE NOTE: cron below is UTC. 06:30 Mountain Time is:
 #   12:30 UTC during MDT (roughly mid-March to early November)
@@ -52,6 +57,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # need the prior commit too, so the devlog-diff step below can compare against it
+
+      - name: Detect new Devlog posts in this push
+        id: devlog_check
+        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+        run: |
+          NEW_FILES=$(git diff --name-status ${{ github.event.before }} ${{ github.sha }} -- 'site/devlog-*.html' 2>/dev/null | awk '$1=="A" {print $2}' || true)
+          echo "new_devlog_files<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$NEW_FILES" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -59,6 +75,7 @@ jobs:
           python-version: "3.11"
 
       - name: Generate today's Captain's Log entry
+        id: captains_log
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -84,3 +101,27 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: "303a415ac7d243036b1c87adf6c63ba2"
         run: wrangler deploy
+
+      # --- Discord notifications: only after deploy, so links are live ---
+
+      - name: Notify Discord of new Devlog posts
+        if: steps.devlog_check.outputs.new_devlog_files != ''
+        env:
+          DISCORD_DEVLOG_WEBHOOK: ${{ secrets.DISCORD_DEVLOG_WEBHOOK }}
+        run: |
+          python3 site/notify_discord_devlog.py "${{ steps.devlog_check.outputs.new_devlog_files }}"
+
+      - name: Notify Discord of new Captain's Log entry
+        if: steps.captains_log.outputs.log_published == 'true'
+        env:
+          DISCORD_CAPTAINSLOG_WEBHOOK: ${{ secrets.DISCORD_CAPTAINSLOG_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_CAPTAINSLOG_WEBHOOK" ]; then
+            echo "DISCORD_CAPTAINSLOG_WEBHOOK not set — skipping."
+            exit 0
+          fi
+          TITLE="${{ steps.captains_log.outputs.log_title }}"
+          URL="https://cogheim.com/${{ steps.captains_log.outputs.log_href }}"
+          curl -s -H "Content-Type: application/json" \
+            -d "{\"embeds\":[{\"title\":\"$TITLE\",\"url\":\"$URL\",\"color\":15105570,\"footer\":{\"text\":\"New Captain's Log entry on cogheim.com\"}}]}" \
+            "$DISCORD_CAPTAINSLOG_WEBHOOK"

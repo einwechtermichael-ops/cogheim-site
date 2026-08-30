@@ -387,6 +387,13 @@ def main():
     mark_consumed(queue_path, chosen)
     print(f"Published Log {log_number:03d} ({title!r}) for {target_date} -> {href}, promoted to hero.")
 
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a", encoding="utf-8") as f:
+            f.write(f"log_published=true\n")
+            f.write(f"log_title={title}\n")
+            f.write(f"log_href={href}\n")
+
 
 if __name__ == "__main__":
     main()
