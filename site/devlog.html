@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Devlog — COGHEIM Production Notes</title>
+<meta name="description" content="COGHEIM's devlog: honest, dated notes from the shop floor — engine evaluations, production decisions, and what a small independent studio is actually acting on this week.">
+<link rel="canonical" href="https://cogheim.com/devlog.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Devlog — COGHEIM Production Notes">
+<meta property="og:description" content="Honest, dated notes from the shop floor. No hype, no release dates — just what we're building and why.">
+<meta property="og:image" content="https://cogheim.com/devlog-ue582-hero.jpg">
+<meta property="og:image:width" content="1600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/devlog-ue582-hero.jpg">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "WebPage", "url": "https://cogheim.com/devlog.html", "name": "Devlog"},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.nav-links{display:flex;gap:1.6rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:44svh;display:flex;align-items:flex-end}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5.5vw,3.1rem);letter-spacing:.08em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8)}
+.sub{font-size:clamp(1rem,2.2vw,1.18rem);color:var(--parchment);max-width:62ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:820px;margin:0 auto}
+h3{font-family:var(--display);font-weight:700;letter-spacing:.05em;color:#E8D08A;font-size:1.35rem;margin-bottom:.6rem}
+p{margin-bottom:1rem}
+.dim{color:var(--ash)}
+.post-card{display:grid;grid-template-columns:1fr 1.3fr;gap:0;align-items:stretch;border:1px solid rgba(183,144,60,.3);margin-top:2rem;background:rgba(42,79,111,.06)}
+.post-card img{width:100%;height:100%;object-fit:cover;display:block;min-height:220px}
+.post-card .copy{padding:1.8rem 1.7rem;display:flex;flex-direction:column;justify-content:center}
+.post-card .peyebrow{font-family:var(--label);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);font-size:.75rem;margin-bottom:.5rem}
+.post-card h3{margin-bottom:.6rem}
+.post-card p{color:var(--ash);font-size:.97rem}
+.post-card .readmore{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;color:var(--ember);display:inline-block;margin-top:.4rem}
+.post-card .ptags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.7rem}
+.post-card .ptag{font-family:var(--label);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.68rem;color:var(--bronze);border:1px solid rgba(183,144,60,.35);border-radius:999px;padding:.15rem .55rem}
+@media (max-width:720px){.post-card{grid-template-columns:1fr}}
+.honest{font-size:.9rem;color:var(--steel);text-align:center;margin:2.4rem auto 0;max-width:60ch}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">COGHEIM</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="index.html">Home</a>
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="books.html">Books</a>
+      <a href="creators.html">Creators</a>
+      <a href="press.html">Press</a>
+      <a href="investors.html">Investors</a>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog</p>
+    <h1>From The Shop Floor</h1>
+    <p class="sub">Dated, honest production notes &mdash; engine evaluations, backend decisions, and the unglamorous discipline of building an MMO with a very small team. No hype, no release dates. Just what we're acting on this week.</p>
+    <p style="font-family:var(--label);font-size:.85rem;letter-spacing:.08em;color:var(--steel);margin-top:1rem">Prefer something shorter? &rarr; <a href="captains-log.html" style="color:var(--bronze)">Captain's Log</a></p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="post-card">
+      <img src="devlog-ue582-hero.jpg" alt="A steampunk world-model chamber, evoking the systems and machinery behind COGHEIM's production" loading="lazy">
+      <div class="copy">
+        <p class="peyebrow">29 August 2026 &middot; Engine &amp; Tooling</p>
+        <h3>Stabilizing the Machine: What Unreal Engine 5.8.2 Changes for COGHEIM</h3>
+        <div class="ptags"><span class="ptag">Engine</span><span class="ptag">Production</span><span class="ptag">Netcode</span></div>
+        <p>Safer large-world cooking, stronger simulation foundations, improved server protection, and workflows that need better retention policies &mdash; and exactly what we're doing about each one, this week.</p>
+        <a class="readmore" href="devlog-ue-5-8-2.html">Read the full post &rarr;</a>
+      </div>
+    </div>
+    <p class="honest">More posts land here as they're written. We'd rather post less often and mean every line than pad this page out.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    30% of net proceeds support <strong>Solitude Shore</strong>, our non-profit arm &middot; Community support: <a href="https://healingus.org" rel="noopener">HealingUS Communities</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector('.burger');if(!b)return;
+document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});})();
+</script>
+</body>
+</html>
