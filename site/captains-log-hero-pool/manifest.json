@@ -1,0 +1,27 @@
+[
+  {
+    "file": "corridor-01.webp",
+    "alt": "A residential corridor deck aboard the Drifter, families at their doorways, a welcome mat set into the floor tiles",
+    "mood": "domestic"
+  },
+  {
+    "file": "gearworks-01.webp",
+    "alt": "The Drifter's gearworks and firing range, engineers at a workbench beside an Iron Frame assembly in progress",
+    "mood": "engineering"
+  },
+  {
+    "file": "junction-01.webp",
+    "alt": "A quiet iron junction deep in the Drifter's corridors, brass fittings and a single lantern lighting the crossroads",
+    "mood": "quiet"
+  },
+  {
+    "file": "tavern-01.webp",
+    "alt": "A crowded tavern deck aboard the Drifter, music and lantern-light over a full house of crew off-shift",
+    "mood": "social"
+  },
+  {
+    "file": "museum-01.webp",
+    "alt": "The Drifter's trophy archive, glass cases of relics and campaign memorabilia beneath tall arched windows",
+    "mood": "reflective"
+  }
+]

@@ -135,6 +135,24 @@ def mark_consumed(queue_path, chosen):
         f.write("\n".join(out) + "\n")
 
 
+def pick_hero_image(site_dir, log_number):
+    """Round-robins through site/captains-log-hero-pool/manifest.json so
+    consecutive posts don't repeat until the whole pool has cycled."""
+    pool_dir = os.path.join(site_dir, "captains-log-hero-pool")
+    manifest_path = os.path.join(pool_dir, "manifest.json")
+    if not os.path.isfile(manifest_path):
+        return None
+    with open(manifest_path, "r", encoding="utf-8") as f:
+        pool = json.load(f)
+    if not pool:
+        return None
+    entry = pool[(log_number - 1) % len(pool)]
+    return {
+        "src": f"captains-log-hero-pool/{entry['file']}",
+        "alt": entry["alt"],
+    }
+
+
 def next_log_number(site_dir):
     counter_path = os.path.join(site_dir, COUNTER_FILENAME)
     n = 1
@@ -184,10 +202,17 @@ def slugify_date(date_obj):
     return date_obj.strftime("%Y-%m-%d")
 
 
-def render_standalone_page(title, log_number, date_obj, paras, prev_href="captains-log.html"):
+def render_standalone_page(title, log_number, date_obj, paras, prev_href="captains-log.html", hero=None):
     date_disp = date_obj.strftime("%d %b %Y").lstrip("0")
     date_iso = date_obj.isoformat()
     paras_html = "\n      ".join(f"<p>{p}</p>" for p in paras)
+    hero_html = ""
+    if hero:
+        hero_html = (
+            f'\n<div class="log-hero">\n'
+            f'  <img src="{hero["src"]}" alt="{hero["alt"]}" loading="eager">\n'
+            f'</div>\n'
+        )
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -228,6 +253,8 @@ nav{{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.9
 .eyebrow{{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.8rem}}
 h1{{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,4.4vw,2.3rem);color:#E8D08A;margin:.6rem 0 .3rem}}
 .meta-line{{font-family:var(--mono);font-size:.75rem;letter-spacing:.04em;color:var(--steel);text-transform:uppercase}}
+.log-hero{{max-width:640px;margin:1.4rem auto 0;border-radius:3px;overflow:hidden;border:1px solid rgba(183,144,60,.28)}}
+.log-hero img{{width:100%;height:auto;display:block}}
 section{{padding:0 1.25rem 3.5rem}}
 .wrap-n{{max-width:640px;margin:0 auto}}
 .tx{{border:1px solid rgba(183,144,60,.28);background:linear-gradient(180deg,rgba(42,79,111,.08),rgba(12,15,18,.5));padding:1.6rem 1.7rem;margin-top:1.2rem}}
@@ -246,6 +273,7 @@ footer{{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem;text-alig
   <h1>{title}</h1>
   <p class="meta-line">Log {log_number:03d} &middot; {date_disp} &middot; Relayed &middot; Deck 6 Archive</p>
 </div>
+{hero_html}
 <section><div class="wrap-n">
   <div class="tx">
       {paras_html}
@@ -341,8 +369,9 @@ def main():
     title, paras = parse_model_output(raw)
     log_number = next_log_number(args.site_dir)
     href = f"captains-log-{slugify_date(date_obj)}.html"
+    hero = pick_hero_image(args.site_dir, log_number)
 
-    page_html = render_standalone_page(title, log_number, date_obj, paras)
+    page_html = render_standalone_page(title, log_number, date_obj, paras, hero=hero)
     with open(os.path.join(args.site_dir, href), "w", encoding="utf-8") as f:
         f.write(page_html)
 
