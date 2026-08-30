@@ -5,20 +5,24 @@
 # does not require your computer to be on, does not depend on any
 # Claude product being available.
 #
-# ASSUMES: Cloudflare Pages is connected to this repo via Git integration
-# (Cloudflare dashboard → Pages → your project → Settings → Builds &
-# deployments → connect to GitHub). If that's set up, a plain `git push`
-# is all this workflow needs — Cloudflare builds and deploys on its own.
-#
-# If you are NOT using Git integration and are still doing manual/direct
-# uploads to Cloudflare Pages, uncomment the "Direct deploy" step at the
-# bottom and add CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID as repo
-# secrets, plus install wrangler.
+# DEPLOY METHOD: Wrangler direct deploy, not Git integration. The
+# existing Cloudflare Pages project (super-mode-9b19, serving
+# cogheim.com) was created as a Direct Upload project, and Cloudflare
+# does not allow converting a Direct Upload project to Git integration
+# after the fact (confirmed against Cloudflare's own docs, 30 Aug 2026).
+# The only way to get true git-triggered deploys would be a brand new
+# Pages project with the domain migrated over — not worth it for this.
+# So this workflow pushes to GitHub for version history/audit trail,
+# then deploys straight to the existing project via Wrangler + an API
+# token, same as any other Direct Upload deploy, just automated.
 #
 # REQUIRED REPO SECRETS (Settings → Secrets and variables → Actions):
-#   ANTHROPIC_API_KEY   — a real Anthropic API key with billing enabled.
-#                         This is a metered API call, NOT covered by a
-#                         Claude.ai/Cowork subscription. Budget for it.
+#   ANTHROPIC_API_KEY    — a real Anthropic API key with billing enabled.
+#                          This is a metered API call, NOT covered by a
+#                          Claude.ai/Cowork subscription. Budget for it.
+#   CLOUDFLARE_API_TOKEN — scoped to Account → Cloudflare Pages → Edit.
+#                          (Account ID is hardcoded below — it's not a
+#                          sensitive value on its own, no need to secret it.)
 #
 # TIMEZONE NOTE: cron below is UTC. 06:30 Mountain Time is:
 #   12:30 UTC during MDT (roughly mid-March to early November)
@@ -65,11 +69,11 @@ jobs:
           git commit -m "Captain's Log — auto-publish $(date -u +%Y-%m-%d)"
           git push
 
-      # --- Direct deploy fallback (uncomment if NOT using Cloudflare Git integration) ---
-      # - name: Install Wrangler
-      #   run: npm install -g wrangler
-      # - name: Deploy to Cloudflare Pages
-      #   env:
-      #     CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      #     CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      #   run: wrangler pages deploy site --project-name=cogheim
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "303a415ac7d243036b1c87adf6c63ba2"
+        run: wrangler pages deploy site --project-name=super-mode-9b19
