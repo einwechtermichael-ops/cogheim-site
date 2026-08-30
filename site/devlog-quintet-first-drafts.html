@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Five Books, One Pipeline: Finishing the Cogheim Quintet's First Drafts</title>
+<meta name="description" content="How Book III closed out and Books IV and V went from outline to full draft — the word counts, the pipeline, and what it actually takes to finish a five-book series alongside a game.">
+<link rel="canonical" href="https://cogheim.com/devlog-quintet-first-drafts.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Five Books, One Pipeline: Finishing the Cogheim Quintet's First Drafts">
+<meta property="og:description" content="The word counts, the pipeline, and what it actually takes to finish a five-book series alongside a game.">
+<meta property="og:image" content="https://cogheim.com/hero-06-books.jpg">
+<meta property="og:image:width" content="1280">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/hero-06-books.jpg">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Five Books, One Pipeline: Finishing the Cogheim Quintet's First Drafts",
+      "datePublished": "2026-07-09",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/devlog-quintet-first-drafts.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+        {"@type": "ListItem", "position": 3, "name": "Five Books, One Pipeline", "item": "https://cogheim.com/devlog-quintet-first-drafts.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.nav-links{display:flex;gap:1.6rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.numlist{list-style:none;counter-reset:step;margin:1rem 0 0;max-width:720px}
+.numlist li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.6rem;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.35)}
+.numlist li:last-child{border-bottom:0}
+.numlist li::before{content:counter(step);position:absolute;left:0;top:.6rem;font-family:var(--display);font-weight:700;color:var(--ember);font-size:1rem;width:1.9rem;text-align:center}
+.numlist li b{color:var(--parchment);font-weight:600}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+}
+.page-hero.quintet{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(hero-06-books.jpg) center/cover no-repeat}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">COGHEIM</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero quintet">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; World &amp; Lore</p>
+    <h1>Five Books, One Pipeline: Finishing the Cogheim Quintet's First Drafts</h1>
+    <p class="sub">Book III closed out, and Books IV and V went from open questions to full first drafts. No plot details here &mdash; just the actual production math of finishing a five-book series while also building the game it feeds.</p>
+    <div class="facts">
+      <div class="fact"><b>Period</b><span>Late June&ndash;July 2026</span></div>
+      <div class="fact"><b>Category</b><span>World &amp; Lore</span></div>
+      <div class="fact"><b>Books Touched</b><span>III, IV, V</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p>The game gets most of this devlog's attention because it's the part with build logs and test counts attached. The Cogheim Quintet &mdash; the five novels this whole world is actually built from &mdash; doesn't get that treatment often enough. It should. This stretch was one of the heaviest writing pushes of the project so far.</p>
+
+    <h2>Book III Was Already Done. We Just Didn't Know It.</h2>
+    <p>Going into this stretch, <em>Book III: The Iron Meridian</em> turned out to already be complete &mdash; a full ten-act arc, roughly 49,000 words, with the illustration prompts for every act already locked and the print pipeline already proven end to end. Sometimes the most useful thing a status check does is confirm you're further along than you thought.</p>
+    <p>That meant the real work of this period was ahead, not behind: <em>Book IV</em> and <em>Book V</em>, both still unwritten.</p>
+
+    <h2>Writing Two Books Back to Back</h2>
+    <p>Book IV went from an open act structure to a full draft, all ten acts. Book V followed the same path &mdash; a complete eleven-act first draft. Two full manuscripts, written back to back, on top of everything else this project has running at the same time.</p>
+    <div class="boiler">
+      <p style="margin-bottom:0"><b>The honest number:</b> Book V's first pass landed short &mdash; about 34,200 words across 159 pages, against Book III's roughly 59,500 words and 208 pages. Not a story problem. A depth problem: more individual scenes than Book III, but each one running thinner than it needed to.</p>
+    </div>
+
+    <h2>Fixing Depth, Not Length</h2>
+    <p>The fix wasn't padding. It was going back through act by act and asking where a scene was reporting an event instead of living inside it, then rewriting from the inside. That pass took Book V from 159 pages to 221 &mdash; roughly 47,000 words across eleven acts &mdash; without adding new plot, just adding the room the existing plot needed to breathe.</p>
+    <p>Formatting cohesion got the same scrutiny. Books II, III, and IV all needed to read as one continuous series rather than three separately-formatted documents, so every print and EPUB build got checked against the same baseline before anything shipped.</p>
+
+    <h2>The Pipeline Behind Five Books</h2>
+    <p>None of this happens by hand-formatting a manuscript in a word processor. The print interiors run through a dedicated build: prose set at 14pt with proper line-height and margins matched across every book, illustration plates merged in at print resolution, page numbers applied programmatically, and the EPUB generated from the same source so both formats stay in sync instead of drifting apart.</p>
+    <div class="boiler">
+      <p style="margin-bottom:0"><b>Production note:</b> a five-book series is also a five-book <em>consistency problem</em> &mdash; naming, formatting, page count, tone. The pipeline exists specifically so that problem gets caught by a build check, not by a reader noticing Book IV looks different from Book II.</p>
+    </div>
+
+    <h2>What's Still Ahead</h2>
+    <p class="dim">First drafts of all five books now exist. What's left is finishing work, not first-draft work:</p>
+    <ol class="numlist">
+      <li><b>Expansion passes</b> on any book that lands short of the series' established depth, the same way Book V did.</li>
+      <li><b>Full illustrated builds</b> &mdash; print PDF and EPUB &mdash; for every book, matched to one formatting standard.</li>
+      <li><b>KDP publishing prep</b>, including cover work and print specs, once page counts are final.</li>
+      <li><b>A cross-series consistency pass</b> checking names, terminology, and formatting hold across all five books at once.</li>
+    </ol>
+    <div class="tags">
+      <span class="tag">Novels</span>
+      <span class="tag">Production</span>
+      <span class="tag">Publishing</span>
+      <span class="tag">Pipeline</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">The game is the archaeology. <em>These five books are the truth it's digging up.</em></p>
+    <a class="btn-ghost" href="devlog.html" style="margin-top:1.6rem">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+
+<script>
+(function(){
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});
+})();
+</script>
+</body>
+</html>
