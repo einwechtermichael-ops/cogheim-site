@@ -57,6 +57,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92
 @keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
 @media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
 .page-hero{position:relative;min-height:44svh;display:flex;align-items:flex-end}
+.page-hero.has-bg{background:linear-gradient(180deg,rgba(12,15,18,.45) 0%,rgba(12,15,18,.55) 55%,rgba(12,15,18,.96) 100%),url(devlog-shop-floor-hero.webp) center 30%/cover no-repeat}
 .ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
 .eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
@@ -131,7 +132,7 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
   <div class="running-lights" aria-hidden="true"></div>
 </nav>
 
-<header class="page-hero">
+<header class="page-hero has-bg">
   <div class="ph-content">
     <p class="eyebrow">Devlog</p>
     <h1>From The Shop Floor</h1>
