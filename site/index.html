@@ -109,14 +109,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92
 .carousel-slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;visibility:hidden;transition:opacity 1s ease;display:flex;padding:2rem 2rem calc(2.5rem + env(safe-area-inset-bottom))}
 .carousel-slide.is-active{opacity:1;visibility:visible;z-index:1}
 .carousel-slide::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.35) 0%,transparent 30%,transparent 55%,rgba(12,15,18,.85) 92%,var(--iron) 100%);pointer-events:none}
-.pos-bottom-left{align-items:flex-end;justify-content:flex-start}
-.pos-top-left{align-items:flex-start;justify-content:flex-start}
+.pos-bottom-left{align-items:center;justify-content:flex-start}
+.pos-top-left{align-items:center;justify-content:flex-start}
 .pos-right{align-items:center;justify-content:flex-end}
-.carousel-content{position:relative;z-index:2;max-width:520px;display:flex;flex-direction:column;gap:.6rem}
+.carousel-content{position:relative;z-index:2;max-width:640px;display:flex;flex-direction:column;gap:1rem}
 .pos-right .carousel-content{align-items:flex-end;text-align:right}
-.carousel-headline{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,3.6vw,2.3rem);letter-spacing:.05em;color:#E8D08A;text-shadow:0 2px 22px rgba(0,0,0,.85);line-height:1.2;margin:0}
-.carousel-sub{font-family:var(--body);font-weight:300;color:var(--parchment);text-shadow:0 2px 14px rgba(0,0,0,.8);max-width:36ch;margin:0}
-.carousel-link{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(226,106,38,.4);width:fit-content;padding-bottom:.15rem;transition:color .2s,border-color .2s}
+.carousel-headline{font-family:var(--display);font-weight:700;font-size:clamp(2rem,5.2vw,3.4rem);letter-spacing:.03em;color:#E8D08A;text-shadow:0 2px 22px rgba(0,0,0,.85);line-height:1.15;margin:0}
+.carousel-sub{font-family:var(--body);font-weight:300;font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--parchment);text-shadow:0 2px 14px rgba(0,0,0,.8);max-width:38ch;margin:0}
+.carousel-link{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:1.05rem;color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(226,106,38,.4);width:fit-content;padding-bottom:.15rem;transition:color .2s,border-color .2s}
 .carousel-link:hover{color:#F5A868;border-color:#F5A868}
 .carousel-prev,.carousel-next{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:rgba(12,15,18,.55);border:1px solid rgba(183,144,60,.4);color:var(--parchment);width:2.6rem;height:2.6rem;border-radius:50%;font-size:1.4rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
 .carousel-prev:hover,.carousel-next:hover{background:rgba(183,144,60,.25);border-color:var(--bronze)}
