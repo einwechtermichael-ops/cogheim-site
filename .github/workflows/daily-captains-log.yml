@@ -1,3 +1,4 @@
+# settling deploy: forces a single clean re-deploy of current main state
 # daily-captains-log.yml
 #
 # Belt-and-suspenders alternative to the Cowork scheduled task. Runs
