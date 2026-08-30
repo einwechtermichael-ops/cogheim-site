@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gallery — The COGHEIM Archive</title>
+<meta name="description" content="The full COGHEIM visual archive: world model diagrams, Strider concept art, characters, environments, cinematic key art, and the Immortal Empires-era roots it all grew from. Browsable by category.">
+<link rel="canonical" href="https://cogheim.com/gallery.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gallery — The COGHEIM Archive">
+<meta property="og:description" content="World model diagrams, Strider concept art, characters, environments, and cinematic key art from across COGHEIM's development.">
+<meta property="og:image" content="https://cogheim.com/gallery/08_cinematic_and_title_art/001_COGHEIM_TitlePlate_FinalFrame_4K_opt.webp">
+<meta property="og:image:width" content="1600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/gallery/08_cinematic_and_title_art/001_COGHEIM_TitlePlate_FinalFrame_4K_opt.webp">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "url": "https://cogheim.com/gallery.html",
+      "name": "Gallery",
+      "about": {
+        "@type": "VideoGame",
+        "name": "Cogheim"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://cogheim.com/gallery.html" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.nav-links{display:flex;gap:1.6rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.nav-cta:hover{box-shadow:0 0 20px rgba(226,106,38,.6)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.wrap{max-width:1300px;margin:0 auto;padding:0 1.25rem}
+.page-hero{position:relative;min-height:38svh;display:flex;align-items:flex-end;padding-top:7rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:2.2rem;height:1px;background:var(--ember)}
+.page-hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2rem,5vw,3.4rem);margin:.5rem 0 .8rem;color:#E8D08A}
+.page-hero .sub{max-width:62ch;color:var(--ash);font-size:clamp(.95rem,1.5vw,1.1rem)}
+.g-content{padding:1.5rem 0 4rem}
+
+/* filter pills */
+.gf-bar{position:sticky;top:calc(56px + env(safe-area-inset-top));z-index:40;background:rgba(12,15,18,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(183,144,60,.2);padding:1rem 0}
+.gf-pills{display:flex;gap:.6rem;flex-wrap:wrap;overflow-x:auto;padding-bottom:.2rem}
+.gf-pill{font-family:var(--label);font-weight:500;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ash);background:rgba(255,255,255,.03);border:1px solid rgba(183,144,60,.25);border-radius:999px;padding:.45rem 1rem;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}
+.gf-pill:hover{color:#E8D08A;border-color:var(--bronze)}
+.gf-pill.is-active{background:var(--ember);border-color:var(--ember);color:#fff}
+.gf-count{opacity:.7;font-size:.8em}
+
+/* grid */
+.g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:1.75rem}
+.g-tile{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;border:1px solid rgba(183,144,60,.18);cursor:pointer;background:#111}
+.g-tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.g-tile:hover img{transform:scale(1.06)}
+.g-tile figcaption{position:absolute;inset:auto 0 0 0;padding:.6rem .75rem .55rem;background:linear-gradient(0deg,rgba(12,15,18,.92) 0%,transparent 100%);display:flex;flex-direction:column;gap:.1rem;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
+.g-tile:hover figcaption,.g-tile:focus-within figcaption{opacity:1;transform:translateY(0)}
+.g-title{font-family:var(--label);font-weight:600;font-size:.82rem;color:var(--parchment);letter-spacing:.02em}
+.g-cat{font-family:var(--label);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ember)}
+.g-tile.is-hidden{display:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(6,7,9,.96);display:none;align-items:center;justify-content:center;padding:2.5rem 1.25rem}
+.lb.is-open{display:flex}
+.lb-inner{max-width:1100px;width:100%;max-height:90vh;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.lb-inner img{max-width:100%;max-height:70vh;width:auto;object-fit:contain;border:1px solid rgba(183,144,60,.3);border-radius:4px}
+.lb-caption{text-align:center}
+.lb-caption .g-title{font-size:1.05rem}
+.lb-close,.lb-prev,.lb-next{position:absolute;background:rgba(12,15,18,.6);border:1px solid rgba(183,144,60,.4);color:var(--parchment);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(183,144,60,.25);border-color:var(--bronze)}
+.lb-close{top:1.25rem;right:1.25rem;width:2.4rem;height:2.4rem;border-radius:50%;font-size:1.3rem}
+.lb-prev,.lb-next{top:50%;transform:translateY(-50%);width:2.8rem;height:2.8rem;border-radius:50%;font-size:1.5rem}
+.lb-prev{left:1rem}
+.lb-next{right:1rem}
+
+@media (max-width:840px){
+  .burger{display:block}
+  .nav-links{position:fixed;top:0;right:0;height:100svh;width:min(78vw,320px);background:rgba(9,11,13,.98);flex-direction:column;align-items:flex-start;padding:6rem 1.5rem 2rem;gap:1.4rem;transform:translateX(100%);transition:transform .3s ease;overflow-y:auto}
+  .nav-links.open{transform:translateX(0)}
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+  .page-hero{padding-top:6rem;min-height:auto;padding-bottom:1.5rem}
+  .gf-bar{top:calc(52px + env(safe-area-inset-top))}
+  .lb-prev,.lb-next{width:2.3rem;height:2.3rem;font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">COGHEIM</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Gallery</p>
+    <h1>The COGHEIM Archive</h1>
+    <p class="sub">World model diagrams, Strider concept art, characters, environments, cinematic key art, and the Immortal Empires-era roots it all grew from &mdash; 115 pieces and growing. Filter by category or browse everything.</p>
+  </div>
+</header>
+
+<div class="gf-bar">
+  <div class="wrap">
+    <div class="gf-pills" role="tablist" aria-label="Filter gallery by category">
+    <button class="gf-pill is-active" data-filter="all" role="tab" aria-selected="true">All <span class="gf-count">115</span></button>
+    <button class="gf-pill" data-filter="world_model" role="tab" aria-selected="false">World Model <span class="gf-count">5</span></button>
+    <button class="gf-pill" data-filter="vehicles_and_structures" role="tab" aria-selected="false">Vehicles &amp; Structures <span class="gf-count">25</span></button>
+    <button class="gf-pill" data-filter="characters_and_story" role="tab" aria-selected="false">Characters &amp; Story <span class="gf-count">10</span></button>
+    <button class="gf-pill" data-filter="world_and_environment" role="tab" aria-selected="false">World &amp; Environment <span class="gf-count">17</span></button>
+    <button class="gf-pill" data-filter="reference_boards" role="tab" aria-selected="false">Reference Boards <span class="gf-count">1</span></button>
+    <button class="gf-pill" data-filter="drifter_interiors_and_decks" role="tab" aria-selected="false">Drifter Interiors &amp; Decks <span class="gf-count">31</span></button>
+    <button class="gf-pill" data-filter="meridian_maritime_academy" role="tab" aria-selected="false">Meridian Maritime Academy <span class="gf-count">10</span></button>
+    <button class="gf-pill" data-filter="cinematic_and_title_art" role="tab" aria-selected="false">Cinematic &amp; Title Art <span class="gf-count">1</span></button>
+    <button class="gf-pill" data-filter="immortal_empires_legacy" role="tab" aria-selected="false">Immortal Empires (Legacy) <span class="gf-count">3</span></button>
+    <button class="gf-pill" data-filter="novel_book1_act_illustrations" role="tab" aria-selected="false">Book I Illustrations <span class="gf-count">11</span></button>
+    <button class="gf-pill" data-filter="development_history_optional" role="tab" aria-selected="false">Development History <span class="gf-count">1</span></button>
+    </div>
+  </div>
+</div>
+
+<section class="g-content">
+  <div class="wrap">
+    <div class="g-grid" id="gGrid">
+    <figure class="g-tile" data-category="world_model" data-index="0">
+      <img src="gallery/01_world_model/001_01_cogheim-world-model-stitched-label-free.webp" alt="Cogheim World Model Stitched Label Free — World Model" loading="lazy">
+      <figcaption>
+        <span class="g-title">Cogheim World Model Stitched Label Free</span>
+        <span class="g-cat">World Model</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_model" data-index="1">
+      <img src="gallery/01_world_model/002_02_cogheim-world-model-logo-labelled-public-v7.webp" alt="Cogheim World Model Logo Labelled Public V7 — World Model" loading="lazy">
+      <figcaption>
+        <span class="g-title">Cogheim World Model Logo Labelled Public V7</span>
+        <span class="g-cat">World Model</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_model" data-index="2">
+      <img src="gallery/01_world_model/004_04_cogheim-world-model-panel-1-disc-logo-labelled-public-v7.webp" alt="Cogheim World Model Panel 1 Disc Logo Labelled Public V7 — World Model" loading="lazy">
+      <figcaption>
+        <span class="g-title">Cogheim World Model Panel 1 Disc Logo Labelled Public V7</span>
+        <span class="g-cat">World Model</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_model" data-index="3">
+      <img src="gallery/01_world_model/005_05_cogheim-world-model-panel-2-tiers-labelled-v7.webp" alt="Cogheim World Model Panel 2 Tiers Labelled V7 — World Model" loading="lazy">
+      <figcaption>
+        <span class="g-title">Cogheim World Model Panel 2 Tiers Labelled V7</span>
+        <span class="g-cat">World Model</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_model" data-index="4">
+      <img src="gallery/01_world_model/006_06_cogheim-world-model-panel-3-traversal-labelled-public-v7.webp" alt="Cogheim World Model Panel 3 Traversal Labelled Public V7 — World Model" loading="lazy">
+      <figcaption>
+        <span class="g-title">Cogheim World Model Panel 3 Traversal Labelled Public V7</span>
+        <span class="g-cat">World Model</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="5">
+      <img src="gallery/02_vehicles_and_structures/004_04_blackjack-non-cutaway-exterior-systems-4k.webp" alt="Blackjack Non Cutaway Exterior Systems 4K — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Blackjack Non Cutaway Exterior Systems 4K</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="6">
+      <img src="gallery/02_vehicles_and_structures/005_05_blackjack-strider-double-depth-wide-4k.webp" alt="Blackjack Strider Double Depth Wide 4K — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Blackjack Strider Double Depth Wide 4K</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="7">
+      <img src="gallery/02_vehicles_and_structures/006_06_blackjack-strider-four-side-tracks-index-panel-4k.webp" alt="Blackjack Strider Four Side Tracks Index Panel 4K — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Blackjack Strider Four Side Tracks Index Panel 4K</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="8">
+      <img src="gallery/02_vehicles_and_structures/007_07_blackjack-strider-long-climb-distinct-rooms-clearance-4k.webp" alt="Blackjack Strider Long Climb Distinct Rooms Clearance 4K — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Blackjack Strider Long Climb Distinct Rooms Clearance 4K</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="9">
+      <img src="gallery/02_vehicles_and_structures/008_08_blackjack-strider-lowered-swapped-cutaways-no-pointers-4k.webp" alt="Blackjack Strider Lowered Swapped Cutaways No Pointers 4K — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Blackjack Strider Lowered Swapped Cutaways No Pointers 4K</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="10">
+      <img src="gallery/02_vehicles_and_structures/009_09_blackjack-strider-rebuilt-clean-ue5-8-4k.webp" alt="Blackjack Strider Rebuilt Clean UE5.8 4K — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Blackjack Strider Rebuilt Clean UE5.8 4K</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="11">
+      <img src="gallery/02_vehicles_and_structures/011_11_blackjack-strider-square-engine-salvage-cutaways-4k.webp" alt="Blackjack Strider Square Engine Salvage Cutaways 4K — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Blackjack Strider Square Engine Salvage Cutaways 4K</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="12">
+      <img src="gallery/02_vehicles_and_structures/013_13_blackjack-strider-unreal-engine-5-8-4k.webp" alt="Blackjack Strider Unreal Engine 5 8 4K — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Blackjack Strider Unreal Engine 5 8 4K</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="13">
+      <img src="gallery/02_vehicles_and_structures/014_14_1000008295.webp" alt="Vehicles &amp; Structures — Concept Art #1 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #1</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="14">
+      <img src="gallery/02_vehicles_and_structures/015_15_8906ea5a-3bc1-4120-bf65-3683e70594f0.webp" alt="Vehicles &amp; Structures — Concept Art #2 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #2</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="15">
+      <img src="gallery/02_vehicles_and_structures/016_16_1000008326.webp" alt="Vehicles &amp; Structures — Concept Art #3 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #3</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="16">
+      <img src="gallery/02_vehicles_and_structures/017_17_1000008146.webp" alt="Vehicles &amp; Structures — Concept Art #4 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #4</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="17">
+      <img src="gallery/02_vehicles_and_structures/018_18_1000008144.webp" alt="Vehicles &amp; Structures — Concept Art #5 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #5</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="18">
+      <img src="gallery/02_vehicles_and_structures/019_19_1000008182.webp" alt="Vehicles &amp; Structures — Concept Art #6 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #6</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="19">
+      <img src="gallery/02_vehicles_and_structures/020_20_1000008148.webp" alt="Vehicles &amp; Structures — Concept Art #7 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #7</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="20">
+      <img src="gallery/02_vehicles_and_structures/021_21_1000008214.webp" alt="Vehicles &amp; Structures — Concept Art #8 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #8</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="21">
+      <img src="gallery/02_vehicles_and_structures/022_22_1000008147.webp" alt="Vehicles &amp; Structures — Concept Art #9 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #9</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="22">
+      <img src="gallery/02_vehicles_and_structures/023_23_1000008181.webp" alt="Vehicles &amp; Structures — Concept Art #10 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #10</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="23">
+      <img src="gallery/02_vehicles_and_structures/040_exec-b9445f8a-b501-48ea-bda2-929a73570cd5.webp" alt="Vehicles &amp; Structures — Concept Art #11 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #11</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="24">
+      <img src="gallery/02_vehicles_and_structures/042_exec-dd95dc4d-9851-4af0-b4fb-efc58e9451b8.webp" alt="Vehicles &amp; Structures — Concept Art #12 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #12</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="25">
+      <img src="gallery/02_vehicles_and_structures/043_exec-f163c271-2826-4620-b29b-80ea10cecde7.webp" alt="Vehicles &amp; Structures — Concept Art #13 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #13</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="26">
+      <img src="gallery/02_vehicles_and_structures/045_8a50d20a-e5fa-4515-8a7e-a478d604a78f.webp" alt="Vehicles &amp; Structures — Concept Art #14 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #14</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="27">
+      <img src="gallery/02_vehicles_and_structures/046_Codex-Image-Aug-29-2026-02_28_52-PM.webp" alt="Vehicles &amp; Structures — Concept Art #15 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #15</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="28">
+      <img src="gallery/02_vehicles_and_structures/048_cache_070_1536x1024_cd849c2b66.webp" alt="Vehicles &amp; Structures — Concept Art #16 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #16</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="vehicles_and_structures" data-index="29">
+      <img src="gallery/02_vehicles_and_structures/050_cache_078_1536x1024_b32b7bdee6.webp" alt="Vehicles &amp; Structures — Concept Art #17 — Vehicles &amp; Structures" loading="lazy">
+      <figcaption>
+        <span class="g-title">Vehicles &amp; Structures — Concept Art #17</span>
+        <span class="g-cat">Vehicles &amp; Structures</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="30">
+      <img src="gallery/03_characters_and_story/001_01_1000005472.webp" alt="Characters &amp; Story — Concept Art #1 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #1</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="31">
+      <img src="gallery/03_characters_and_story/002_02_1000005473.webp" alt="Characters &amp; Story — Concept Art #2 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #2</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="32">
+      <img src="gallery/03_characters_and_story/003_03_1000005481-2-.webp" alt="Characters &amp; Story — Concept Art #3 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #3</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="33">
+      <img src="gallery/03_characters_and_story/004_04_1000005522.webp" alt="Characters &amp; Story — Concept Art #4 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #4</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="34">
+      <img src="gallery/03_characters_and_story/005_05_1000005523.webp" alt="Characters &amp; Story — Concept Art #5 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #5</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="35">
+      <img src="gallery/03_characters_and_story/006_06_image-gen-1-19-.webp" alt="Characters &amp; Story — Concept Art #6 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #6</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="36">
+      <img src="gallery/03_characters_and_story/007_07_image-gen-2-17-.webp" alt="Characters &amp; Story — Concept Art #7 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #7</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="37">
+      <img src="gallery/03_characters_and_story/008_08_image-gen-2-19-.webp" alt="Characters &amp; Story — Concept Art #8 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #8</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="38">
+      <img src="gallery/03_characters_and_story/009_09_1000007859.webp" alt="Characters &amp; Story — Concept Art #9 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #9</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="characters_and_story" data-index="39">
+      <img src="gallery/03_characters_and_story/010_10_1000005678.webp" alt="Characters &amp; Story — Concept Art #10 — Characters &amp; Story" loading="lazy">
+      <figcaption>
+        <span class="g-title">Characters &amp; Story — Concept Art #10</span>
+        <span class="g-cat">Characters &amp; Story</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="40">
+      <img src="gallery/04_world_and_environment/001_01_Desolate-frozen-landscape-beneath-stormy-skies.webp" alt="Desolate Frozen Landscape Beneath Stormy Skies — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Desolate Frozen Landscape Beneath Stormy Skies</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="41">
+      <img src="gallery/04_world_and_environment/002_02_Endless-clash-in-the-ruined-wasteland.webp" alt="Endless Clash In The Ruined Wasteland — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Endless Clash In The Ruined Wasteland</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="42">
+      <img src="gallery/04_world_and_environment/003_03_Epic-machines-on-a-vast-battlefield.webp" alt="Epic Machines On A Vast Battlefield — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Epic Machines On A Vast Battlefield</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="43">
+      <img src="gallery/04_world_and_environment/004_04_Exploring-the-industrial-cathedral-of-steam.webp" alt="Exploring The Industrial Cathedral Of Steam — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Exploring The Industrial Cathedral Of Steam</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="44">
+      <img src="gallery/04_world_and_environment/005_05_Forging-sparks-in-a-steampunk-workshop.webp" alt="Forging Sparks In A Steampunk Workshop — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Forging Sparks In A Steampunk Workshop</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="45">
+      <img src="gallery/04_world_and_environment/006_06_Frozen-gear-in-rugged-terrain.webp" alt="Frozen Gear In Rugged Terrain — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Frozen Gear In Rugged Terrain</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="46">
+      <img src="gallery/04_world_and_environment/007_07_Gothic-war-machine-above-ruined-city.webp" alt="Gothic War Machine Above Ruined City — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Gothic War Machine Above Ruined City</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="47">
+      <img src="gallery/04_world_and_environment/008_08_image-gen-1-18-.webp" alt="World &amp; Environment — Concept Art #1 — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">World &amp; Environment — Concept Art #1</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="48">
+      <img src="gallery/04_world_and_environment/009_09_image-gen-1-20-.webp" alt="World &amp; Environment — Concept Art #2 — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">World &amp; Environment — Concept Art #2</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="49">
+      <img src="gallery/04_world_and_environment/010_10_image-gen-2-18-.webp" alt="World &amp; Environment — Concept Art #3 — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">World &amp; Environment — Concept Art #3</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="50">
+      <img src="gallery/04_world_and_environment/011_11_image-gen-2-20-.webp" alt="World &amp; Environment — Concept Art #4 — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">World &amp; Environment — Concept Art #4</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="51">
+      <img src="gallery/04_world_and_environment/012_12_image-gen-3-16-.webp" alt="World &amp; Environment — Concept Art #5 — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">World &amp; Environment — Concept Art #5</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="52">
+      <img src="gallery/04_world_and_environment/013_13_image-gen-3-17-.webp" alt="World &amp; Environment — Concept Art #6 — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">World &amp; Environment — Concept Art #6</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="53">
+      <img src="gallery/04_world_and_environment/014_14_Steampunk-aerial-battle-over-industrial-city.webp" alt="Steampunk Aerial Battle Over Industrial City — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Steampunk Aerial Battle Over Industrial City</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="54">
+      <img src="gallery/04_world_and_environment/015_15_Steampunk-cities-across-a-smoky-river-valley.webp" alt="Steampunk Cities Across A Smoky River Valley — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">Steampunk Cities Across A Smoky River Valley</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="55">
+      <img src="gallery/04_world_and_environment/016_16_1000008339.webp" alt="World &amp; Environment — Concept Art #7 — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">World &amp; Environment — Concept Art #7</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="world_and_environment" data-index="56">
+      <img src="gallery/04_world_and_environment/017_17_57745651-da99-4851-82b3-7c605884c3fa.webp" alt="World &amp; Environment — Concept Art #8 — World &amp; Environment" loading="lazy">
+      <figcaption>
+        <span class="g-title">World &amp; Environment — Concept Art #8</span>
+        <span class="g-cat">World &amp; Environment</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="reference_boards" data-index="57">
+      <img src="gallery/05_reference_boards/001_01_1000005681.webp" alt="Reference Boards — Concept Art #1 — Reference Boards" loading="lazy">
+      <figcaption>
+        <span class="g-title">Reference Boards — Concept Art #1</span>
+        <span class="g-cat">Reference Boards</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="58">
+      <img src="gallery/06_drifter_interiors_and_decks/001_cache_001_1448x1086_d7e77cce68.webp" alt="Drifter Interiors &amp; Decks — Concept Art #1 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #1</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="59">
+      <img src="gallery/06_drifter_interiors_and_decks/002_cache_002_1448x1086_e9cc21bda7.webp" alt="Drifter Interiors &amp; Decks — Concept Art #2 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #2</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="60">
+      <img src="gallery/06_drifter_interiors_and_decks/003_cache_003_1448x1086_ffc3bb4d4d.webp" alt="Drifter Interiors &amp; Decks — Concept Art #3 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #3</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="61">
+      <img src="gallery/06_drifter_interiors_and_decks/004_cache_004_1448x1086_0affb35d0d.webp" alt="Drifter Interiors &amp; Decks — Concept Art #4 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #4</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="62">
+      <img src="gallery/06_drifter_interiors_and_decks/005_cache_005_1448x1086_b6ccd9136b.webp" alt="Drifter Interiors &amp; Decks — Concept Art #5 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #5</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="63">
+      <img src="gallery/06_drifter_interiors_and_decks/006_cache_006_1448x1086_ef895c14b3.webp" alt="Drifter Interiors &amp; Decks — Concept Art #6 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #6</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="64">
+      <img src="gallery/06_drifter_interiors_and_decks/007_cache_007_1448x1086_f280ed405c.webp" alt="Drifter Interiors &amp; Decks — Concept Art #7 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #7</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="65">
+      <img src="gallery/06_drifter_interiors_and_decks/008_cache_008_1448x1086_98161818a0.webp" alt="Drifter Interiors &amp; Decks — Concept Art #8 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #8</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="66">
+      <img src="gallery/06_drifter_interiors_and_decks/009_cache_009_1536x1024_75d93da91a.webp" alt="Drifter Interiors &amp; Decks — Concept Art #9 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #9</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="67">
+      <img src="gallery/06_drifter_interiors_and_decks/010_cache_010_1448x1086_a1e0ea962d.webp" alt="Drifter Interiors &amp; Decks — Concept Art #10 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #10</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="68">
+      <img src="gallery/06_drifter_interiors_and_decks/011_cache_011_1448x1086_be716493f2.webp" alt="Drifter Interiors &amp; Decks — Concept Art #11 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #11</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="69">
+      <img src="gallery/06_drifter_interiors_and_decks/012_cache_012_1536x1024_476c71e1dc.webp" alt="Drifter Interiors &amp; Decks — Concept Art #12 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #12</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="70">
+      <img src="gallery/06_drifter_interiors_and_decks/013_cache_013_1448x1086_66fd9ab98a.webp" alt="Drifter Interiors &amp; Decks — Concept Art #13 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #13</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="71">
+      <img src="gallery/06_drifter_interiors_and_decks/014_cache_014_1448x1086_0b204b6076.webp" alt="Drifter Interiors &amp; Decks — Concept Art #14 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #14</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="72">
+      <img src="gallery/06_drifter_interiors_and_decks/015_cache_015_1448x1086_62b1399c0f.webp" alt="Drifter Interiors &amp; Decks — Concept Art #15 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #15</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="73">
+      <img src="gallery/06_drifter_interiors_and_decks/016_cache_016_1448x1086_24072e4bdf.webp" alt="Drifter Interiors &amp; Decks — Concept Art #16 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #16</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="74">
+      <img src="gallery/06_drifter_interiors_and_decks/017_cache_017_1448x1086_4cde42f99f.webp" alt="Drifter Interiors &amp; Decks — Concept Art #17 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #17</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="75">
+      <img src="gallery/06_drifter_interiors_and_decks/018_cache_018_1448x1086_8e5b4e6572.webp" alt="Drifter Interiors &amp; Decks — Concept Art #18 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #18</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="76">
+      <img src="gallery/06_drifter_interiors_and_decks/019_cache_019_1536x1024_38b83c793f.webp" alt="Drifter Interiors &amp; Decks — Concept Art #19 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #19</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="77">
+      <img src="gallery/06_drifter_interiors_and_decks/020_cache_020_1448x1086_9ab4a251a3.webp" alt="Drifter Interiors &amp; Decks — Concept Art #20 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #20</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="78">
+      <img src="gallery/06_drifter_interiors_and_decks/021_cache_021_1448x1086_a055be7ea8.webp" alt="Drifter Interiors &amp; Decks — Concept Art #21 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #21</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="79">
+      <img src="gallery/06_drifter_interiors_and_decks/022_cache_022_1448x1086_8443eb943c.webp" alt="Drifter Interiors &amp; Decks — Concept Art #22 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #22</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="80">
+      <img src="gallery/06_drifter_interiors_and_decks/023_cache_023_1448x1086_5493e3ecab.webp" alt="Drifter Interiors &amp; Decks — Concept Art #23 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #23</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="81">
+      <img src="gallery/06_drifter_interiors_and_decks/024_cache_024_1448x1086_84747a0887.webp" alt="Drifter Interiors &amp; Decks — Concept Art #24 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #24</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="82">
+      <img src="gallery/06_drifter_interiors_and_decks/025_cache_025_1448x1086_50c903d59d.webp" alt="Drifter Interiors &amp; Decks — Concept Art #25 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #25</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="83">
+      <img src="gallery/06_drifter_interiors_and_decks/027_cache_027_1448x1086_795494e7a3.webp" alt="Drifter Interiors &amp; Decks — Concept Art #26 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #26</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="84">
+      <img src="gallery/06_drifter_interiors_and_decks/028_cache_028_1536x1024_26ac14b3b9.webp" alt="Drifter Interiors &amp; Decks — Concept Art #27 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #27</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="85">
+      <img src="gallery/06_drifter_interiors_and_decks/030_cache_030_1448x1086_89679bdcbc.webp" alt="Drifter Interiors &amp; Decks — Concept Art #28 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #28</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="86">
+      <img src="gallery/06_drifter_interiors_and_decks/031_cache_031_1448x1086_ecbb748e49.webp" alt="Drifter Interiors &amp; Decks — Concept Art #29 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #29</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="87">
+      <img src="gallery/06_drifter_interiors_and_decks/032_cache_032_1448x1086_2897597bdd.webp" alt="Drifter Interiors &amp; Decks — Concept Art #30 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #30</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="drifter_interiors_and_decks" data-index="88">
+      <img src="gallery/06_drifter_interiors_and_decks/033_cache_033_1448x1086_3d5830a8c0.webp" alt="Drifter Interiors &amp; Decks — Concept Art #31 — Drifter Interiors &amp; Decks" loading="lazy">
+      <figcaption>
+        <span class="g-title">Drifter Interiors &amp; Decks — Concept Art #31</span>
+        <span class="g-cat">Drifter Interiors &amp; Decks</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="89">
+      <img src="gallery/07_meridian_maritime_academy/002_Codex-Image-Aug-29-2026-02_05_29-PM.webp" alt="Meridian Maritime Academy — Concept Art #1 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #1</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="90">
+      <img src="gallery/07_meridian_maritime_academy/007_cache_037_1024x1536_5d62525bb4.webp" alt="Meridian Maritime Academy — Concept Art #2 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #2</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="91">
+      <img src="gallery/07_meridian_maritime_academy/008_cache_038_1448x1086_5ebbe267bc.webp" alt="Meridian Maritime Academy — Concept Art #3 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #3</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="92">
+      <img src="gallery/07_meridian_maritime_academy/009_cache_039_1672x941_fec09fd67d.webp" alt="Meridian Maritime Academy — Concept Art #4 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #4</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="93">
+      <img src="gallery/07_meridian_maritime_academy/010_cache_040_1672x941_589ee305c2.webp" alt="Meridian Maritime Academy — Concept Art #5 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #5</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="94">
+      <img src="gallery/07_meridian_maritime_academy/011_cache_041_1672x941_0096633a19.webp" alt="Meridian Maritime Academy — Concept Art #6 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #6</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="95">
+      <img src="gallery/07_meridian_maritime_academy/012_cache_042_1672x941_cc27ccc664.webp" alt="Meridian Maritime Academy — Concept Art #7 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #7</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="96">
+      <img src="gallery/07_meridian_maritime_academy/013_cache_043_1672x941_07c8571735.webp" alt="Meridian Maritime Academy — Concept Art #8 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #8</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="97">
+      <img src="gallery/07_meridian_maritime_academy/014_cache_044_1672x941_c63a1e5b7f.webp" alt="Meridian Maritime Academy — Concept Art #9 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #9</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="meridian_maritime_academy" data-index="98">
+      <img src="gallery/07_meridian_maritime_academy/016_cache_046_1254x1254_52a13ad5da.webp" alt="Meridian Maritime Academy — Concept Art #10 — Meridian Maritime Academy" loading="lazy">
+      <figcaption>
+        <span class="g-title">Meridian Maritime Academy — Concept Art #10</span>
+        <span class="g-cat">Meridian Maritime Academy</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="cinematic_and_title_art" data-index="99">
+      <img src="gallery/08_cinematic_and_title_art/001_COGHEIM_TitlePlate_FinalFrame_4K_opt.webp" alt="Cogheim Titleplate Finalframe 4K Opt — Cinematic &amp; Title Art" loading="lazy">
+      <figcaption>
+        <span class="g-title">Cogheim Titleplate Finalframe 4K Opt</span>
+        <span class="g-cat">Cinematic &amp; Title Art</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="immortal_empires_legacy" data-index="100">
+      <img src="gallery/09_immortal_empires_legacy/immortal_empires_promo_and_logo_board_03.webp" alt="Immortal Empires Promo And Logo Board 03 — Immortal Empires (Legacy)" loading="lazy">
+      <figcaption>
+        <span class="g-title">Immortal Empires Promo And Logo Board 03</span>
+        <span class="g-cat">Immortal Empires (Legacy)</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="immortal_empires_legacy" data-index="101">
+      <img src="gallery/09_immortal_empires_legacy/immortal_empires_world_and_promo_board_01.webp" alt="Immortal Empires World And Promo Board 01 — Immortal Empires (Legacy)" loading="lazy">
+      <figcaption>
+        <span class="g-title">Immortal Empires World And Promo Board 01</span>
+        <span class="g-cat">Immortal Empires (Legacy)</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="immortal_empires_legacy" data-index="102">
+      <img src="gallery/09_immortal_empires_legacy/immortal_empires_world_and_promo_board_02.webp" alt="Immortal Empires World And Promo Board 02 — Immortal Empires (Legacy)" loading="lazy">
+      <figcaption>
+        <span class="g-title">Immortal Empires World And Promo Board 02</span>
+        <span class="g-cat">Immortal Empires (Legacy)</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="103">
+      <img src="gallery/10_novel_book1_act_illustrations/act_01_the_fall_of_ocre_post.webp" alt="Act 01 The Fall Of Ocre Post — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 01 The Fall Of Ocre Post</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="104">
+      <img src="gallery/10_novel_book1_act_illustrations/act_02_the_ignition.webp" alt="Act 02 The Ignition — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 02 The Ignition</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="105">
+      <img src="gallery/10_novel_book1_act_illustrations/act_03_the_core_bleed_harvest.webp" alt="Act 03 The Core Bleed Harvest — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 03 The Core Bleed Harvest</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="106">
+      <img src="gallery/10_novel_book1_act_illustrations/act_04_spire_post_14.webp" alt="Act 04 Spire Post 14 — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 04 Spire Post 14</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="107">
+      <img src="gallery/10_novel_book1_act_illustrations/act_05_the_emerald_lock.webp" alt="Act 05 The Emerald Lock — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 05 The Emerald Lock</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="108">
+      <img src="gallery/10_novel_book1_act_illustrations/act_06_the_iron_veil.webp" alt="Act 06 The Iron Veil — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 06 The Iron Veil</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="109">
+      <img src="gallery/10_novel_book1_act_illustrations/act_07_the_switchboard_anchor.webp" alt="Act 07 The Switchboard Anchor — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 07 The Switchboard Anchor</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="110">
+      <img src="gallery/10_novel_book1_act_illustrations/act_08_the_road_between.webp" alt="Act 08 The Road Between — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 08 The Road Between</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="111">
+      <img src="gallery/10_novel_book1_act_illustrations/act_09_what_is_owed.webp" alt="Act 09 What Is Owed — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 09 What Is Owed</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="112">
+      <img src="gallery/10_novel_book1_act_illustrations/act_10_the_craton_array.webp" alt="Act 10 The Craton Array — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 10 The Craton Array</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="novel_book1_act_illustrations" data-index="113">
+      <img src="gallery/10_novel_book1_act_illustrations/act_11_rens_question.webp" alt="Act 11 Rens Question — Book I Illustrations" loading="lazy">
+      <figcaption>
+        <span class="g-title">Act 11 Rens Question</span>
+        <span class="g-cat">Book I Illustrations</span>
+      </figcaption>
+    </figure>
+    <figure class="g-tile" data-category="development_history_optional" data-index="114">
+      <img src="gallery/99_development_history_optional/cogheim_is_born_early_unreal_editor_terrain.webp" alt="Cogheim Is Born Early Unreal Editor Terrain — Development History" loading="lazy">
+      <figcaption>
+        <span class="g-title">Cogheim Is Born Early Unreal Editor Terrain</span>
+        <span class="g-cat">Development History</span>
+      </figcaption>
+    </figure>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lb-inner">
+    <img id="lbImg" src="" alt="">
+    <div class="lb-caption">
+      <div class="g-title" id="lbTitle"></div>
+      <div class="g-cat" id="lbCat"></div>
+    </div>
+  </div>
+  <button class="lb-close" id="lbClose" aria-label="Close viewer">&times;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+  <button class="lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
+</div>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    30% of net proceeds support <strong>Solitude Shore</strong>, our non-profit arm &middot; Community support: <a href="https://healingus.org" rel="noopener">HealingUS Communities</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+
+<script>
+var GALLERY_DATA = [{"src": "gallery/01_world_model/001_01_cogheim-world-model-stitched-label-free.webp", "title": "Cogheim World Model Stitched Label Free", "cat": "World Model", "catSlug": "world_model"}, {"src": "gallery/01_world_model/002_02_cogheim-world-model-logo-labelled-public-v7.webp", "title": "Cogheim World Model Logo Labelled Public V7", "cat": "World Model", "catSlug": "world_model"}, {"src": "gallery/01_world_model/004_04_cogheim-world-model-panel-1-disc-logo-labelled-public-v7.webp", "title": "Cogheim World Model Panel 1 Disc Logo Labelled Public V7", "cat": "World Model", "catSlug": "world_model"}, {"src": "gallery/01_world_model/005_05_cogheim-world-model-panel-2-tiers-labelled-v7.webp", "title": "Cogheim World Model Panel 2 Tiers Labelled V7", "cat": "World Model", "catSlug": "world_model"}, {"src": "gallery/01_world_model/006_06_cogheim-world-model-panel-3-traversal-labelled-public-v7.webp", "title": "Cogheim World Model Panel 3 Traversal Labelled Public V7", "cat": "World Model", "catSlug": "world_model"}, {"src": "gallery/02_vehicles_and_structures/004_04_blackjack-non-cutaway-exterior-systems-4k.webp", "title": "Blackjack Non Cutaway Exterior Systems 4K", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/005_05_blackjack-strider-double-depth-wide-4k.webp", "title": "Blackjack Strider Double Depth Wide 4K", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/006_06_blackjack-strider-four-side-tracks-index-panel-4k.webp", "title": "Blackjack Strider Four Side Tracks Index Panel 4K", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/007_07_blackjack-strider-long-climb-distinct-rooms-clearance-4k.webp", "title": "Blackjack Strider Long Climb Distinct Rooms Clearance 4K", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/008_08_blackjack-strider-lowered-swapped-cutaways-no-pointers-4k.webp", "title": "Blackjack Strider Lowered Swapped Cutaways No Pointers 4K", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/009_09_blackjack-strider-rebuilt-clean-ue5-8-4k.webp", "title": "Blackjack Strider Rebuilt Clean UE5.8 4K", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/011_11_blackjack-strider-square-engine-salvage-cutaways-4k.webp", "title": "Blackjack Strider Square Engine Salvage Cutaways 4K", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/013_13_blackjack-strider-unreal-engine-5-8-4k.webp", "title": "Blackjack Strider Unreal Engine 5 8 4K", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/014_14_1000008295.webp", "title": "Vehicles & Structures \u2014 Concept Art #1", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/015_15_8906ea5a-3bc1-4120-bf65-3683e70594f0.webp", "title": "Vehicles & Structures \u2014 Concept Art #2", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/016_16_1000008326.webp", "title": "Vehicles & Structures \u2014 Concept Art #3", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/017_17_1000008146.webp", "title": "Vehicles & Structures \u2014 Concept Art #4", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/018_18_1000008144.webp", "title": "Vehicles & Structures \u2014 Concept Art #5", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/019_19_1000008182.webp", "title": "Vehicles & Structures \u2014 Concept Art #6", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/020_20_1000008148.webp", "title": "Vehicles & Structures \u2014 Concept Art #7", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/021_21_1000008214.webp", "title": "Vehicles & Structures \u2014 Concept Art #8", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/022_22_1000008147.webp", "title": "Vehicles & Structures \u2014 Concept Art #9", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/023_23_1000008181.webp", "title": "Vehicles & Structures \u2014 Concept Art #10", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/040_exec-b9445f8a-b501-48ea-bda2-929a73570cd5.webp", "title": "Vehicles & Structures \u2014 Concept Art #11", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/042_exec-dd95dc4d-9851-4af0-b4fb-efc58e9451b8.webp", "title": "Vehicles & Structures \u2014 Concept Art #12", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/043_exec-f163c271-2826-4620-b29b-80ea10cecde7.webp", "title": "Vehicles & Structures \u2014 Concept Art #13", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/045_8a50d20a-e5fa-4515-8a7e-a478d604a78f.webp", "title": "Vehicles & Structures \u2014 Concept Art #14", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/046_Codex-Image-Aug-29-2026-02_28_52-PM.webp", "title": "Vehicles & Structures \u2014 Concept Art #15", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/048_cache_070_1536x1024_cd849c2b66.webp", "title": "Vehicles & Structures \u2014 Concept Art #16", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/02_vehicles_and_structures/050_cache_078_1536x1024_b32b7bdee6.webp", "title": "Vehicles & Structures \u2014 Concept Art #17", "cat": "Vehicles & Structures", "catSlug": "vehicles_and_structures"}, {"src": "gallery/03_characters_and_story/001_01_1000005472.webp", "title": "Characters & Story \u2014 Concept Art #1", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/002_02_1000005473.webp", "title": "Characters & Story \u2014 Concept Art #2", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/003_03_1000005481-2-.webp", "title": "Characters & Story \u2014 Concept Art #3", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/004_04_1000005522.webp", "title": "Characters & Story \u2014 Concept Art #4", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/005_05_1000005523.webp", "title": "Characters & Story \u2014 Concept Art #5", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/006_06_image-gen-1-19-.webp", "title": "Characters & Story \u2014 Concept Art #6", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/007_07_image-gen-2-17-.webp", "title": "Characters & Story \u2014 Concept Art #7", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/008_08_image-gen-2-19-.webp", "title": "Characters & Story \u2014 Concept Art #8", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/009_09_1000007859.webp", "title": "Characters & Story \u2014 Concept Art #9", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/03_characters_and_story/010_10_1000005678.webp", "title": "Characters & Story \u2014 Concept Art #10", "cat": "Characters & Story", "catSlug": "characters_and_story"}, {"src": "gallery/04_world_and_environment/001_01_Desolate-frozen-landscape-beneath-stormy-skies.webp", "title": "Desolate Frozen Landscape Beneath Stormy Skies", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/002_02_Endless-clash-in-the-ruined-wasteland.webp", "title": "Endless Clash In The Ruined Wasteland", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/003_03_Epic-machines-on-a-vast-battlefield.webp", "title": "Epic Machines On A Vast Battlefield", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/004_04_Exploring-the-industrial-cathedral-of-steam.webp", "title": "Exploring The Industrial Cathedral Of Steam", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/005_05_Forging-sparks-in-a-steampunk-workshop.webp", "title": "Forging Sparks In A Steampunk Workshop", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/006_06_Frozen-gear-in-rugged-terrain.webp", "title": "Frozen Gear In Rugged Terrain", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/007_07_Gothic-war-machine-above-ruined-city.webp", "title": "Gothic War Machine Above Ruined City", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/008_08_image-gen-1-18-.webp", "title": "World & Environment \u2014 Concept Art #1", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/009_09_image-gen-1-20-.webp", "title": "World & Environment \u2014 Concept Art #2", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/010_10_image-gen-2-18-.webp", "title": "World & Environment \u2014 Concept Art #3", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/011_11_image-gen-2-20-.webp", "title": "World & Environment \u2014 Concept Art #4", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/012_12_image-gen-3-16-.webp", "title": "World & Environment \u2014 Concept Art #5", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/013_13_image-gen-3-17-.webp", "title": "World & Environment \u2014 Concept Art #6", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/014_14_Steampunk-aerial-battle-over-industrial-city.webp", "title": "Steampunk Aerial Battle Over Industrial City", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/015_15_Steampunk-cities-across-a-smoky-river-valley.webp", "title": "Steampunk Cities Across A Smoky River Valley", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/016_16_1000008339.webp", "title": "World & Environment \u2014 Concept Art #7", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/04_world_and_environment/017_17_57745651-da99-4851-82b3-7c605884c3fa.webp", "title": "World & Environment \u2014 Concept Art #8", "cat": "World & Environment", "catSlug": "world_and_environment"}, {"src": "gallery/05_reference_boards/001_01_1000005681.webp", "title": "Reference Boards \u2014 Concept Art #1", "cat": "Reference Boards", "catSlug": "reference_boards"}, {"src": "gallery/06_drifter_interiors_and_decks/001_cache_001_1448x1086_d7e77cce68.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #1", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/002_cache_002_1448x1086_e9cc21bda7.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #2", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/003_cache_003_1448x1086_ffc3bb4d4d.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #3", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/004_cache_004_1448x1086_0affb35d0d.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #4", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/005_cache_005_1448x1086_b6ccd9136b.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #5", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/006_cache_006_1448x1086_ef895c14b3.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #6", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/007_cache_007_1448x1086_f280ed405c.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #7", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/008_cache_008_1448x1086_98161818a0.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #8", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/009_cache_009_1536x1024_75d93da91a.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #9", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/010_cache_010_1448x1086_a1e0ea962d.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #10", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/011_cache_011_1448x1086_be716493f2.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #11", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/012_cache_012_1536x1024_476c71e1dc.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #12", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/013_cache_013_1448x1086_66fd9ab98a.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #13", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/014_cache_014_1448x1086_0b204b6076.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #14", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/015_cache_015_1448x1086_62b1399c0f.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #15", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/016_cache_016_1448x1086_24072e4bdf.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #16", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/017_cache_017_1448x1086_4cde42f99f.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #17", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/018_cache_018_1448x1086_8e5b4e6572.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #18", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/019_cache_019_1536x1024_38b83c793f.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #19", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/020_cache_020_1448x1086_9ab4a251a3.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #20", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/021_cache_021_1448x1086_a055be7ea8.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #21", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/022_cache_022_1448x1086_8443eb943c.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #22", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/023_cache_023_1448x1086_5493e3ecab.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #23", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/024_cache_024_1448x1086_84747a0887.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #24", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/025_cache_025_1448x1086_50c903d59d.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #25", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/027_cache_027_1448x1086_795494e7a3.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #26", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/028_cache_028_1536x1024_26ac14b3b9.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #27", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/030_cache_030_1448x1086_89679bdcbc.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #28", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/031_cache_031_1448x1086_ecbb748e49.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #29", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/032_cache_032_1448x1086_2897597bdd.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #30", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/06_drifter_interiors_and_decks/033_cache_033_1448x1086_3d5830a8c0.webp", "title": "Drifter Interiors & Decks \u2014 Concept Art #31", "cat": "Drifter Interiors & Decks", "catSlug": "drifter_interiors_and_decks"}, {"src": "gallery/07_meridian_maritime_academy/002_Codex-Image-Aug-29-2026-02_05_29-PM.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #1", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/007_cache_037_1024x1536_5d62525bb4.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #2", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/008_cache_038_1448x1086_5ebbe267bc.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #3", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/009_cache_039_1672x941_fec09fd67d.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #4", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/010_cache_040_1672x941_589ee305c2.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #5", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/011_cache_041_1672x941_0096633a19.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #6", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/012_cache_042_1672x941_cc27ccc664.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #7", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/013_cache_043_1672x941_07c8571735.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #8", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/014_cache_044_1672x941_c63a1e5b7f.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #9", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/07_meridian_maritime_academy/016_cache_046_1254x1254_52a13ad5da.webp", "title": "Meridian Maritime Academy \u2014 Concept Art #10", "cat": "Meridian Maritime Academy", "catSlug": "meridian_maritime_academy"}, {"src": "gallery/08_cinematic_and_title_art/001_COGHEIM_TitlePlate_FinalFrame_4K_opt.webp", "title": "Cogheim Titleplate Finalframe 4K Opt", "cat": "Cinematic & Title Art", "catSlug": "cinematic_and_title_art"}, {"src": "gallery/09_immortal_empires_legacy/immortal_empires_promo_and_logo_board_03.webp", "title": "Immortal Empires Promo And Logo Board 03", "cat": "Immortal Empires (Legacy)", "catSlug": "immortal_empires_legacy"}, {"src": "gallery/09_immortal_empires_legacy/immortal_empires_world_and_promo_board_01.webp", "title": "Immortal Empires World And Promo Board 01", "cat": "Immortal Empires (Legacy)", "catSlug": "immortal_empires_legacy"}, {"src": "gallery/09_immortal_empires_legacy/immortal_empires_world_and_promo_board_02.webp", "title": "Immortal Empires World And Promo Board 02", "cat": "Immortal Empires (Legacy)", "catSlug": "immortal_empires_legacy"}, {"src": "gallery/10_novel_book1_act_illustrations/act_01_the_fall_of_ocre_post.webp", "title": "Act 01 The Fall Of Ocre Post", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_02_the_ignition.webp", "title": "Act 02 The Ignition", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_03_the_core_bleed_harvest.webp", "title": "Act 03 The Core Bleed Harvest", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_04_spire_post_14.webp", "title": "Act 04 Spire Post 14", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_05_the_emerald_lock.webp", "title": "Act 05 The Emerald Lock", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_06_the_iron_veil.webp", "title": "Act 06 The Iron Veil", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_07_the_switchboard_anchor.webp", "title": "Act 07 The Switchboard Anchor", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_08_the_road_between.webp", "title": "Act 08 The Road Between", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_09_what_is_owed.webp", "title": "Act 09 What Is Owed", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_10_the_craton_array.webp", "title": "Act 10 The Craton Array", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/10_novel_book1_act_illustrations/act_11_rens_question.webp", "title": "Act 11 Rens Question", "cat": "Book I Illustrations", "catSlug": "novel_book1_act_illustrations"}, {"src": "gallery/99_development_history_optional/cogheim_is_born_early_unreal_editor_terrain.webp", "title": "Cogheim Is Born Early Unreal Editor Terrain", "cat": "Development History", "catSlug": "development_history_optional"}];
+
+(function(){
+  var b=document.querySelector('.burger');
+  if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+  document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+      btn.setAttribute('aria-expanded',open);
+    });
+  });
+  document.addEventListener('click',function(){
+    document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+  });
+
+  // --- filter ---
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.gf-pill'));
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.g-tile'));
+  pills.forEach(function(p){
+    p.addEventListener('click', function(){
+      pills.forEach(function(x){x.classList.remove('is-active');x.setAttribute('aria-selected','false');});
+      p.classList.add('is-active'); p.setAttribute('aria-selected','true');
+      var f = p.getAttribute('data-filter');
+      tiles.forEach(function(t){
+        t.classList.toggle('is-hidden', f !== 'all' && t.getAttribute('data-category') !== f);
+      });
+    });
+  });
+
+  // --- lightbox ---
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lbImg');
+  var lbTitle = document.getElementById('lbTitle');
+  var lbCat = document.getElementById('lbCat');
+  var current = 0;
+
+  function visibleIndexes(){
+    var activeFilter = document.querySelector('.gf-pill.is-active').getAttribute('data-filter');
+    var out = [];
+    GALLERY_DATA.forEach(function(d, i){
+      if(activeFilter === 'all' || d.catSlug === activeFilter) out.push(i);
+    });
+    return out;
+  }
+
+  function openLb(index){
+    current = index;
+    var d = GALLERY_DATA[index];
+    lbImg.src = d.src; lbImg.alt = d.title + ' — ' + d.cat;
+    lbTitle.textContent = d.title; lbCat.textContent = d.cat;
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb(){
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  function step(dir){
+    var vis = visibleIndexes();
+    var pos = vis.indexOf(current);
+    if(pos === -1){ openLb(vis[0] || 0); return; }
+    pos = (pos + dir + vis.length) % vis.length;
+    openLb(vis[pos]);
+  }
+
+  tiles.forEach(function(t){
+    t.addEventListener('click', function(){ openLb(parseInt(t.getAttribute('data-index'), 10)); });
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', function(){ step(-1); });
+  document.getElementById('lbNext').addEventListener('click', function(){ step(1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('is-open')) return;
+    if(e.key === 'Escape') closeLb();
+    if(e.key === 'ArrowRight') step(1);
+    if(e.key === 'ArrowLeft') step(-1);
+  });
+})();
+</script>
+</body>
+</html>
