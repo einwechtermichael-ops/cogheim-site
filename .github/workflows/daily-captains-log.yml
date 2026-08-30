@@ -74,6 +74,13 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: One-time Discord history backfill
+        env:
+          DISCORD_DEVLOG_WEBHOOK: ${{ secrets.DISCORD_DEVLOG_WEBHOOK }}
+          DISCORD_CAPTAINSLOG_WEBHOOK: ${{ secrets.DISCORD_CAPTAINSLOG_WEBHOOK }}
+        run: |
+          python3 site/backfill_discord_history.py
+
       - name: Generate today's Captain's Log entry
         id: captains_log
         env:
