@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Renaming Mid-Build: What Changing the Game's Name Actually Cost</title>
+<meta name="description" content="COGHEIM wasn't the name we started with. A production-discipline look at why we renamed mid-build, what actually carried over, and what it cost to make it stick.">
+<link rel="canonical" href="https://cogheim.com/devlog-the-rename.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Renaming Mid-Build: What Changing the Game's Name Actually Cost">
+<meta property="og:description" content="Why we renamed mid-build, what actually carried over, and what it cost to make it stick.">
+<meta property="og:image" content="https://cogheim.com/devlog-rename-hero.webp">
+<meta property="og:image:width" content="1280">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/devlog-rename-hero.webp">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Renaming Mid-Build: What Changing the Game's Name Actually Cost",
+      "datePublished": "2026-06-12",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/devlog-the-rename.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+        {"@type": "ListItem", "position": 3, "name": "Renaming Mid-Build", "item": "https://cogheim.com/devlog-the-rename.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.nav-links{display:flex;gap:1.6rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.numlist{list-style:none;counter-reset:step;margin:1rem 0 0;max-width:720px}
+.numlist li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.6rem;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.35)}
+.numlist li:last-child{border-bottom:0}
+.numlist li::before{content:counter(step);position:absolute;left:0;top:.6rem;font-family:var(--display);font-weight:700;color:var(--ember);font-size:1rem;width:1.9rem;text-align:center}
+.numlist li b{color:var(--parchment);font-weight:600}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;padding:.9rem 2.2rem;border-radius:3px;cursor:pointer;transition:box-shadow .25s;display:inline-block;border:1px solid #E8956A;background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff;box-shadow:0 0 18px rgba(226,106,38,.4)}
+.btn:hover{box-shadow:0 0 30px rgba(226,106,38,.7)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+a.inline-link{color:var(--ember);border-bottom:1px solid rgba(226,106,38,.35)}
+a.inline-link:hover{border-bottom-color:var(--ember)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+}
+.page-hero.rename{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(devlog-rename-hero.webp) center/cover no-repeat}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">COGHEIM</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero rename">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; Production Notes</p>
+    <h1>Renaming Mid-Build: What Changing the Game's Name Actually Cost</h1>
+    <p class="sub">COGHEIM wasn't the name we opened with. Here's why it changed, what survived the change, and what it actually cost to make the new name stick everywhere it needed to.</p>
+    <div class="facts">
+      <div class="fact"><b>Locked</b><span>12 June 2026</span></div>
+      <div class="fact"><b>Category</b><span>Production Notes</span></div>
+      <div class="fact"><b>Assets Touched</b><span>Logo, Site, Decks, Master Index</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p>Most devlog posts here are about systems: netcode, world scale, a class spec locking in. This one's about something less technical and just as real &mdash; the game changed its name mid-build, and that costs actual production time, not just a find-and-replace.</p>
+
+    <h2>The Name We Started With</h2>
+    <p>Early builds of this project ran under a different working title: <em>Immortal Empires</em>. It had a locked logo, a locked investor deck, and a live website. It also had a problem &mdash; the phrase is generic enough that it doesn't own its own search results, and it doesn't tell a genre player anything specific about what the game actually is.</p>
+    <p>The disc world this game is built around already had a name in the fiction: Cogheim. Renaming the game to match the world it's set in isn't a new trick &mdash; it's the same move Elden Ring and Skyrim make, and it means every piece of marketing from day one is also doing worldbuilding.</p>
+    <div class="boiler">
+      <p style="margin-bottom:0"><b>The call:</b> shorter, more ownable in search, and it puts the world's name to work instead of sitting next to the game's name doing nothing. <em>Immortal Empires</em> is retired. It won't be reused, and it won't show up anywhere else on this site going forward &mdash; this post is the one place it's named, for the record.</p>
+    </div>
+
+    <h2>What Actually Survives a Rename</h2>
+    <p>Not everything starts over. The old logo's compass-gear "O" carried straight across &mdash; gold engraved lettering, black iron plate, brass gearwork, the targeting-reticle motif at the center of the wordmark. COGHEIM has an O in exactly the spot that O used to fill. The brand's visual DNA survived; only the letters around it changed.</p>
+    <p>That mattered more than it might sound. A full identity reset costs weeks. A re-lettering costs days, and everything downstream &mdash; character card frames, the site's dark iron and ember palette, the compass motif in the nav &mdash; kept working without a redesign.</p>
+
+    <h2>The Real Cost</h2>
+    <p>The honest part: the old name was already locked into a gold logo render, a five-page website, an investor deck, and a teaser deck. None of that updates itself. Every one of those assets got rebuilt, and the site went through a full QA sweep afterward specifically checking for old-name ghosts &mdash; any leftover mention, any retired currency or class name still sitting in a footer or an alt tag.</p>
+    <p>The Master Index &mdash; the single source of truth this whole project runs on &mdash; got a version bump specifically to record the rename as permanent and retire the old name from the document for good. That's not a cosmetic edit. It's the same discipline as retiring a deprecated function instead of leaving it half-called somewhere.</p>
+    <div class="boiler">
+      <p style="margin-bottom:0"><b>Production note:</b> a rename this late isn't free, and pretending it is would be exactly the kind of hype this devlog exists to avoid. It was the right call. It still cost real days that would've otherwise gone to systems work.</p>
+    </div>
+
+    <h2>What We're Doing About It Going Forward</h2>
+    <p class="dim">The actual lesson wasn't "don't rename" &mdash; it was "don't let a rename half-finish":</p>
+    <ol class="numlist">
+      <li><b>One permanent record.</b> The Master Index tracks every retired name so it's never proposed twice.</li>
+      <li><b>Full-site QA sweep on any naming change</b>, not a spot check &mdash; every page, every alt tag, every footer line.</li>
+      <li><b>Retired names get named once, plainly, for the historical record</b> &mdash; then never repeated. This post is that record for this one.</li>
+      <li><b>Brand DNA gets identified and carried forward</b> before any redesign starts, so a rename doesn't become a full identity reset by accident.</li>
+    </ol>
+    <div class="tags">
+      <span class="tag">Branding</span>
+      <span class="tag">Production</span>
+      <span class="tag">Naming</span>
+      <span class="tag">Pipeline</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">A name is just the first asset a player ever sees. <em>Getting it right once mattered more than getting it fast twice.</em></p>
+    <a class="btn-ghost" href="devlog.html" style="margin-top:1.6rem">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+
+<script>
+(function(){
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});
+})();
+</script>
+</body>
+</html>
