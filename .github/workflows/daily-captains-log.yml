@@ -1,0 +1,75 @@
+# daily-captains-log.yml
+#
+# Belt-and-suspenders alternative to the Cowork scheduled task. Runs
+# entirely on GitHub's infrastructure — does not touch Cowork usage,
+# does not require your computer to be on, does not depend on any
+# Claude product being available.
+#
+# ASSUMES: Cloudflare Pages is connected to this repo via Git integration
+# (Cloudflare dashboard → Pages → your project → Settings → Builds &
+# deployments → connect to GitHub). If that's set up, a plain `git push`
+# is all this workflow needs — Cloudflare builds and deploys on its own.
+#
+# If you are NOT using Git integration and are still doing manual/direct
+# uploads to Cloudflare Pages, uncomment the "Direct deploy" step at the
+# bottom and add CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID as repo
+# secrets, plus install wrangler.
+#
+# REQUIRED REPO SECRETS (Settings → Secrets and variables → Actions):
+#   ANTHROPIC_API_KEY   — a real Anthropic API key with billing enabled.
+#                         This is a metered API call, NOT covered by a
+#                         Claude.ai/Cowork subscription. Budget for it.
+#
+# TIMEZONE NOTE: cron below is UTC. 06:30 Mountain Time is:
+#   12:30 UTC during MDT (roughly mid-March to early November)
+#   13:30 UTC during MST (roughly early November to mid-March)
+# This file ships set to MDT. Flip the cron line when DST changes, or
+# maintain both jobs with an `if` guard on month — simplicity was chosen
+# over perfect automation here; a missed hour twice a year is a
+# low-stakes failure mode for an atmosphere post.
+
+name: Daily Captain's Log
+
+on:
+  schedule:
+    - cron: "30 12 * * *"   # 06:30 America/Denver during MDT
+  workflow_dispatch: {}       # lets you trigger a manual test run from the Actions tab
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate today's Captain's Log entry
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 site/generate_captains_log.py --site-dir site --if-empty skip
+
+      - name: Commit and push if anything changed
+        run: |
+          if git diff --quiet; then
+            echo "No queued entry today — nothing to publish."
+            exit 0
+          fi
+          git config user.name "COGHEIM Devlog Bot"
+          git config user.email "devlog-bot@users.noreply.github.com"
+          git add site/captains-log.html site/devlog_queue.md site/.captains_log_counter
+          git commit -m "Captain's Log — auto-publish $(date -u +%Y-%m-%d)"
+          git push
+
+      # --- Direct deploy fallback (uncomment if NOT using Cloudflare Git integration) ---
+      # - name: Install Wrangler
+      #   run: npm install -g wrangler
+      # - name: Deploy to Cloudflare Pages
+      #   env:
+      #     CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      #     CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      #   run: wrangler pages deploy site --project-name=cogheim
