@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 generate_captains_log.py  (v2 — hero-container architecture)
-COGHEIM — MAXIOM Captain's Log daily generator
+COGHEIM — Captain's Log daily generator
 
 WHAT CHANGED FROM v1
   The Captain's Log is no longer one growing page. Each day now gets its
@@ -60,29 +60,37 @@ COUNTER_FILENAME = ".captains_log_counter"
 HERO_BEGIN, HERO_END = "<!-- HERO:BEGIN -->", "<!-- HERO:END -->"
 LIST_BEGIN, LIST_END = "<!-- LIST:BEGIN -->", "<!-- LIST:END -->"
 
-CAPTAINS_LOG_SYSTEM_PROMPT = """You are ghostwriting a single "Captain's Log" transmission for the COGHEIM \
-website, voiced as Tiffany Cloud-Field, Captain of the Drifter, logged via her MAXIOM unit. \
-This is atmosphere and world-flavor for a still-in-development game, NOT a status report.
+CAPTAINS_LOG_SYSTEM_PROMPT = """You are ghostwriting a single "Captain's Log" entry for the COGHEIM \
+website. This is Michael "Boom" Einwechter's own first-person production journal — real reflections \
+on the actual road to building COGHEIM, in and out of game dev. It is NOT fiction, NOT an in-world \
+transmission, and NOT written in the voice of any game character.
 
 VOICE
-- First person, Tiffany. Warm, plainspoken, a little wry. She is running a ship, not writing marketing copy.
-- 3 short paragraphs, 120-220 words total.
-- Grounded, physical, sensory. Corridors, decks, weather, crew — not abstractions.
-- The entry may gesture at the day's real-world development note ONLY as loose, in-fiction texture. \
-It must never read as a progress report.
+- First person, Boom's own voice. Plainspoken, sometimes tired, direct. Not marketing copy, not a \
+press release, not a status report written for investors.
+- 3 short paragraphs, 100-200 words total.
+- Grounded in one real, specific thing from the seed text: a bug fixed, a bug still open, a design \
+reworked, a small frustrating detail, a moment of doubt or clarity. One real thing, not a summary \
+of everything.
+- Real tools, engine names, and technical specifics are fine to name plainly — this is a real record, \
+not atmosphere. It should read like an actual person's log, not a vague mood piece.
+- Do not add a signature line — one is appended automatically after your text.
 
 HARD CONSTRAINTS — VIOLATING ANY OF THESE IS A FAILED OUTPUT
-- No numbers of any kind: no percentages, dates beyond what's given, counts, version numbers, prices, or metrics.
-- No named real-world tools, engines, companies, or technical terms (no "Unreal," "GitHub," "server," "build," etc).
-- No specific COGHEIM system, feature, or mechanic name — allude, never name.
-- No financial, legal, fundraising, or business information of any kind.
-- No security, exploit, bug, or crash detail of any kind.
+- No financial, legal, fundraising, investment, or business-structure information of any kind.
+- No security-sensitive exploit or vulnerability detail that could aid an attacker (an ordinary \
+bug-fix story is fine; a specific exploitable weakness is not).
 - No unreleased novel plot, twist, or sealed-lore content (Lyra Cross, Oasis interior, Extranos origin, \
-Christine Chronos, Founder Seal, Book IV/V cliffhanger, Mordechai Stridefall, Armando's tell — never reference these).
-- Do not claim anything is finished, shipped, or launching. Nothing is promised.
+Christine Chronos, Founder Seal, Book IV/V cliffhanger, Mordechai Stridefall, Armando's tell — never \
+reference these).
+- No content related to recovery, sobriety, or personal health history of any kind — this stays out \
+of Captain's Log entirely for now, regardless of what the seed text touches on.
+- Do not claim anything is finished, shipped, or launching that hasn't actually shipped.
+- Never invent a specific event, bug, or detail not present in the seed text — reflect on and expand \
+what's given, don't fabricate new specifics.
 
 TITLE
-- 2-5 words, evocative, human-readable, no colon-subtitle format, no COGHEIM jargon.
+- 2-6 words, plain, human, naming the actual thing this entry is about. No colon-subtitle format.
 
 OUTPUT FORMAT — return EXACTLY this shape, nothing else:
 TITLE: <the title>
@@ -219,11 +227,11 @@ def render_standalone_page(title, log_number, date_obj, paras, prev_href="captai
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>{title} — Captain's Log, {date_disp} | COGHEIM</title>
-<meta name="description" content="A MAXIOM transmission from Tiffany Cloud-Field, Captain of the Drifter — Log {log_number:03d}, {date_disp}.">
+<meta name="description" content="Captain's Log, Log {log_number:03d}, {date_disp} — a real production entry from Michael Einwechter, founder of COGHEIM.">
 <link rel="canonical" href="https://cogheim.com/captains-log-{date_iso}.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{title} — Captain's Log, {date_disp}">
-<meta property="og:description" content="A MAXIOM transmission from Tiffany Cloud-Field, Captain of the Drifter.">
+<meta property="og:description" content="Log {log_number:03d} — a real production entry from the road to COGHEIM.">
 <meta name="theme-color" content="#0C0F12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -233,7 +241,7 @@ def render_standalone_page(title, log_number, date_obj, paras, prev_href="captai
   "@context": "https://schema.org",
   "@graph": [
     {{"@type": "Article", "headline": "{title}", "datePublished": "{date_iso}",
-      "author": {{"@type": "Person", "name": "Tiffany Cloud-Field"}},
+      "author": {{"@type": "Person", "name": "Michael Einwechter"}},
       "publisher": {{"@type": "Organization", "name": "Limitless Game Makers LLC"}},
       "url": "https://cogheim.com/captains-log-{date_iso}.html"}}
   ]
@@ -269,15 +277,15 @@ footer{{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem;text-alig
 <div class="nav-links"><a href="index.html">Home</a><a href="devlog.html">Devlog</a><a href="captains-log.html">Captain's Log</a></div>
 </div></nav>
 <div class="plain-header">
-  <p class="eyebrow">MAXIOM Transmission</p>
+  <p class="eyebrow">Captain's Log</p>
   <h1>{title}</h1>
-  <p class="meta-line">Log {log_number:03d} &middot; {date_disp} &middot; Relayed &middot; Deck 6 Archive</p>
+  <p class="meta-line">Log {log_number:03d} &middot; {date_disp}</p>
 </div>
 {hero_html}
 <section><div class="wrap-n">
   <div class="tx">
       {paras_html}
-      <div class="tx-sign">&mdash; T.C.F., Drifter, Deck 6</div>
+      <div class="tx-sign">&mdash; Boom</div>
   </div>
   <a class="btn-ghost" href="{prev_href}">&larr; All Transmissions</a>
 </div></section>
