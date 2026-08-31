@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>World of Cogheim</title>
+<meta name="description" content="The Strider classes, the Drifter, the Syndicates, the language, the regions — everything that makes up the world of Cogheim, in one place.">
+<link rel="canonical" href="https://cogheim.com/world.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="World of Cogheim">
+<meta property="og:description" content="The Strider classes, the Drifter, the Syndicates, the language, the regions — everything that makes up the world of Cogheim.">
+<meta property="og:image" content="https://cogheim.com/blackjack-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebPage", "url": "https://cogheim.com/world.html", "name": "World of Cogheim", "about": { "@type": "VideoGame", "name": "Cogheim" } },
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/" },
+      { "@type": "ListItem", "position": 2, "name": "World of Cogheim", "item": "https://cogheim.com/world.html" }
+    ]}
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{padding:7rem 1.25rem 2.5rem;max-width:1200px;margin:0 auto}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:.02em;color:#E8D08A;margin:.6rem 0 .5rem}
+.sub{font-size:clamp(1rem,2vw,1.15rem);max-width:70ch;color:var(--parchment)}
+section{padding:0 1.25rem clamp(2.4rem,6vw,4rem)}
+.wrap{max-width:1200px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,3vw,1.7rem);letter-spacing:.02em;color:#E8D08A;margin:2rem 0 .3rem}
+.sechint{color:var(--steel);font-size:.9rem;margin-bottom:1.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem}
+.card{border:1px solid rgba(183,144,60,.25);background:rgba(255,255,255,.02);border-radius:3px;overflow:hidden;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--bronze);transform:translateY(-2px)}
+.card.disabled{opacity:.55;pointer-events:none}
+.card .ci{height:140px;background-size:cover;background-position:center}
+.card .cc{padding:1rem 1.1rem}
+.card h3{font-family:var(--display);font-size:1.1rem;color:var(--parchment);margin-bottom:.3rem}
+.card p{font-size:.85rem;color:var(--ash);margin-bottom:0}
+.badge{display:inline-block;font-family:var(--label);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;margin-top:.5rem}
+.badge.live{color:#7FBF6A;border:1px solid rgba(127,191,106,.4)}
+.badge.soon{color:var(--steel);border:1px solid rgba(75,81,91,.5)}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:160px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:640px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">COGHEIM</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Game Progress</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero">
+  <p class="eyebrow">World of Cogheim</p>
+  <h1>Everything That Makes This World</h1>
+  <p class="sub">The Strider classes, the Drifter, the Syndicates that hold them together, the language the world was built on, and the ground they all walk across. This is the living index &mdash; it grows as each piece gets built.</p>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The Strider Classes</h2>
+    <p class="sechint">Five hulls, five heritages, five ways to live inside a moving city.</p>
+    <div class="grid">
+      <a class="card" href="blackjack.html">
+        <div class="ci" style="background-image:url(blackjack-hero.webp)"></div>
+        <div class="cc"><h3>Blackjack</h3><p>American Heritage &middot; 21 decks &middot; the fortress standard</p><span class="badge live">Full Page Live</span></div>
+      </a>
+      <a class="card" href="grindwalker.html">
+        <div class="ci" style="background-image:url(gallery/strider_classes/grindwalker/001_catamaran_4b4ba70e4ea3169e.webp)"></div>
+        <div class="cc"><h3>Grindwalker</h3><p>Pale Reach Heritage &middot; twin-hull catamaran</p><span class="badge soon">Basic Page</span></div>
+      </a>
+      <a class="card" href="vector.html">
+        <div class="ci" style="background-image:url(gallery/strider_classes/vector/031_vector_4654d7b6babe3253.webp)"></div>
+        <div class="cc"><h3>Vector</h3><p>Asian Heritage &middot; eight-legged</p><span class="badge soon">Basic Page</span></div>
+      </a>
+      <a class="card" href="juggernaut.html">
+        <div class="ci" style="background-image:url(gallery/strider_classes/juggernaut/036_juggernaut_d2f1437b1d8a6ff1.webp)"></div>
+        <div class="cc"><h3>Juggernaut</h3><p>Russian Heritage &middot; heaviest hull on the disc</p><span class="badge soon">Basic Page</span></div>
+      </a>
+      <a class="card" href="scavenger.html">
+        <div class="ci" style="background-image:url(gallery/strider_classes/scavenger/049_scavenger_3725e2da366b1715.webp)"></div>
+        <div class="cc"><h3>Scavenger</h3><p>European Heritage &middot; built from salvage</p><span class="badge soon">Basic Page</span></div>
+      </a>
+    </div>
+
+    <h2>The Drifter</h2>
+    <p class="sechint">The tutorial hull. Where every player starts.</p>
+    <div class="grid">
+      <div class="card disabled">
+        <div class="ci" style="background-image:url(gallery/06_drifter_interiors_and_decks/021_cache_021_1448x1086_a055be7ea8.webp)"></div>
+        <div class="cc"><h3>The Drifter</h3><p>Home before you earn a Strider of your own</p><span class="badge soon">Coming Soon</span></div>
+      </div>
+    </div>
+
+    <h2>Society &amp; Cooperation</h2>
+    <p class="sechint">Nothing world-changing can be done alone.</p>
+    <div class="grid">
+      <div class="card disabled">
+        <div class="ci" style="background-image:url(gallery/06_drifter_interiors_and_decks/033_cache_033_1448x1086_3d5830a8c0.webp)"></div>
+        <div class="cc"><h3>Syndicates</h3><p>The guilds that hold a crew together</p><span class="badge soon">Coming Soon</span></div>
+      </div>
+    </div>
+
+    <h2>Language</h2>
+    <p class="sechint">A real, learnable language &mdash; the way Star Trek has Klingon.</p>
+    <div class="grid">
+      <div class="card disabled">
+        <div class="ci" style="background-image:url(gallery/05_reference_boards/001_01_1000005681.webp)"></div>
+        <div class="cc"><h3>Einwechtëran</h3><p>The Schallûsan language, straight from the novels</p><span class="badge soon">Coming Soon</span></div>
+      </div>
+    </div>
+
+    <h2>The World Itself</h2>
+    <p class="sechint">The disc, the regions, the map.</p>
+    <div class="grid">
+      <div class="card disabled">
+        <div class="ci" style="background-image:url(gallery/01_world_model/001_01_cogheim-world-model-stitched-label-free.webp)"></div>
+        <div class="cc"><h3>Regions &amp; Map</h3><p>Where the Striders actually go</p><span class="badge soon">Coming Soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+
+<script>
+(function(){var b=document.querySelector('.burger');
+if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});})();
+</script>
+</body>
+</html>
