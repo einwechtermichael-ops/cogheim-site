@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Scavenger — Strider Class | COGHEIM</title>
-<meta name="description" content="Scavenger Strider class in COGHEIM (European Heritage): Stitched from salvage and pride. Scavenger is a city assembled from everything the disc left behind, and it wears that history openly. A daisy-">
+<title>Scavenger — Strider Class | World of Cogheim</title>
+<meta name="description" content="Scavenger Class Strider: built from salvage, no two alike inside. European Heritage. Segments and Grafts instead of decks and hallways. What's locked, what's still being imagined.">
 <link rel="canonical" href="https://cogheim.com/scavenger.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Scavenger — COGHEIM Strider Class">
-<meta property="og:description" content="Stitched from salvage and pride. A European Heritage Strider in the steampunk 4X MMO where cities move.">
-<meta property="og:image" content="https://cogheim.com/og-strider.jpg">
-<meta property="og:url" content="https://cogheim.com/scavenger.html">
+<meta property="og:title" content="Scavenger — Strider Class | World of Cogheim">
+<meta property="og:description" content="Built from salvage. No two alike inside. Segments and Grafts instead of decks and hallways.">
+<meta property="og:image" content="https://cogheim.com/scavenger-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cogheim.com/og-strider.jpg">
+<meta name="twitter:image" content="https://cogheim.com/scavenger-hero.webp">
 <meta name="theme-color" content="#0C0F12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,11 +20,11 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    {"@type": "WebPage", "url": "https://cogheim.com/scavenger.html", "name": "Scavenger — Strider Class", "about": {"@type": "VideoGame", "name": "Cogheim"}},
-    {"@type": "BreadcrumbList", "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Striders", "item": "https://cogheim.com/#striders"},
-      {"@type": "ListItem", "position": 3, "name": "Scavenger", "item": "https://cogheim.com/scavenger.html"}
+    { "@type": "WebPage", "url": "https://cogheim.com/scavenger.html", "name": "Scavenger — Strider Class", "about": { "@type": "VideoGame", "name": "Cogheim" } },
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/" },
+      { "@type": "ListItem", "position": 2, "name": "World of Cogheim", "item": "https://cogheim.com/world.html" },
+      { "@type": "ListItem", "position": 3, "name": "Scavenger", "item": "https://cogheim.com/scavenger.html" }
     ]}
   ]
 }
@@ -54,91 +53,70 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92
 .running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
 @keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
 @media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
-.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
-.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
-.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.page-hero{position:relative;min-height:64svh;display:flex;align-items:flex-end}
+.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.4) 0%,transparent 35%,rgba(12,15,18,.96) 96%,var(--iron) 100%),url(scavenger-hero.webp) center 30%/cover no-repeat}
 .ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.crumb{font-family:var(--label);font-size:.8rem;color:var(--steel);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem}
+.crumb a{color:var(--ash)}
 .eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
-h1{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5.5vw,3.1rem);letter-spacing:.08em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8)}
-.sub{font-size:clamp(1rem,2.2vw,1.18rem);color:var(--parchment);max-width:62ch}
-section{padding:clamp(3rem,7vw,5rem) 1.25rem}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,6vw,3.8rem);letter-spacing:.03em;color:#E8D08A;margin:.5rem 0 .5rem;text-shadow:0 2px 22px rgba(0,0,0,.85)}
+.sub{font-size:clamp(1rem,2.2vw,1.2rem);max-width:70ch;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.factrow{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1.3rem;font-family:var(--label);letter-spacing:.05em}
+.factrow b{color:var(--ember);text-transform:uppercase;font-size:.8rem;display:block}
+.factrow span{color:var(--parchment);font-size:1rem}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
 .wrap{max-width:1200px;margin:0 auto}
-.wrap-n{max-width:820px;margin:0 auto}
-h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,4vw,2.2rem);letter-spacing:.08em;color:#E8D08A;margin:.7rem 0 1.1rem}
-h3{font-family:var(--display);font-weight:700;letter-spacing:.1em;color:#E8D08A;font-size:1.1rem;margin-bottom:.4rem}
-p{margin-bottom:1rem}
+.wrap-n{max-width:800px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,3.4vw,2rem);letter-spacing:.02em;color:#E8D08A;margin:0 0 .8rem}
+p{margin-bottom:1.05rem}
 .dim{color:var(--ash)}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2.2rem;align-items:center}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem;margin-top:2rem}
-.plate{border:1px solid rgba(75,81,91,.6);border-top:3px solid var(--bronze);background:linear-gradient(180deg,rgba(42,79,111,.12),rgba(12,15,18,.4));padding:1.5rem 1.3rem}
-.plate p{color:var(--ash);font-size:.95rem;margin-bottom:0}
-.framed{border:1px solid rgba(183,144,60,.35)}
-.cap{font-family:var(--label);font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;color:var(--steel);padding:.6rem .2rem;text-align:right}
-.list{list-style:none;margin:1rem 0}
-.list li{padding:.5rem 0 .5rem 1.7rem;position:relative;color:var(--ash)}
-.list li::before{content:"";position:absolute;left:0;top:1rem;width:9px;height:9px;border:1px solid var(--bronze);transform:rotate(45deg)}
-.list li b{color:var(--parchment);font-weight:600}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.6rem 0}
-.fact{background:rgba(12,15,18,.85);padding:1.2rem 1.1rem}
-.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--bronze);display:block;margin-bottom:.2rem}
-.fact span{color:var(--parchment);font-size:.97rem}
-.btn{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;padding:.9rem 2.2rem;border-radius:3px;cursor:pointer;transition:box-shadow .25s;display:inline-block;border:1px solid #E8956A;background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff;box-shadow:0 0 18px rgba(226,106,38,.4)}
-.btn:hover{box-shadow:0 0 30px rgba(226,106,38,.7)}
-label{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem;color:var(--bronze)}
-input,select,textarea{width:100%;background:rgba(42,79,111,.12);border:1px solid var(--steel);color:var(--parchment);font-family:var(--body);font-size:1rem;padding:.85rem 1rem;border-radius:3px;margin-top:.35rem}
-textarea{min-height:110px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--ember);outline-offset:1px;border-color:var(--ember)}
-form{display:grid;gap:1rem;margin-top:1.8rem;max-width:640px}
-.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
-.fine{font-size:.85rem;color:var(--steel)}
-.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.3rem 1.4rem;color:var(--ash);font-size:.97rem}
+.tag{display:inline-block;font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;border-radius:999px;padding:.25rem .75rem;margin-bottom:.5rem}
+.tag.locked{color:#7FBF6A;border:1px solid rgba(127,191,106,.4);background:rgba(127,191,106,.08)}
+.tag.proposed{color:var(--ember);border:1px solid rgba(226,106,38,.4);background:rgba(226,106,38,.08)}
+.tag.coming{color:var(--steel);border:1px solid rgba(75,81,91,.5);background:rgba(75,81,91,.1)}
+.tag.discrepancy{color:#8a6fb0;border:1px solid rgba(138,111,176,.4);background:rgba(138,111,176,.08)}
+.decklist{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1.5rem}
+.deckcard{border:1px solid rgba(183,144,60,.25);background:rgba(255,255,255,.02);padding:1.1rem 1.2rem;border-radius:3px}
+.deckcard h3{font-family:var(--display);font-size:1.05rem;color:var(--parchment);margin-bottom:.35rem}
+.deckcard p{font-size:.9rem;color:var(--ash);margin-bottom:0}
+.imgrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.imgrow figure{border:1px solid rgba(183,144,60,.25);overflow:hidden;border-radius:3px}
+.imgrow img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+.imgrow figcaption{padding:.6rem .8rem;font-family:var(--label);font-size:.78rem;color:var(--steel);letter-spacing:.04em}
+.fullimg{margin-top:1.5rem;border:1px solid rgba(183,144,60,.25);border-radius:3px;overflow:hidden}
+.fullimg figcaption{padding:.7rem 1rem;font-family:var(--label);font-size:.8rem;color:var(--steel)}
+.notebox{border:1px solid rgba(138,111,176,.35);background:rgba(138,111,176,.06);padding:1.1rem 1.3rem;margin-top:1rem;border-radius:3px;font-size:.92rem;color:var(--ash)}
+.statsbox{border:1px dashed rgba(75,81,91,.5);padding:1.8rem;text-align:center;margin-top:1.5rem;border-radius:3px}
+.statsbox p{margin-bottom:0;color:var(--steel)}
+.otherclasses{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
+.otherclasses a{font-family:var(--label);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(183,144,60,.3);padding:.5rem 1rem;border-radius:999px;color:var(--ash)}
+.otherclasses a:hover{color:#E8D08A;border-color:var(--bronze)}
 footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
 .foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
 .foot-lines a{color:var(--ash)}
-@media (max-width:840px){
-  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
-  .nav-links.open{max-height:620px;padding:.5rem 0 1rem}
-  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
-  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
-  .burger{display:block}
-  body{padding-bottom:var(--nav-safe-bottom)}
-}
-
-.page-hero.strider{min-height:46svh;background:linear-gradient(155deg,var(--accdark) 0%,#0C0F12 72%);border-bottom:1px solid rgba(255,255,255,.06)}
-.page-hero.strider::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--acc)}
-.ph-content .kicker{font-family:var(--label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;color:var(--acc);filter:brightness(1.25)}
-.page-hero.strider h1{color:#fff}
-.tagline{font-family:var(--display);font-weight:500;font-style:italic;color:var(--parchment);font-size:clamp(1.05rem,2.6vw,1.4rem);margin-top:.3rem}
-.specgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(75,81,91,.4);border:1px solid rgba(75,81,91,.4);margin-top:1.8rem}
-.spec{background:#0C0F12;padding:1.2rem 1.3rem}
-.spec dt{font-family:var(--label);font-weight:600;letter-spacing:.13em;text-transform:uppercase;font-size:.72rem;color:var(--acc);filter:brightness(1.3);margin-bottom:.35rem}
-.spec dd{margin:0;color:var(--parchment);font-size:.96rem;line-height:1.5}
-.role-line{border-left:3px solid var(--acc);padding:.4rem 0 .4rem 1.1rem;margin-top:1.8rem;font-family:var(--display);font-weight:500;font-size:clamp(1.1rem,2.8vw,1.5rem);color:#fff}
-.crew-card{border:1px solid rgba(75,81,91,.6);border-left:3px solid var(--acc);background:linear-gradient(180deg,rgba(42,79,111,.10),rgba(12,15,18,.4));padding:1.3rem 1.4rem;margin-top:1rem}
-.crew-card h3{font-family:var(--display);font-weight:700;letter-spacing:.06em;color:#E8D08A;font-size:1.1rem}
-.crew-card .role{font-family:var(--label);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.74rem;color:var(--frost);filter:brightness(1.7);margin:.15rem 0 .5rem}
-.crew-card p{color:var(--ash);font-size:.94rem;max-width:64ch}
-.otherstriders{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;margin-top:1.4rem}
-.os{display:block;text-decoration:none;border:1px solid rgba(75,81,91,.6);border-top:3px solid var(--bronze);padding:.9rem 1rem;background:rgba(12,15,18,.5);transition:border-color .25s,transform .25s}
-.os:hover{border-top-color:var(--ember);transform:translateY(-3px)}
-.os .n{font-family:var(--display);font-weight:700;letter-spacing:.08em;color:#E8D08A;font-size:1rem;display:block}
-.os .h{font-family:var(--label);letter-spacing:.1em;text-transform:uppercase;font-size:.68rem;color:var(--ash);margin-top:.15rem;display:block}
 .nav-drop{position:relative}
 .nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
 .nav-drop-trigger:hover{color:#E8D08A}
-.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:160px;display:none;flex-direction:column;z-index:50}
 .nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
 .nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
 .nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
 .nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
 @media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:640px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .imgrow{grid-template-columns:1fr}
   .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
   .nav-drop-trigger{display:none}
 }
 </style>
 </head>
-<body style="--acc:#B0763A;--accdark:#3a2410">
+<body>
 <nav>
   <div class="nav-inner">
     <a class="wordmark" href="index.html">COGHEIM</a>
@@ -166,70 +144,81 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
   </div>
   <div class="running-lights" aria-hidden="true"></div>
 </nav>
-<header class="page-hero strider">
+
+<header class="page-hero">
   <div class="ph-content">
-    <p class="kicker">Strider Class &middot; European Heritage</p>
+    <p class="crumb"><a href="world.html">World of Cogheim</a> / Scavenger</p>
+    <p class="eyebrow">Strider Class</p>
     <h1>Scavenger</h1>
-    <p class="tagline">&ldquo;Stitched from salvage and pride.&rdquo;</p>
+    <p class="sub">Built from whatever survived. No two Scavengers look alike inside &mdash; every hull is a record of what its crew has salvaged, patched, and made work again. Speed and adaptive tech over raw armor.</p>
+    <div class="factrow">
+      <div><b>Heritage</b><span>European</span></div>
+      <div><b>Scale</b><span>Small&ndash;medium</span></div>
+      <div><b>Identity</b><span>Speed, salvage, adaptive tech</span></div>
+      <div><b>Weak Spot</b><span>The Grafts</span></div>
+    </div>
   </div>
 </header>
 
 <section>
-  <div class="wrap">
-    <p class="eyebrow">Doctrine</p>
-    <h2>What Scavenger Is</h2>
-    <p class="lede dim">Scavenger is a city assembled from everything the disc left behind, and it wears that history openly. A daisy-chain grid powers a hull that moves fastest through rough terrain, its segments joined by the Grafts — rubber expansion joints that let the whole body flex over broken ground. The oldest of these, the First Stitch, still holds. Where other hulls need a road, Scavenger makes one out of the wreckage.</p>
-    <div class="role-line">The opportunist. Rough ground is home ground.</div>
+  <div class="wrap-n">
+    <span class="tag locked">Locked Canon</span>
+    <h2>What's Actually Built</h2>
+    <p>A Scavenger isn't laid out like the other four classes, and that's the whole point. Where Blackjack has decks and Grindwalker has hulls, a Scavenger has <strong>Segments</strong> &mdash; sections salvaged and grafted together over years of service, sometimes decades. The interior spec is coded and passing tests already.</p>
+    <ul class="decklist">
+      <li class="deckcard"><h3>Segments, Not Decks</h3><p>The structural unit of a Scavenger. Asymmetric by design &mdash; no two Scavengers are laid out the same way, because no two were built from the same salvage.</p></li>
+      <li class="deckcard"><h3>The Grafts</h3><p>The joints between Segments &mdash; field-repairable expansion seams, not permanent welds. This is also the class's locked weak spot in combat: hit where two Segments meet, not through solid hull.</p></li>
+      <li class="deckcard"><h3>Hybrid Transit</h3><p>Fast-rope drops, maintenance crawlways, and improvised rail &mdash; whatever got a crew from one Segment to another fastest, kept and formalized.</p></li>
+      <li class="deckcard"><h3>Crew Stations</h3><p>Commander, Tech Operator, Forward Gunner. Smaller command structure than the bigger hulls &mdash; a Scavenger runs lean.</p></li>
+      <li class="deckcard"><h3>Terraced Salvage Airfield</h3><p>Every Strider class has an airfield with its own architecture. A Scavenger's is stepped and terraced, built the same improvised way as everything else on the hull.</p></li>
+      <li class="deckcard"><h3>The Spire</h3><p>Every Strider's highest accessible point, always unmarked. On a Scavenger, it's a glass dome inside the tallest salvage tower on the hull.</p></li>
+    </ul>
+    <div class="notebox">A naming discrepancy worth being upfront about: an earlier design document lists Scavenger's heritage as "Ashborne" rather than "European." The site is staying consistent with what's already public across the other four class pages until this is explicitly reconciled by the founder.</div>
   </div>
 </section>
 
-<section style="border-top:1px solid rgba(255,255,255,.06)">
-  <div class="wrap">
-    <p class="eyebrow">Systems</p>
-    <h2>How It Works</h2>
-    <div class="specgrid">
-      <div class="spec"><dt>Heritage</dt><dd>European</dd></div>
-      <div class="spec"><dt>Power Core</dt><dd>Daisy-Chain Grid</dd></div>
-      <div class="spec"><dt>Movement</dt><dd>Horizontal Chairlifts + the Grafts (the First Stitch is the oldest)</dd></div>
-      <div class="spec"><dt>Airfield</dt><dd>Terraced salvaged airfield</dd></div>
-      <div class="spec"><dt>Resting Beast</dt><dd>The Overgrown (DC11)</dd></div>
-      <div class="spec"><dt>Doctrine</dt><dd>Adaptation — the opportunist</dd></div>
+<section>
+  <div class="wrap-n">
+    <div class="fullimg">
+      <img src="scavenger-graft.webp" alt="A Graft joint between two Scavenger Strider segments, marked FIRST STITCH EST 78-21">
+      <figcaption>A Graft &mdash; the joint between Segments. This one's marked "First Stitch, Est. 78-21."</figcaption>
     </div>
   </div>
 </section>
 
-<section style="border-top:1px solid rgba(255,255,255,.06)">
-  <div class="wrap">
-    <p class="eyebrow">Signature Crew</p>
-    <h2>Who Runs It</h2>
-    <div class="crew-card">
-      <h3>Nicole Walker</h3>
-      <p class="role">Segment Engineer</p>
-      <p>Keeps the Grafts flexing and the First Stitch holding when the ground fights back — a Scavenger-exclusive post.</p>
+<section>
+  <div class="wrap-n">
+    <span class="tag proposed">Design Proposal &mdash; Not Yet Founder-Locked</span>
+    <h2>What We're Still Imagining</h2>
+    <p class="dim">Everything above this line is real and locked. Everything below it is genuinely proposed, not promised.</p>
+    <p>Scavenger culture practically writes its own stories. A hull built entirely from salvage and improvised repair is a hull with a legend behind every Graft &mdash; the specific patch job that held when it shouldn't have, the crew that's still talking about the eight-hour repair that saved the ship mid-transit. That's not empty flavor text; it's the kind of thing an actual Scavenger crew would have hanging framed near the bar, the way a real workshop keeps the tool that saved a bad day.</p>
+    <p>Given no two Scavengers share a layout, the Market Stall equivalent here probably isn't a formal row of vendor booths the way it might be on a Blackjack. It's more likely whatever open Segment happens to have the best foot traffic that week &mdash; a market that migrates as the ship gets reconfigured, because on this hull, reconfiguration is just Tuesday.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-n">
+    <span class="tag coming">Coming Soon</span>
+    <h2>Combat Stats &amp; Crew Numbers</h2>
+    <div class="statsbox">
+      <p>Speed, weak-spot damage profile, and full crew capacity will post here once they're actually locked and verified &mdash; not before.</p>
     </div>
   </div>
 </section>
 
-<section style="border-top:1px solid rgba(255,255,255,.06)">
-  <div class="wrap">
-    <p class="eyebrow">The Other Four</p>
-    <h2>Pick Your Hull</h2>
-    <div class="otherstriders">
-      <a class="os" href="blackjack.html"><span class="n">Blackjack</span><span class="h">American Heritage</span></a>
-      <a class="os" href="juggernaut.html"><span class="n">Juggernaut</span><span class="h">Russian Heritage</span></a>
-      <a class="os" href="vector.html"><span class="n">Vector</span><span class="h">Asian Heritage</span></a>
-      <a class="os" href="grindwalker.html"><span class="n">Grindwalker</span><span class="h">Australian &amp; Pacific Heritage</span></a>
+<section>
+  <div class="wrap-n">
+    <h2>Other Classes</h2>
+    <div class="otherclasses">
+      <a href="blackjack.html">Blackjack</a>
+      <a href="grindwalker.html">Grindwalker</a>
+      <a href="vector.html">Vector</a>
+      <a href="juggernaut.html">Juggernaut</a>
+      <a href="world.html">&larr; All of World of Cogheim</a>
     </div>
   </div>
 </section>
 
-<section class="enlist-cta" style="text-align:center;border-top:1px solid rgba(255,255,255,.06)">
-  <div class="wrap">
-    <h2 style="text-align:center">Command a Scavenger</h2>
-    <p class="lede dim" style="margin:0 auto 1.6rem">Enlist for first word on alpha invites, dev logs, and Strider reveals.</p>
-    <a class="btn btn-ember" href="index.html#enlist">Enlist Now</a>
-  </div>
-</section>
 <footer>
   <div class="wordmark">COGHEIM</div>
   <div class="foot-lines">
@@ -237,6 +226,20 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
     Build. Move. Conquer.
   </div>
 </footer>
-<script>(function(){var b=document.querySelector('.burger');if(!b)return;document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});})();</script>
+
+<script>
+(function(){var b=document.querySelector('.burger');
+if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});})();
+</script>
 </body>
 </html>
