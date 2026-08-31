@@ -135,6 +135,6 @@ jobs:
           fi
           TITLE="${{ steps.captains_log.outputs.log_title }}"
           URL="https://cogheim.com/${{ steps.captains_log.outputs.log_href }}"
-          curl -s -H "Content-Type: application/json" \
+          curl -s -A "COGHEIM-DevBot/1.0 (+https://cogheim.com)" -H "Content-Type: application/json" \
             -d "{\"embeds\":[{\"title\":\"$TITLE\",\"url\":\"$URL\",\"color\":15105570,\"footer\":{\"text\":\"New Captain's Log entry on cogheim.com\"}}]}" \
             "$DISCORD_CAPTAINSLOG_WEBHOOK"

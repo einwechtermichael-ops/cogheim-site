@@ -70,7 +70,7 @@ def post_embed(webhook_url, image_url, category, caption):
     req = urllib.request.Request(
         webhook_url,
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+        headers={"Content-Type": "application/json", "User-Agent": "COGHEIM-DevBot/1.0 (+https://cogheim.com)"},
         method="POST",
     )
     try:
@@ -87,7 +87,7 @@ def post_plain(webhook_url, content):
     req = urllib.request.Request(
         webhook_url,
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+        headers={"Content-Type": "application/json", "User-Agent": "COGHEIM-DevBot/1.0 (+https://cogheim.com)"},
         method="POST",
     )
     try:

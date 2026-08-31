@@ -102,7 +102,10 @@ def post_embed(webhook_url, title, url, image_url, description, footer_text, col
     req = urllib.request.Request(
         webhook_url,
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "COGHEIM-DevBot/1.0 (+https://cogheim.com)",
+        },
         method="POST",
     )
     try:
