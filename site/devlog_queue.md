@@ -5,4 +5,4 @@
 # content here — one sentence, already safe to say publicly.
 
 [x] (2026-08-30) Spent the day arguing about who "owns" a corridor on a moving ship.
-[ ] (2026-08-31) Checked whether an engine update was actually safer, not just newer.
+[x] (2026-08-31) Checked whether an engine update was actually safer, not just newer.
