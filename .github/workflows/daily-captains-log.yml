@@ -81,6 +81,12 @@ jobs:
         run: |
           python3 site/backfill_discord_history.py
 
+      - name: One-time concept art backfill
+        env:
+          DISCORD_CONCEPTART_WEBHOOK: ${{ secrets.DISCORD_CONCEPTART_WEBHOOK }}
+        run: |
+          python3 site/backfill_concept_art.py
+
       - name: Generate today's Captain's Log entry
         id: captains_log
         env:
