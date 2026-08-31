@@ -12,6 +12,7 @@ re-runs and re-posts. Delete that marker manually for a genuine re-run.
 """
 
 import os
+import sys
 import time
 import json
 import urllib.request
@@ -102,16 +103,29 @@ def main():
         return
 
     webhook = os.environ.get("DISCORD_CONCEPTART_WEBHOOK", "").strip()
+    print(f"DISCORD_CONCEPTART_WEBHOOK present: {bool(webhook)}")
+
     if not webhook:
         print("DISCORD_CONCEPTART_WEBHOOK not set — skipping this run "
-              "(will retry once the secret is configured).")
+              "(will retry once the secret is configured). This is expected, "
+              "not an error, if the secret hasn't been added yet.")
         return
+
+    any_failure = False
 
     print(f"Posting {len(CURATED_IMAGES)} curated concept art images...")
     for path, category, caption in CURATED_IMAGES:
         image_url = f"{SITE_BASE_URL}/{path}"
-        post_embed(webhook, image_url, category, caption)
+        ok = post_embed(webhook, image_url, category, caption)
+        if not ok:
+            any_failure = True
         time.sleep(1)
+
+    if any_failure:
+        print("At least one post failed to send. NOT writing the marker file, "
+              "so this can be retried on the next run. Failing this step loudly "
+              "on purpose so it shows up as a real error, not a silent skip.")
+        sys.exit(1)
 
     post_plain(
         webhook,
@@ -123,7 +137,7 @@ def main():
     os.makedirs(os.path.dirname(MARKER_PATH), exist_ok=True)
     with open(MARKER_PATH, "w", encoding="utf-8") as f:
         f.write("Concept art backfill completed. Delete this file to allow a re-run.\n")
-    print("Backfill complete, marker file written.")
+    print("Backfill complete, all posts confirmed sent, marker file written.")
 
 
 if __name__ == "__main__":

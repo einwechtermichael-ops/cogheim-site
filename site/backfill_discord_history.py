@@ -122,29 +122,45 @@ def main():
     devlog_hook = os.environ.get("DISCORD_DEVLOG_WEBHOOK", "").strip()
     captains_hook = os.environ.get("DISCORD_CAPTAINSLOG_WEBHOOK", "").strip()
 
+    print(f"DISCORD_DEVLOG_WEBHOOK present: {bool(devlog_hook)}")
+    print(f"DISCORD_CAPTAINSLOG_WEBHOOK present: {bool(captains_hook)}")
+
     if not devlog_hook or not captains_hook:
         print("One or both webhook secrets not set — skipping backfill this run "
-              "(will retry on the next push once secrets are configured).")
+              "(will retry on the next push once secrets are configured). "
+              "This is expected, not an error, if secrets haven't been added yet.")
         return
+
+    any_failure = False
 
     print(f"Backfilling {len(DEVLOG_POSTS)} Devlog posts...")
     for date_disp, title, href, hero, desc in DEVLOG_POSTS:
         url = f"{SITE_BASE_URL}/{href}"
         image_url = f"{SITE_BASE_URL}/{hero}"
-        post_embed(devlog_hook, title, url, image_url, desc, f"Devlog · {date_disp}", 0xE26A26)
+        ok = post_embed(devlog_hook, title, url, image_url, desc, f"Devlog · {date_disp}", 0xE26A26)
+        if not ok:
+            any_failure = True
         time.sleep(1)
 
     print(f"Backfilling {len(CAPTAINS_LOG_ENTRIES)} Captain's Log entries...")
     for date_disp, log_num, title, href, hero in CAPTAINS_LOG_ENTRIES:
         url = f"{SITE_BASE_URL}/{href}"
         image_url = f"{SITE_BASE_URL}/{hero}"
-        post_embed(captains_hook, title, url, image_url, "", f"Log {log_num} · {date_disp}", 0xE8D08A)
+        ok = post_embed(captains_hook, title, url, image_url, "", f"Log {log_num} · {date_disp}", 0xE8D08A)
+        if not ok:
+            any_failure = True
         time.sleep(1)
+
+    if any_failure:
+        print("At least one post failed to send. NOT writing the marker file, "
+              "so this can be retried on the next run. Failing this step loudly "
+              "on purpose so it shows up as a real error, not a silent skip.")
+        sys.exit(1)
 
     os.makedirs(os.path.dirname(MARKER_PATH), exist_ok=True)
     with open(MARKER_PATH, "w", encoding="utf-8") as f:
         f.write("Discord history backfill completed. Delete this file to allow a re-run.\n")
-    print("Backfill complete, marker file written.")
+    print("Backfill complete, all posts confirmed sent, marker file written.")
 
 
 if __name__ == "__main__":
