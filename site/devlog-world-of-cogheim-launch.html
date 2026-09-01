@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>World of Cogheim Goes Live: Five Classes, One Drifter, One Syndicate System</title>
+<meta name="description" content="A real recap of what shipped: the World of Cogheim hub, all five Strider class pages, the Drifter intro, Syndicates going public with real spec, and a retired-name bug caught along the way.">
+<link rel="canonical" href="https://cogheim.com/devlog-world-of-cogheim-launch.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="World of Cogheim Goes Live: Five Classes, One Drifter, One Syndicate System">
+<meta property="og:description" content="What actually shipped, in one sitting: five class pages, the Drifter, Syndicates, and a bug we caught along the way.">
+<meta property="og:image" content="https://cogheim.com/devlog-worldhub-hero.webp">
+<meta property="og:image:width" content="1280">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/devlog-worldhub-hero.webp">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "World of Cogheim Goes Live: Five Classes, One Drifter, One Syndicate System",
+      "datePublished": "2026-09-01",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/devlog-world-of-cogheim-launch.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+        {"@type": "ListItem", "position": 3, "name": "World of Cogheim Goes Live", "item": "https://cogheim.com/devlog-world-of-cogheim-launch.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.shiplist{list-style:none;margin:1rem 0 0;max-width:720px}
+.shiplist li{padding:.7rem 0;border-bottom:1px solid rgba(75,81,91,.35);display:flex;gap:.8rem}
+.shiplist li:last-child{border-bottom:0}
+.shiplist a{color:var(--bronze);font-weight:600}
+.shiplist span{color:var(--ash);font-size:.92rem}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:160px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:640px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+.page-hero.wh{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(devlog-worldhub-hero.webp) center/cover no-repeat}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">COGHEIM</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Game Progress</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero wh">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; Production Notes</p>
+    <h1>World of Cogheim Goes Live: Five Classes, One Drifter, One Syndicate System</h1>
+    <p class="sub">A real recap, not a highlight reel — what actually got built, what's still marked honestly as proposed, and one retired-name bug we caught and fixed along the way.</p>
+    <div class="facts">
+      <div class="fact"><b>Published</b><span>1 Sep 2026</span></div>
+      <div class="fact"><b>Category</b><span>Production Notes</span></div>
+      <div class="fact"><b>New Pages</b><span>8</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p>The website stopped being a pitch deck this week and started becoming something closer to what it should always have been: a real reference for the world we're building, not just marketing copy pointed at it. Eight new pages went up. Here's what's actually in them.</p>
+
+    <h2>World of Cogheim: The Hub</h2>
+    <p>One landing page, linking out to everything below it, with honest status badges instead of pretending things are further along than they are. This is where all the worldbuilding content lives from now on, instead of being scattered across disconnected pages.</p>
+
+    <h2>All Five Strider Classes, Properly Built</h2>
+    <p>Each class page now follows the same discipline: real locked systems clearly marked, gallery art woven through instead of bolted on, and a clearly-tagged "what we're still imagining" section for the parts that are genuinely proposed and not yet founder-locked. Stats sections are honestly marked "coming soon" rather than filled with placeholder numbers.</p>
+    <ul class="shiplist">
+      <li><a href="blackjack.html">Blackjack</a><span>&mdash; the most fully specced hull, all 21 decks</span></li>
+      <li><a href="grindwalker.html">Grindwalker</a><span>&mdash; the twin-hull straddle-gap identity</span></li>
+      <li><a href="scavenger.html">Scavenger</a><span>&mdash; Segments and Grafts, salvage-built</span></li>
+      <li><a href="vector.html">Vector</a><span>&mdash; honestly the least locked of the five, and the page says so</span></li>
+      <li><a href="juggernaut.html">Juggernaut</a><span>&mdash; the widest hull, a reactor it doesn't hide</span></li>
+    </ul>
+    <div class="boiler">
+      <p><b>Worth naming plainly:</b> not every class had the same amount of real material behind it. Vector's page is shorter and leans harder on clearly-tagged proposals than the other four, because that's honestly where the design actually is right now. Padding it to look even with the others would have been the easy move and the wrong one.</p>
+    </div>
+
+    <h2>The Drifter</h2>
+    <p><a href="drifter.html">A different kind of page</a> on purpose &mdash; less spec sheet, more "come see this place." No locked/proposed tagging, just the Market Concourse at full life, four quick vignettes, and Tiffany Cloud-Field's actual first line to close it out.</p>
+
+    <h2>Syndicates Go Public</h2>
+    <p>The real V2.1 spec, founder-ruled over the last two days, reflected honestly on <a href="syndicates.html">a real page</a>: all eleven specialties, the "modules ARE the bonus" rule that means a Strider's silhouette tells you what it's mastered, and the actual badge art for the full specialty set. Black-Maw Station gets a teaser and its own tracked spot on the hub for when it's ready to be built out fully.</p>
+
+    <h2>Game Progress</h2>
+    <p>A public production-status page pulling straight from the project's own tracking data &mdash; four pillars, honestly labeled as verification progress, not a schedule. Explicitly not a promise of when anything ships.</p>
+
+    <h2>A Bug We Actually Found and Fixed</h2>
+    <p>While rebuilding these pages, we caught something that had nothing to do with any of this work: a page still live under Blackjack's retired name, "Bastion," from before that class got renamed back in July. Full fix, sitewide &mdash; the page, every cross-link, the sitemap, all of it. Worth mentioning here specifically because it's the kind of thing that's easy to miss and embarrassing to leave live.</p>
+
+    <div class="tags">
+      <span class="tag">World of Cogheim</span>
+      <span class="tag">Strider Classes</span>
+      <span class="tag">Syndicates</span>
+      <span class="tag">Website</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">The site is finally starting to hold as much world as the game does. <em>Still a lot more of both to build.</em></p>
+    <a class="btn-ghost" href="devlog.html" style="margin-top:1.6rem">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+
+<script>
+(function(){
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});
+})();
+</script>
+</body>
+</html>
