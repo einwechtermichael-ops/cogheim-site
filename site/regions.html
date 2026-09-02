@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>World of Cogheim</title>
-<meta name="description" content="The Strider classes, the Drifter, the Syndicates, the language, the regions — everything that makes up the world of Cogheim, in one place.">
-<link rel="canonical" href="https://cogheim.com/world.html">
+<title>Regions &amp; The Map | World of Cogheim</title>
+<meta name="description" content="One supercontinent. One world ocean. A disc forged from every landmass Earth used to have, pushed together on the day everything changed. This is the shape of the world — not the map of it.">
+<link rel="canonical" href="https://cogheim.com/regions.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="World of Cogheim">
-<meta property="og:description" content="The Strider classes, the Drifter, the Syndicates, the language, the regions — everything that makes up the world of Cogheim.">
-<meta property="og:image" content="https://cogheim.com/blackjack-hero.webp">
+<meta property="og:title" content="Regions &amp; The Map | World of Cogheim">
+<meta property="og:description" content="One supercontinent. One world ocean. The shape of the world — not the map of it.">
+<meta property="og:image" content="https://cogheim.com/regions-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/regions-hero.webp">
 <meta name="theme-color" content="#0C0F12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +20,11 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "WebPage", "url": "https://cogheim.com/world.html", "name": "World of Cogheim", "about": { "@type": "VideoGame", "name": "Cogheim" } },
+    { "@type": "WebPage", "url": "https://cogheim.com/regions.html", "name": "Regions & The Map", "about": { "@type": "VideoGame", "name": "Cogheim" } },
     { "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/" },
-      { "@type": "ListItem", "position": 2, "name": "World of Cogheim", "item": "https://cogheim.com/world.html" }
+      { "@type": "ListItem", "position": 2, "name": "World of Cogheim", "item": "https://cogheim.com/world.html" },
+      { "@type": "ListItem", "position": 3, "name": "Regions & The Map", "item": "https://cogheim.com/regions.html" }
     ]}
   ]
 }
@@ -51,26 +53,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92
 .running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
 @keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
 @media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
-.page-hero{padding:7rem 1.25rem 2.5rem;max-width:1200px;margin:0 auto}
+.page-hero{position:relative;min-height:58svh;display:flex;align-items:flex-end}
+.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.35) 0%,transparent 35%,rgba(12,15,18,.97) 97%,var(--iron) 100%),url(regions-hero.webp) center/cover no-repeat}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.crumb{font-family:var(--label);font-size:.8rem;color:var(--steel);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem}
+.crumb a{color:var(--ash)}
 .eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
-h1{font-family:var(--display);font-weight:700;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:.02em;color:#E8D08A;margin:.6rem 0 .5rem}
-.sub{font-size:clamp(1rem,2vw,1.15rem);max-width:70ch;color:var(--parchment)}
-section{padding:0 1.25rem clamp(2.4rem,6vw,4rem)}
-.wrap{max-width:1200px;margin:0 auto}
-h2{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,3vw,1.7rem);letter-spacing:.02em;color:#E8D08A;margin:2rem 0 .3rem}
-.sechint{color:var(--steel);font-size:.9rem;margin-bottom:1.2rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem}
-.card{border:1px solid rgba(183,144,60,.25);background:rgba(255,255,255,.02);border-radius:3px;overflow:hidden;transition:border-color .2s,transform .2s}
-.card:hover{border-color:var(--bronze);transform:translateY(-2px)}
-.card.disabled{opacity:.55;pointer-events:none}
-.card .ci{height:140px;background-size:cover;background-position:center}
-.card .cc{padding:1rem 1.1rem}
-.card h3{font-family:var(--display);font-size:1.1rem;color:var(--parchment);margin-bottom:.3rem}
-.card p{font-size:.85rem;color:var(--ash);margin-bottom:0}
-.badge{display:inline-block;font-family:var(--label);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;margin-top:.5rem}
-.badge.live{color:#7FBF6A;border:1px solid rgba(127,191,106,.4)}
-.badge.soon{color:var(--steel);border:1px solid rgba(75,81,91,.5)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,6vw,3.8rem);letter-spacing:.03em;color:#E8D08A;margin:.5rem 0 .5rem;text-shadow:0 2px 22px rgba(0,0,0,.85)}
+.sub{font-size:clamp(1rem,2.2vw,1.2rem);max-width:70ch;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap-n{max-width:800px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,3.4vw,2rem);letter-spacing:.02em;color:#E8D08A;margin:0 0 .8rem}
+p{margin-bottom:1.05rem}
+.dim{color:var(--ash)}
+.tag{display:inline-block;font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;border-radius:999px;padding:.25rem .75rem;margin-bottom:.5rem}
+.tag.locked{color:#7FBF6A;border:1px solid rgba(127,191,106,.4);background:rgba(127,191,106,.08)}
+.tag.coming{color:var(--steel);border:1px solid rgba(75,81,91,.5);background:rgba(75,81,91,.1)}
+.factrow{display:flex;flex-wrap:wrap;gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.5rem 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.3rem;flex:1;min-width:160px}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem;color:var(--bronze);display:block;margin-bottom:.25rem}
+.fact span{color:var(--parchment);font-size:1rem}
+.veil{border:1px dashed rgba(183,144,60,.4);background:rgba(183,144,60,.04);padding:1.6rem 1.8rem;margin-top:1.5rem;border-radius:3px;text-align:center}
+.veil p{margin-bottom:0;color:var(--ash);font-style:italic}
+.statsbox{border:1px dashed rgba(75,81,91,.5);padding:1.8rem;text-align:center;margin-top:1.5rem;border-radius:3px}
+.statsbox p{margin-bottom:0;color:var(--steel)}
+.otherclasses{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
+.otherclasses a{font-family:var(--label);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(183,144,60,.3);padding:.5rem 1rem;border-radius:999px;color:var(--ash)}
+.otherclasses a:hover{color:#E8D08A;border-color:var(--bronze)}
 footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
 .foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
 .foot-lines a{color:var(--ash)}
@@ -124,76 +134,61 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
 </nav>
 
 <header class="page-hero">
-  <p class="eyebrow">World of Cogheim</p>
-  <h1>Everything That Makes This World</h1>
-  <p class="sub">The Strider classes, the Drifter, the Syndicates that hold them together, the language the world was built on, and the ground they all walk across. This is the living index &mdash; it grows as each piece gets built.</p>
+  <div class="ph-content">
+    <p class="crumb"><a href="world.html">World of Cogheim</a> / Regions &amp; The Map</p>
+    <p class="eyebrow">The World Itself</p>
+    <h1>Regions &amp; The Map</h1>
+    <p class="sub">Every continent Earth used to have, pushed together into one. This is the shape of the world your Strider walks &mdash; not a checklist of every place in it.</p>
+  </div>
 </header>
 
 <section>
-  <div class="wrap">
-    <h2>The Strider Classes</h2>
-    <p class="sechint">Five hulls, five heritages, five ways to live inside a moving city.</p>
-    <div class="grid">
-      <a class="card" href="blackjack.html">
-        <div class="ci" style="background-image:url(blackjack-hero.webp)"></div>
-        <div class="cc"><h3>Blackjack</h3><p>American Heritage &middot; 21 decks &middot; the fortress standard</p><span class="badge live">Full Page Live</span></div>
-      </a>
-      <a class="card" href="grindwalker.html">
-        <div class="ci" style="background-image:url(gallery/strider_classes/grindwalker/001_catamaran_4b4ba70e4ea3169e.webp)"></div>
-        <div class="cc"><h3>Grindwalker</h3><p>Pale Reach Heritage &middot; twin-hull catamaran</p><span class="badge live">Full Page Live</span></div>
-      </a>
-      <a class="card" href="vector.html">
-        <div class="ci" style="background-image:url(gallery/strider_classes/vector/031_vector_4654d7b6babe3253.webp)"></div>
-        <div class="cc"><h3>Vector</h3><p>Asian Heritage &middot; eight-legged</p><span class="badge live">Full Page Live</span></div>
-      </a>
-      <a class="card" href="juggernaut.html">
-        <div class="ci" style="background-image:url(gallery/strider_classes/juggernaut/036_juggernaut_d2f1437b1d8a6ff1.webp)"></div>
-        <div class="cc"><h3>Juggernaut</h3><p>Russian Heritage &middot; heaviest hull on the disc</p><span class="badge live">Full Page Live</span></div>
-      </a>
-      <a class="card" href="scavenger.html">
-        <div class="ci" style="background-image:url(gallery/strider_classes/scavenger/049_scavenger_3725e2da366b1715.webp)"></div>
-        <div class="cc"><h3>Scavenger</h3><p>European Heritage &middot; built from salvage</p><span class="badge live">Full Page Live</span></div>
-      </a>
+  <div class="wrap-n">
+    <span class="tag locked">Locked Canon</span>
+    <h2>One Supercontinent, One Ocean</h2>
+    <p>Cogheim's world isn't scattered islands or a patchwork of separate continents. It's a single connected landmass, ringed by one contiguous world ocean &mdash; the result of Suture-Day, the moment the old world's continents were physically forced back together. The shape of the map is a direct consequence of that event, not an arbitrary art choice.</p>
+    <div class="factrow">
+      <div class="fact"><b>Landmass</b><span>One connected supercontinent</span></div>
+      <div class="fact"><b>Ocean</b><span>One contiguous world ocean</span></div>
+      <div class="fact"><b>Land / Ocean Split</b><span>81.3% / 10.7%</span></div>
+      <div class="fact"><b>Origin</b><span>Suture-Day, 2301</span></div>
     </div>
+  </div>
+</section>
 
-    <h2>The Drifter</h2>
-    <p class="sechint">The tutorial hull. Where every player starts.</p>
-    <div class="grid">
-      <a class="card" href="drifter.html">
-        <div class="ci" style="background-image:url(gallery/06_drifter_interiors_and_decks/021_cache_021_1448x1086_a055be7ea8.webp)"></div>
-        <div class="cc"><h3>The Drifter</h3><p>Home before you earn a Strider of your own</p><span class="badge live">Full Page Live</span></div>
-      </a>
+<section>
+  <div class="wrap-n">
+    <span class="tag locked">Locked Canon</span>
+    <h2>Real Geology, Not a Grid</h2>
+    <p>No hex tiles. No pie-slice sectors. No visible grid lines anywhere on the terrain. Every mountain range, coastline, and biome boundary is generated to read as actual Earth geology &mdash; the kind of map a cartographer would draw, not a game board divided into zones.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-n">
+    <div class="veil">
+      <p>We're deliberately not listing named locations here yet. Part of what makes a disc this size worth crossing is finding out what's actually on it &mdash; and that's a better first experience walked than read off a page.</p>
     </div>
+  </div>
+</section>
 
-    <h2>Society &amp; Cooperation</h2>
-    <p class="sechint">Nothing world-changing can be done alone.</p>
-    <div class="grid">
-      <a class="card" href="syndicates.html">
-        <div class="ci" style="background-image:url(syndicates-hero.webp)"></div>
-        <div class="cc"><h3>Syndicates</h3><p>Eleven specialties, three chosen at founding</p><span class="badge live">Full Page Live</span></div>
-      </a>
-      <div class="card disabled">
-        <div class="ci" style="background-image:url(gallery/06_drifter_interiors_and_decks/013_cache_013_1448x1086_66fd9ab98a.webp)"></div>
-        <div class="cc"><h3>Black-Maw Station</h3><p>Where Syndicates are founded and crews are recruited</p><span class="badge soon">Coming Soon</span></div>
-      </div>
+<section>
+  <div class="wrap-n">
+    <span class="tag coming">Coming Soon</span>
+    <h2>Named Locations, As They're Built</h2>
+    <div class="statsbox">
+      <p>As places like Black-Maw Station and Meridian Maritime Academy get their own full pages, this page will link out to them &mdash; the way the class pages already link to each other. Nothing here yet, on purpose.</p>
     </div>
+  </div>
+</section>
 
-    <h2>Language</h2>
-    <p class="sechint">A real, learnable language &mdash; the way Star Trek has Klingon.</p>
-    <div class="grid">
-      <div class="card disabled">
-        <div class="ci" style="background-image:url(gallery/05_reference_boards/001_01_1000005681.webp)"></div>
-        <div class="cc"><h3>Einwechtëran</h3><p>The Schallûsan language, straight from the novels</p><span class="badge soon">Coming Soon</span></div>
-      </div>
-    </div>
-
-    <h2>The World Itself</h2>
-    <p class="sechint">The disc, the regions, the map.</p>
-    <div class="grid">
-      <a class="card" href="regions.html">
-        <div class="ci" style="background-image:url(gallery/01_world_model/001_01_cogheim-world-model-stitched-label-free.webp)"></div>
-        <div class="cc"><h3>Regions &amp; Map</h3><p>One supercontinent, one world ocean</p><span class="badge live">Full Page Live</span></div>
-      </a>
+<section>
+  <div class="wrap-n">
+    <h2>Other World Pages</h2>
+    <div class="otherclasses">
+      <a href="syndicates.html">Syndicates</a>
+      <a href="drifter.html">The Drifter</a>
+      <a href="world.html">&larr; All of World of Cogheim</a>
     </div>
   </div>
 </section>
