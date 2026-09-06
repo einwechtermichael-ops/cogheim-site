@@ -1,5 +1,12 @@
 name = "super-mode-9b19"
+main = "worker.js"
 compatibility_date = "2026-08-30"
 
 [assets]
 directory = "./site"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cogheim-backstage"
+database_id = "84e20c85-3fff-4b89-8c79-04e55e33c69a"
