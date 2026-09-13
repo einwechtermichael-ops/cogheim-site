@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Building Grindwalker, Piece by Piece</title>
+<meta name="description" content="A look at the actual modular kit behind Grindwalker: bridge segments, mount foundations, a fairground, industrial headframes, and the Arch itself — the pieces a moving city gets built from.">
+<link rel="canonical" href="https://cogheim.com/devlog-grindwalker-kit-pieces.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building Grindwalker, Piece by Piece">
+<meta property="og:description" content="The actual modular kit behind Grindwalker — bridge segments, mounts, a fairground, industrial pieces, and the Arch itself.">
+<meta property="og:image" content="https://cogheim.com/gw-devlog-arch.webp">
+<meta property="og:image:width" content="1280">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/gw-devlog-arch.webp">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Building Grindwalker, Piece by Piece",
+      "datePublished": "2026-09-12",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/devlog-grindwalker-kit-pieces.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+        {"@type": "ListItem", "position": 3, "name": "Building Grindwalker, Piece by Piece", "item": "https://cogheim.com/devlog-grindwalker-kit-pieces.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:58svh;display:flex;align-items:flex-end}
+.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.35) 0%,transparent 40%,rgba(12,15,18,.96) 96%,var(--iron) 100%),url(gw-devlog-arch.webp) center 35%/cover no-repeat}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5vw,3rem);letter-spacing:.03em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 20px rgba(0,0,0,.85)}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+section{padding:clamp(2.2rem,5.5vw,3.6rem) 1.25rem}
+.wrap-n{max-width:820px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.6rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 .8rem}
+p{margin-bottom:1.05rem}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.5rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.piece{margin-top:1.8rem;border:1px solid rgba(183,144,60,.25);border-radius:3px;overflow:hidden;background:rgba(255,255,255,.02)}
+.piece img{width:100%;display:block}
+.piece .pc{padding:1.1rem 1.3rem}
+.piece h3{font-family:var(--display);font-size:1.1rem;color:var(--parchment);margin-bottom:.35rem}
+.piece p{font-size:.94rem;color:var(--ash);margin-bottom:0}
+.pairrow{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.8rem}
+@media (max-width:760px){.pairrow{grid-template-columns:1fr}}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+.bigline{border-top:1px solid rgba(183,144,60,.2);text-align:center}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.1rem,2.8vw,1.6rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block;margin-top:1.6rem}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:160px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:640px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">COGHEIM</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Game Progress</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; Cogworks &amp; Art</p>
+    <h1>Building Grindwalker, Piece by Piece</h1>
+    <p class="sub">Grindwalker isn't one model. It's a kit — bridge segments, mount foundations, a working fairground, industrial towers, and the Arch itself, each built and lit as its own piece before any of it becomes one hull.</p>
+    <div class="facts">
+      <div class="fact"><b>Published</b><span>12 Sep 2026</span></div>
+      <div class="fact"><b>Category</b><span>Cogworks &amp; Art</span></div>
+      <div class="fact"><b>Pieces Shown</b><span>7</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p>Every one of these renders is a real piece from the kit, not a finished scene. That's the actual production method: build the part, get it right in isolation, then assemble the hull from parts that already work. Here's a look at what's actually in the box.</p>
+
+    <h2>The Arch</h2>
+    <p>The central span between Grindwalker's twin hulls, and the one piece with no ambiguity about what it's for &mdash; this is the same Arch already locked in the class's own spec, the crossing point where the straddle-gap identity actually lives.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-n">
+    <div class="piece">
+      <img src="gw-devlog-bridge.webp" alt="A curved steampunk service bridge segment with lanterns, brass fittings, and a copper pipe running along its length">
+      <div class="pc"><h3>Service Bridge, Segment V1</h3><p>One length of the walkways that thread the hull together &mdash; lanterns, valve wheels, and a working pipe run built right into the railing.</p></div>
+    </div>
+
+    <div class="piece">
+      <img src="gw-devlog-mount.webp" alt="An octagonal armored turret foundation piece with a central gear hatch and copper access panels">
+      <div class="pc"><h3>Universal Turret Foundation</h3><p>A weapon mount built as its own standalone piece &mdash; drop it wherever the hull needs one, instead of sculpting a bespoke socket every time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-n">
+    <h2>The Fairground</h2>
+    <p>Not every deck on a Strider is armor and machinery. Grindwalker's social side gets an actual working fairground &mdash; and the kit pieces show it being built with the same rigor as anything structural.</p>
+    <div class="pairrow">
+      <div class="piece" style="margin-top:0">
+        <img src="gw-devlog-ferrisframe.webp" alt="Twin A-frame support towers for a ferris wheel, brass and iron, with a viewing platform between them">
+        <div class="pc"><h3>Ferris Wheel, Support Frame</h3></div>
+      </div>
+      <div class="piece" style="margin-top:0">
+        <img src="gw-devlog-gondola.webp" alt="An ornate royal ferris wheel gondola with a crown cresting, glass windows, and red velvet seating">
+        <div class="pc"><h3>Ferris Wheel, Royal Gondola</h3></div>
+      </div>
+    </div>
+    <div class="piece">
+      <img src="gw-devlog-pavilion.webp" alt="An elegant glass-roofed promenade pavilion with stone columns, hanging lanterns, and wooden benches">
+      <div class="pc"><h3>Grand Promenade Pavilion</h3><p>Where a Starboard resident actually goes to sit down. The same care that goes into an armor plate went into this bench.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-n">
+    <h2>The Industrial Side</h2>
+    <p>Port doesn't get the fairground treatment, and it shouldn't. Its pieces are heavier and rawer &mdash; the working half of the hull, built to look like it.</p>
+    <div class="piece">
+      <img src="gw-devlog-headframe.webp" alt="A twin mine headframe winding tower, riveted steel with two large winding wheels at the top">
+      <div class="pc"><h3>Mine Headframe</h3><p>Winding towers, built for a hull that has real extraction work to do, not just a skyline to fill.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-n">
+    <h2>Where It All Goes</h2>
+    <p>Every piece above eventually sits somewhere on this &mdash; the actual hull the kit is building toward.</p>
+    <div class="piece">
+      <img src="gw-devlog-hull.webp" alt="Full orthographic bow view of Grindwalker's hull, showing the boat-shaped prow and heavy track undercarriage">
+      <div class="pc"><h3>Full Hull, Bow View</h3><p>The orthographic reference every piece above gets built against.</p></div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Grindwalker</span>
+      <span class="tag">Cogworks</span>
+      <span class="tag">Modular Kit</span>
+      <span class="tag">Art &amp; Concept</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline">
+  <div class="wrap-n">
+    <p class="hook">A hull this size was never going to get built whole. <em>It gets built piece by piece, until it isn't pieces anymore.</em></p>
+    <a class="btn-ghost" href="devlog.html">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+
+<script>
+(function(){
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});
+})();
+</script>
+</body>
+</html>
