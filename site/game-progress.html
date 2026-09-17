@@ -53,6 +53,8 @@ a{color:var(--bronze);text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
 .wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.wordmark-logo{display:flex;align-items:center;flex-shrink:0}
+.wordmark-logo img{width:clamp(120px,16vw,170px);height:auto;display:block}
 .nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
 .nav-links a{color:var(--ash);transition:color .25s}
 .nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
@@ -147,7 +149,7 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
 <body>
 <nav>
   <div class="nav-inner">
-    <a class="wordmark" href="index.html">COGHEIM</a>
+    <a class="wordmark-logo" href="index.html"><img src="cogheim-logo.webp" alt="COGHEIM" width="560" height="190"></a>
     <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
     <div class="nav-links" id="nl">
       <a href="why-cogheim.html">Why Cogheim</a>
