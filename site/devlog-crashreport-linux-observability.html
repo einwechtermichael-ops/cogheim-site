@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Crash Report Can Crash: Why COGHEIM Needs Independent Linux Observability</title>
+<meta name="description" content="A newly documented Unreal Engine 5.8 Linux crash-reporting failure can erase the evidence after a crash. Why COGHEIM's dedicated servers need more than one witness — plus fixes to Nanite Landscape memory and MetaHuman Crowd motion vectors.">
+<link rel="canonical" href="https://cogheim.com/devlog-crashreport-linux-observability.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Crash Report Can Crash: Why COGHEIM Needs Independent Linux Observability">
+<meta property="og:description" content="On Linux, Unreal's crash-handling process can exhaust its own emergency memory while writing the crash report. For an MMO, crash reporting cannot be the only witness.">
+<meta property="og:image" content="https://cogheim.com/devlog-crashreport-hero.jpg">
+<meta property="og:image:width" content="1600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/devlog-crashreport-hero.jpg">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "The Crash Report Can Crash: Why COGHEIM Needs Independent Linux Observability",
+      "datePublished": "2026-09-18",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/devlog-crashreport-linux-observability.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+        {"@type": "ListItem", "position": 3, "name": "The Crash Report Can Crash", "item": "https://cogheim.com/devlog-crashreport-linux-observability.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.wordmark-logo{display:flex;align-items:center;flex-shrink:0}
+.wordmark-logo img{width:clamp(120px,16vw,170px);height:auto;display:block}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.numlist{list-style:none;counter-reset:step;margin:1rem 0 0;max-width:720px}
+.numlist li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.6rem;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.35)}
+.numlist li:last-child{border-bottom:0}
+.numlist li::before{content:counter(step);position:absolute;left:0;top:.6rem;font-family:var(--display);font-weight:700;color:var(--ember);font-size:1rem;width:1.9rem;text-align:center}
+.numlist li b{color:var(--parchment);font-weight:600}
+.evidence{width:100%;border-collapse:collapse;margin:1.3rem 0 1.8rem;font-size:.92rem}
+.evidence th,.evidence td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid rgba(75,81,91,.35);vertical-align:top}
+.evidence th{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem;color:var(--bronze);border-bottom:1px solid rgba(183,144,60,.4)}
+.evidence td{color:var(--ash)}
+.evidence td:first-child{color:var(--parchment)}
+.evidence tr:last-child td{border-bottom:0}
+.srclist{list-style:none;margin:1rem 0 0;max-width:720px;font-size:.9rem}
+.srclist li{padding:.5rem 0;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.25)}
+.srclist li:last-child{border-bottom:0}
+.srclist code{font-family:'JetBrains Mono',monospace;color:var(--bronze);font-size:.85rem}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;padding:.9rem 2.2rem;border-radius:3px;cursor:pointer;transition:box-shadow .25s;display:inline-block;border:1px solid #E8956A;background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff;box-shadow:0 0 18px rgba(226,106,38,.4)}
+.btn:hover{box-shadow:0 0 30px rgba(226,106,38,.7)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+a.inline-link{color:var(--ember);border-bottom:1px solid rgba(226,106,38,.35)}
+a.inline-link:hover{border-bottom-color:var(--ember)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .evidence{font-size:.82rem}
+  .evidence th,.evidence td{padding:.55rem .5rem}
+}
+.page-hero.devlog{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(devlog-crashreport-hero.jpg) center/cover no-repeat}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark-logo" href="index.html"><img src="cogheim-logo.webp" alt="COGHEIM" width="560" height="190"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Game Progress</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero devlog">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; Engine &amp; Netcode</p>
+    <h1>The Crash Report Can Crash: Why COGHEIM Needs Independent Linux Observability</h1>
+    <p class="sub">A newly documented Unreal Engine 5.8 failure can erase the evidence after a Linux process crashes. For an MMO, crash reporting cannot be the only witness.</p>
+    <div class="facts">
+      <div class="fact"><b>Published</b><span>18 September 2026</span></div>
+      <div class="fact"><b>Category</b><span>Engine &amp; Netcode</span></div>
+      <div class="fact"><b>Systems Touched</b><span>Linux Crash Reporting, Nanite Landscape, MetaHuman Crowd</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p>The most important Unreal Engine development this week is a failure in the failure path itself.</p>
+    <p>On September 16, Epic documented a UE 5.8 Linux condition in which a crashing process can exhaust the small emergency allocator used to generate its own crash report. The result can be a crash directory with context files, a zero-byte engine log, no Crash Report Client launch, and no uploaded report.</p>
+    <p>For a PC-first MMO with Linux backend infrastructure, that changes the production question. It is not enough to ask whether a dedicated server recovers from a crash. We must also prove that the studio receives enough independent evidence to explain it.</p>
+
+    <h2>When the Recorder Fails With the Machine</h2>
+    <p>UE-397073 describes the mechanism precisely. During Linux crash handling, Unreal switches to <code>FPlatformMallocCrash</code>, an emergency allocator with a two-megabyte large-memory pool. Its <code>Free()</code> operation is intentionally inert because ordinary allocator state may no longer be trustworthy.</p>
+    <p>Crash reporting can then consume that limited pool in several ways. Copying the engine log uses a scratch buffer of up to one megabyte. Capturing call stacks for every thread creates data that grows with thread count. The crash-context XML is copied rather than moved, and additional plugins can make that context larger.</p>
+    <p>If the pool is exhausted, the reporting path fails. Epic's reproduction produced an empty copied log, never launched Crash Report Client, and uploaded nothing. The issue affects UE 5.8 and remains unresolved; Epic currently targets 5.8.4 for the correction.</p>
+    <p>Epic lists <code>unix.CaptureAllThreadStacksOnCrash=false</code> as a workaround that usually restores reporting. That trade is significant. It can recover the crash artifact by discarding one of its most useful components: the stacks of threads other than the crashing thread.</p>
+    <div class="boiler">
+      <p style="margin-bottom:0">This is a diagnostic lever, not an observability strategy.</p>
+    </div>
+
+    <h2>COGHEIM Inference: The Server Must Have More Than One Witness</h2>
+    <p>Epic reproduced UE-397073 in a Linux editor build, not in a COGHEIM-style dedicated server. We should not claim that the dedicated server is confirmed affected.</p>
+    <p>The underlying conditions nevertheless overlap with MMO infrastructure closely enough to demand a test: Linux platform crash handling, many active threads, extensive logging, and a plugin-rich process. A server may also run for far longer than an editor session, making a missing report especially costly when a rare failure finally appears.</p>
+    <p>COGHEIM should therefore treat Unreal's crash report as one layer, not the sole source of truth.</p>
+    <table class="evidence">
+      <tr><th>Evidence</th><th>Independent source</th></tr>
+      <tr><td>Process termination and exit code</td><td>Container runtime, service manager, or watchdog</td></tr>
+      <tr><td>stdout and stderr</td><td>Host-level collector outside the Unreal process</td></tr>
+      <tr><td>Engine context and minidump</td><td>Unreal crash-reporting path</td></tr>
+      <tr><td>Core dump and kernel evidence</td><td>Operating system</td></tr>
+      <tr><td>Match, shard, and player correlation</td><td>Backend trace or session identifier</td></tr>
+      <tr><td>Recovery behavior</td><td>Orchestrator health checks and restart events</td></tr>
+    </table>
+    <div class="boiler">
+      <p><b>The acceptance test should be intentionally unpleasant.</b> Force a controlled crash in a packaged Linux server running representative plugins, thread counts, and log volume. Confirm that every expected artifact is nonempty, that collection succeeds, and that a trace identifier connects the process failure to the affected shard or session.</p>
+      <p style="margin-bottom:0">Repeat the test with all-thread capture enabled and disabled. A workaround is only useful when we know exactly what evidence it removes.</p>
+    </div>
+
+    <h2>Nanite Landscapes Had a Hidden Editor Memory Cost</h2>
+    <p>A second issue, UE-364106, concerns memory retained while editing Nanite Landscapes. Epic found that bulk data generated for Landscape proxy Nanite meshes could remain allocated after the level was unloaded.</p>
+    <p>The defect is influenced by Derived Data Cache state. It can appear on the first mesh build or after sculpting forces regeneration, which means a warm, short editor test can miss it. Epic marked the issue fixed on September 17 and identified fix commit <code>53777351</code>, but the public ticket does not name a target release.</p>
+    <div class="boiler">
+      <p><b>COGHEIM inference:</b> This is an editor-stability issue rather than evidence of a shipping-client leak. It still matters because long World Partition authoring sessions are part of production capacity. Memory that grows after repeated landscape rebuilds and unloads can slow iteration, produce misleading "out of memory" diagnoses, and make the workstation &mdash; not the content &mdash; the apparent culprit.</p>
+      <p style="margin-bottom:0">Our regression case should follow the stateful path Epic describes: start with a clean DDC, rebuild representative Landscape Streaming Proxies, unload the level, and inspect an Unreal Insights memory trace. Then repeat with a warm cache and after sculpt modifications. The important result is whether memory returns after the world is unloaded, not whether one rebuild completes.</p>
+    </div>
+
+    <h2>Crowd Motion Vectors Still Need a 5.8 Test</h2>
+    <p>Epic also resolved UE-395897 on September 15. The issue produces motion-blur artifacts in Epic's MetaHuman Crowd demonstration and may be a broader interaction between motion vectors and teleporting actors. Epic lists UE 5.8.3 as affected and targets the fix for 5.9.</p>
+    <p>That does not prove COGHEIM's crowd systems will show the artifact. It does identify a sharp test case.</p>
+    <div class="boiler">
+      <p><b>COGHEIM inference:</b> Large-world population systems often reposition entities, switch representations, or move agents into relevance. Any path that appears as a teleport to the renderer deserves inspection with motion blur enabled. Our test should include camera movement through dense populations, explicit actor teleports, and representation transitions while examining velocity buffers frame by frame.</p>
+      <p style="margin-bottom:0">The wrong response would be to disable motion blur globally before reproducing the problem. The useful response is to identify which transition creates invalid motion history and determine whether the failure is visible in COGHEIM's actual camera and movement model.</p>
+    </div>
+
+    <h2>What We're Acting On</h2>
+    <p class="dim">This week we are making crash evidence a tested server capability, not an assumption:</p>
+    <ol class="numlist">
+      <li><b>Force a controlled crash</b> in a representative packaged Linux server and verify that logs, context, dumps, and uploads are actually produced.</li>
+      <li><b>Capture stdout and stderr</b> outside the Unreal process.</li>
+      <li><b>Add watchdog, heartbeat, and host-level exit monitoring.</b></li>
+      <li><b>Test <code>unix.CaptureAllThreadStacksOnCrash=false</code></b> in staging, understanding that it sacrifices per-thread call stacks.</li>
+      <li><b>Profile Nanite Landscape rebuild/unload cycles</b> with clean and warm Derived Data Caches.</li>
+      <li><b>Stress crowd motion vectors</b> during teleports and representation changes.</li>
+    </ol>
+    <p style="margin-top:1.4rem">The common lesson is hidden state. A crash system can consume its own emergency memory. A landscape can appear unloaded while generated bulk data remains. A crowd actor can reach the right location while carrying the wrong motion history.</p>
+    <ul class="srclist">
+      <li><code>UE-397073</code> &middot; Linux Crash Reporter can fail when generating the report &middot; opened September 16, 2026</li>
+      <li><code>UE-364106</code> &middot; Possible leak using Nanite meshes for Landscape &middot; resolved September 17, 2026</li>
+      <li><code>UE-395897</code> &middot; Motion-blur artifacting in MetaHuman Crowd demo &middot; resolved September 15, 2026</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Engine</span>
+      <span class="tag">Netcode</span>
+      <span class="tag">Linux</span>
+      <span class="tag">Observability</span>
+      <span class="tag">Production</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">Reliable production comes from <em>testing the state behind the visible result.</em></p>
+    <a class="btn-ghost" href="devlog.html" style="margin-top:1.6rem">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector('.burger');
+if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});})();
+</script>
+</body>
+</html>
