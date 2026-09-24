@@ -75,6 +75,10 @@ jobs:
           python-version: "3.11"
 
       - name: One-time Discord history backfill
+        # Optional enrichment. Guarded so a failure here can never stop the
+        # deploy step below: an ordinary site edit must still publish even if
+        # this script errors.
+        continue-on-error: true
         env:
           DISCORD_DEVLOG_WEBHOOK: ${{ secrets.DISCORD_DEVLOG_WEBHOOK }}
           DISCORD_CAPTAINSLOG_WEBHOOK: ${{ secrets.DISCORD_CAPTAINSLOG_WEBHOOK }}
@@ -82,6 +86,10 @@ jobs:
           python3 site/backfill_discord_history.py
 
       - name: One-time concept art backfill
+        # Optional enrichment. Guarded so a failure here can never stop the
+        # deploy step below: an ordinary site edit must still publish even if
+        # this script errors.
+        continue-on-error: true
         env:
           DISCORD_CONCEPTART_WEBHOOK: ${{ secrets.DISCORD_CONCEPTART_WEBHOOK }}
         run: |
@@ -89,6 +97,10 @@ jobs:
 
       - name: Generate today's Captain's Log entry
         id: captains_log
+        # Optional enrichment. Guarded so a failure here can never stop the
+        # deploy step below: an ordinary site edit must still publish even if
+        # this script errors.
+        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -109,6 +121,9 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler
 
+      # Stays AFTER the generator on purpose: a Captain's Log entry written
+      # this run must ship in this run. Moving this step earlier would delay
+      # every new entry by a day.
       - name: Deploy to Cloudflare Workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
