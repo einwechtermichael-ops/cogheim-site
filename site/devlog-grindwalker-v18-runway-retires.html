@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Grindwalker V8 to V18: New Hulls, a First Terrain Ride, and the Runway Retires</title>
+<meta name="description" content="Ten versions of the Grindwalker in three weeks: rebuilt hulls, the first time a COGHEIM hull followed real terrain in Unreal, and why the runway was replaced by landing pads, a cooling tower and covered bridges.">
+<link rel="canonical" href="https://cogheim.com/devlog-grindwalker-v18-runway-retires.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grindwalker V8 to V18: New Hulls, a First Terrain Ride, and the Runway Retires">
+<meta property="og:description" content="Rebuilt hulls, a first terrain ride in Unreal, and the runway retires.">
+<meta property="og:image" content="https://cogheim.com/devlog-grindwalker-v18-hero.jpg">
+<meta property="og:image:width" content="1600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/devlog-grindwalker-v18-hero.jpg">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Grindwalker V8 to V18: New Hulls, a First Terrain Ride, and the Runway Retires",
+      "datePublished": "2026-10-03",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/devlog-grindwalker-v18-runway-retires.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+        {"@type": "ListItem", "position": 3, "name": "Grindwalker V8 to V18", "item": "https://cogheim.com/devlog-grindwalker-v18-runway-retires.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.wordmark-logo{display:flex;align-items:center;flex-shrink:0}
+.wordmark-logo img{width:clamp(120px,16vw,170px);height:auto;display:block}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.numlist{list-style:none;counter-reset:step;margin:1rem 0 0;max-width:720px}
+.numlist li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.6rem;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.35)}
+.numlist li:last-child{border-bottom:0}
+.numlist li::before{content:counter(step);position:absolute;left:0;top:.6rem;font-family:var(--display);font-weight:700;color:var(--ember);font-size:1rem;width:1.9rem;text-align:center}
+.numlist li b{color:var(--parchment);font-weight:600}
+.evidence{width:100%;border-collapse:collapse;margin:1.3rem 0 1.8rem;font-size:.92rem}
+.evidence th,.evidence td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid rgba(75,81,91,.35);vertical-align:top}
+.evidence th{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem;color:var(--bronze);border-bottom:1px solid rgba(183,144,60,.4)}
+.evidence td{color:var(--ash)}
+.evidence td:first-child{color:var(--parchment)}
+.evidence tr:last-child td{border-bottom:0}
+.srclist{list-style:none;margin:1rem 0 0;max-width:720px;font-size:.9rem}
+.srclist li{padding:.5rem 0;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.25)}
+.srclist li:last-child{border-bottom:0}
+.srclist code{font-family:'JetBrains Mono',monospace;color:var(--bronze);font-size:.85rem}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;padding:.9rem 2.2rem;border-radius:3px;cursor:pointer;transition:box-shadow .25s;display:inline-block;border:1px solid #E8956A;background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff;box-shadow:0 0 18px rgba(226,106,38,.4)}
+.btn:hover{box-shadow:0 0 30px rgba(226,106,38,.7)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+a.inline-link{color:var(--ember);border-bottom:1px solid rgba(226,106,38,.35)}
+a.inline-link:hover{border-bottom-color:var(--ember)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .evidence{font-size:.82rem}
+  .evidence th,.evidence td{padding:.55rem .5rem}
+}
+.page-hero.devlog{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(devlog-grindwalker-v18-hero.jpg) center/cover no-repeat}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+.fig{margin:1.6rem 0}
+.fig img{width:100%;height:auto;border:1px solid rgba(183,144,60,.28);border-radius:3px}
+.fig figcaption{font-family:var(--label);font-size:.85rem;letter-spacing:.04em;color:var(--steel);margin-top:.5rem}
+.pairrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.6rem 0}
+.pairrow .fig{margin:0}
+@media (max-width:640px){.pairrow{grid-template-columns:1fr}}
+ul.dots{list-style:none;margin:.4rem 0 1.2rem}
+ul.dots li{position:relative;padding:.35rem 0 .35rem 1.4rem;color:var(--ash)}
+ul.dots li::before{content:"";position:absolute;left:.2rem;top:.95rem;width:6px;height:6px;background:var(--ember);transform:rotate(45deg)}
+ul.dots li b{color:var(--parchment)}
+pre.logline{font-family:'JetBrains Mono',monospace;font-size:.8rem;white-space:pre-wrap;word-break:break-word;background:rgba(0,0,0,.35);border:1px solid rgba(75,81,91,.5);border-left:3px solid var(--frost);padding:.8rem 1rem;color:#9fc3dd;margin:0 0 1rem}
+code{font-family:'JetBrains Mono',monospace;font-size:.88em;color:var(--bronze)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark-logo" href="index.html"><img src="cogheim-logo.webp" alt="COGHEIM" width="560" height="190"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Game Progress</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero devlog">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; Cogworks &amp; Art</p>
+    <h1>Grindwalker V8 to V18: New Hulls, a First Terrain Ride, and the Runway Retires</h1>
+    <p class="sub">Three weeks ago we showed the kit. Since then the Grindwalker went through ten versions, lost its hulls, followed real ground in Unreal for the first time, and traded its runway for landing pads, a cooling tower and covered bridges.</p>
+    <div class="facts">
+      <div class="fact"><b>Published</b><span>3 October 2026</span></div>
+      <div class="fact"><b>Category</b><span>Cogworks &amp; Art</span></div>
+      <div class="fact"><b>Status</b><span>V18 checked in Blender, not yet in Unreal</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p>When we <a class="inline-link" href="devlog-grindwalker-kit-pieces.html">walked through the Grindwalker's kit pieces</a> on 12 September, the ship was a collection of parts. This post covers what happened when those parts had to become one ship that moves. Every number here was measured from a saved file or read from an engine log. Where something has only been checked in Blender, we say so.</p>
+
+    <h2>Thirty Hours, Six Versions</h2>
+    <p>Between 22 and 23 September the Grindwalker went from V8 to V13 on the build machine, and every step was verified by reopening the saved file rather than trusting what a tool reported:</p>
+    <ul class="dots">
+      <li><b>V8</b> merged the command crown into the hull and capped 29 textures at 2048, cutting GPU texture memory from <b>1,367 MB to 607 MB</b>. That is still double our 300 MB ceiling for the ship you are standing in. The rest has to come from fewer materials and textures, not just smaller ones.</li>
+      <li><b>V9</b> rescaled street furniture to human height. Then the founder opened the file and edited it by hand, and the next versions were built from his edits.</li>
+      <li><b>V11</b> swapped 14 simplified meshes, and the main arch, back to their full detail originals.</li>
+      <li><b>V12</b> seated the command crown inside the arch's sphere and moved the weapons onto floor mounts, both by founder direction.</li>
+    </ul>
+
+    <h2>Starting the Hulls Over</h2>
+    <p>On 27 September we measured the hulls properly, and they did not survive it. Each was about 86,000 triangles stretched across roughly 690 metres of ship, with no interior, portholes that read about seven metres across, and one 8K texture giving about 12 pixels per metre. Close up, that is cardboard.</p>
+    <p>So the hulls were rebuilt. The founder removed every porthole in favour of slatted vents, 3 by 4.5 metres. The new V3 hulls measure <b>689.6 by 400.9 by 125.8 metres</b> by raycast, with the deck flat at 109 metres.</p>
+    <figure class="fig">
+      <img src="gw18-port-elevation.webp" alt="Grey clay render of the Grindwalker V18 from the port side: a long industrial hull on paired wheels, buildings, a Ferris wheel and a cooling tower along the deck" loading="lazy" width="1280" height="720">
+      <figcaption>V18 from the port side, untextured review render. Paired wheels below, the city on top, and the new cooling tower near the middle.</figcaption>
+    </figure>
+
+    <h2>The First Time a Hull Followed the Ground</h2>
+    <p>Until October every Strider test ran on flat ground. On 1 October V17 went into Unreal on <b>48 tyres across 24 axles in 12 paired bogies</b>, with the deck standing 133 metres above the ground, a taller stance the founder approved. A test actor that fits the hull to the terrain under its wheels every tick compiled, loaded and ran for about 30 seconds in play:</p>
+    <ul class="dots">
+      <li>The hull drove 116 metres north at 3.89 m/s.</li>
+      <li><b>24 of 24</b> axles found the ground. Pitch settled at about 0.6 degrees and roll at about 1.8.</li>
+      <li>The rockers swung between about 7.8 degrees down and 5.5 degrees up.</li>
+    </ul>
+    <p>The real finding: a paired bogie cannot lift both of its wheels at once. On foothills with 30 to 70 metres of relief, some tyres floated as much as <b>8.3 metres</b> above the ground and others sank as much as <b>8.5 metres</b> into it. That is exactly what this test was for, and how the wheels hold real ground is now an open design question.</p>
+    <div class="boiler">
+      <p><b>Status, honestly:</b> compiled, loaded and run, not verified. The founder never actually saw the ride. An error message window was sitting over the play viewport, and the numbers above were read from the running game through tooling. This is also a test actor, not the networked hull code yet.</p>
+    </div>
+
+    <h2>Why the Runway Retired</h2>
+    <p>On 2 October the founder flew the Slipstreamer aircraft, landed it on the moving Grindwalker, and climbed out. The ship drove on. The aircraft stayed hanging in the air where it had touched down. All of its flight ran in world space, so landing pinned it to a fixed spot on the map instead of to the deck. The player rode the ship correctly; the aircraft did not. Deck landing code is now written, compiled and loaded, but nobody has landed with it yet.</p>
+    <p>The same day settled a bigger question. In the founder's words: <b>"No planned aircraft needs a runway."</b> So the runway is retired, and the Grindwalker gets <b>five landing pads, a cooling tower, and three covered bridges</b> across the gap between its hulls.</p>
+    <figure class="fig">
+      <img src="gw18-before-after.webp" alt="Side by side clay renders of the Grindwalker from the same camera: V17 with its original runway on the left, V18 with the tower, five pads and covered crossings on the right" loading="lazy" width="1280" height="526">
+      <figcaption>Same camera, two versions. V17 with the runway on the left, V18 with the tower, pads and covered crossings on the right.</figcaption>
+    </figure>
+
+    <h2>V18, Honestly</h2>
+    <p>V18 arrived on 3 October and has been checked in Blender only. It has not been inside Unreal. The bridges are the win. You can walk through them with at least 5.11 metres of headroom, and for the first time the gap between the two hulls reads as part of one city instead of a hole in the middle of it.</p>
+    <div class="pairrow">
+      <figure class="fig"><img src="gw18-bridge-interior.webp" alt="Render inside a covered crossing bridge: an arched iron roof, lattice walls, grated walkway and hanging lamps leading to a lit portal" loading="lazy" width="1280" height="960"><figcaption>Inside a covered crossing.</figcaption></figure>
+      <figure class="fig"><img src="gw18-pad-twilight.webp" alt="Render of a square iron landing pad marked with the number 1, a lamp glowing at each corner in twilight" loading="lazy" width="1280" height="960"><figcaption>Landing pad one, lamps at twilight.</figcaption></figure>
+    </div>
+    <p>The cooling tower did not land. The first version came out small, clean and light grey, and from a distance it read like a grain silo, not a working tower on an industrial ship. That one is on our brief, not the builder: we fitted a 48 metre base into a 51 metre wide corridor, so it was always going to come out timid. A larger, dirtier tower is being drawn up now; the final size is not decided.</p>
+    <div class="pairrow">
+      <figure class="fig"><img src="gw18-cooling-tower.webp" alt="Render of a riveted iron cooling tower on a braced steel base" loading="lazy" width="1000" height="1000"><figcaption>The tower with full material, one step in a revision that is still going.</figcaption></figure>
+      <figure class="fig"><img src="gw18-portal.webp" alt="Render of an ornate iron gateway with domed lamp towers and an amber fan window, a small human figure beside it for scale" loading="lazy" width="900" height="1050"><figcaption>A bridge portal, with a human figure for scale.</figcaption></figure>
+    </div>
+
+    <h2>What We're Acting On</h2>
+    <ol class="numlist">
+      <li><b>Resize and weather the cooling tower</b> so it reads as working industry from a kilometre away.</li>
+      <li><b>Bring V18 into Unreal</b> and measure it there, not just in Blender.</li>
+      <li><b>Solve how the wheels hold uneven ground</b>, starting from the 8.5 metre sink the terrain ride exposed.</li>
+      <li><b>Land the Slipstreamer on a moving deck</b> with the new code, and only then call it fixed.</li>
+    </ol>
+    <div class="tags">
+      <span class="tag">Grindwalker</span>
+      <span class="tag">Cogworks</span>
+      <span class="tag">Terrain</span>
+      <span class="tag">Slipstreamer</span>
+      <span class="tag">Blender</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">A good render is not a ship you can walk on. <em>We keep measuring until it is.</em></p>
+    <a class="btn-ghost" href="devlog.html" style="margin-top:1.6rem">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector('.burger');
+if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});})();
+</script>
+</body>
+</html>

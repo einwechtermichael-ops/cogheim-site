@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Standing on a Moving City: The First Player Rides in Unreal</title>
+<meta name="description" content="Between 21 and 25 September a real player boarded a moving Strider hull in Unreal Engine 5.8, walked it, jumped on it and stepped off. What we proved, what broke, and what is still not proven.">
+<link rel="canonical" href="https://cogheim.com/devlog-moving-city-first-ride.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Standing on a Moving City: The First Player Rides in Unreal">
+<meta property="og:description" content="A real player rode a moving hull in Unreal for the first time. The evidence, the bugs, and the honest limits.">
+<meta property="og:image" content="https://cogheim.com/devlog-moving-city-hero.jpg">
+<meta property="og:image:width" content="1600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/devlog-moving-city-hero.jpg">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Standing on a Moving City: The First Player Rides in Unreal",
+      "datePublished": "2026-10-03",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/devlog-moving-city-first-ride.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+        {"@type": "ListItem", "position": 3, "name": "Standing on a Moving City", "item": "https://cogheim.com/devlog-moving-city-first-ride.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.wordmark-logo{display:flex;align-items:center;flex-shrink:0}
+.wordmark-logo img{width:clamp(120px,16vw,170px);height:auto;display:block}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.numlist{list-style:none;counter-reset:step;margin:1rem 0 0;max-width:720px}
+.numlist li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.6rem;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.35)}
+.numlist li:last-child{border-bottom:0}
+.numlist li::before{content:counter(step);position:absolute;left:0;top:.6rem;font-family:var(--display);font-weight:700;color:var(--ember);font-size:1rem;width:1.9rem;text-align:center}
+.numlist li b{color:var(--parchment);font-weight:600}
+.evidence{width:100%;border-collapse:collapse;margin:1.3rem 0 1.8rem;font-size:.92rem}
+.evidence th,.evidence td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid rgba(75,81,91,.35);vertical-align:top}
+.evidence th{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem;color:var(--bronze);border-bottom:1px solid rgba(183,144,60,.4)}
+.evidence td{color:var(--ash)}
+.evidence td:first-child{color:var(--parchment)}
+.evidence tr:last-child td{border-bottom:0}
+.srclist{list-style:none;margin:1rem 0 0;max-width:720px;font-size:.9rem}
+.srclist li{padding:.5rem 0;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.25)}
+.srclist li:last-child{border-bottom:0}
+.srclist code{font-family:'JetBrains Mono',monospace;color:var(--bronze);font-size:.85rem}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;padding:.9rem 2.2rem;border-radius:3px;cursor:pointer;transition:box-shadow .25s;display:inline-block;border:1px solid #E8956A;background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff;box-shadow:0 0 18px rgba(226,106,38,.4)}
+.btn:hover{box-shadow:0 0 30px rgba(226,106,38,.7)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+a.inline-link{color:var(--ember);border-bottom:1px solid rgba(226,106,38,.35)}
+a.inline-link:hover{border-bottom-color:var(--ember)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .evidence{font-size:.82rem}
+  .evidence th,.evidence td{padding:.55rem .5rem}
+}
+.page-hero.devlog{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(devlog-moving-city-hero.jpg) center/cover no-repeat}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+.fig{margin:1.6rem 0}
+.fig img{width:100%;height:auto;border:1px solid rgba(183,144,60,.28);border-radius:3px}
+.fig figcaption{font-family:var(--label);font-size:.85rem;letter-spacing:.04em;color:var(--steel);margin-top:.5rem}
+.pairrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.6rem 0}
+.pairrow .fig{margin:0}
+@media (max-width:640px){.pairrow{grid-template-columns:1fr}}
+ul.dots{list-style:none;margin:.4rem 0 1.2rem}
+ul.dots li{position:relative;padding:.35rem 0 .35rem 1.4rem;color:var(--ash)}
+ul.dots li::before{content:"";position:absolute;left:.2rem;top:.95rem;width:6px;height:6px;background:var(--ember);transform:rotate(45deg)}
+ul.dots li b{color:var(--parchment)}
+pre.logline{font-family:'JetBrains Mono',monospace;font-size:.8rem;white-space:pre-wrap;word-break:break-word;background:rgba(0,0,0,.35);border:1px solid rgba(75,81,91,.5);border-left:3px solid var(--frost);padding:.8rem 1rem;color:#9fc3dd;margin:0 0 1rem}
+code{font-family:'JetBrains Mono',monospace;font-size:.88em;color:var(--bronze)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark-logo" href="index.html"><img src="cogheim-logo.webp" alt="COGHEIM" width="560" height="190"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Game Progress</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero devlog">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; Engine &amp; Netcode</p>
+    <h1>Standing on a Moving City: The First Player Rides in Unreal</h1>
+    <p class="sub">Between 21 and 25 September a real player boarded a moving hull, walked it, jumped on it, stepped off it and climbed back on. Here is exactly what we proved, what broke on the way, and what is still not proven.</p>
+    <div class="facts">
+      <div class="fact"><b>Published</b><span>3 October 2026</span></div>
+      <div class="fact"><b>Category</b><span>Engine &amp; Netcode</span></div>
+      <div class="fact"><b>Systems Touched</b><span>Hull motion, the hull rider, AutoWalk test driver</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p>COGHEIM's nearest milestone has a one line definition: <b>one Strider, walkable, under way, with a player inside.</b> We call it the vertical slice. Until a player can walk the deck of a moving hull, every number we have ever published about cities, crews or servers is a design target and nothing more.</p>
+    <p>This is the story of the week that line started to come true, told the way we keep our own records: each claim tagged with the evidence behind it.</p>
+
+    <h2>Step One: A Real Player on a Moving Hull</h2>
+    <p>On 21 September the test hull was rolling at 7.78 metres a second, about 28 kilometres an hour, on the shared simulation clock that every Strider runs on. We put the real player character aboard: the same character class the game uses, driven by real keys through Unreal's own character movement.</p>
+    <p>The first run looked fine until we read the counters. The server had rejected <b>4,163 moves in roughly 5,000 frames.</b> The cause was a timing mismatch. The server checked each step against where the hull would be on the clock's current frame, while the engine had placed the player against where the hull was on its own last tick. Every honest step looked like a teleport. The fix was to read the hull's frame and position together as a pair, so both sides always talk about the same instant.</p>
+    <p>The second run, with the founder at the keys: walking along the deck read <b>4.0 m/s</b> relative to the ship and <b>11.77 m/s</b> relative to the world, with <b>zero rejections</b>. Walking off the edge produced one clean disembark, and walking back on produced a fresh boarding with a sane deck position, several times in a row.</p>
+    <figure class="fig">
+      <img src="slice-player-on-hull-editor.webp" alt="Unreal Editor screenshot of the netcode harness level: a player character standing on a moving test hull over a grey checker floor" loading="lazy" width="1280" height="674">
+      <figcaption>The netcode harness on 21 September. Grey boxes, a checker floor, and the first player standing on a moving hull. Not pretty, and that is the point.</figcaption>
+    </figure>
+    <p>Then a listen server with two clients in one process. Both clients joined, a player walked the moving deck from a client window, and the server validated every move in the ship's own frame with zero rejections.</p>
+    <div class="boiler">
+      <p><b>Honest limits of that run:</b> we never compared the client's idea of its deck position with the server's at the same moment, so client to server agreement is unverified. Between clock corrections the client's copy of the hull ran 5 to 18 percent fast and snapped back every 8 to 12 seconds. That smoothing is open work.</p>
+    </div>
+    <p>Jumping exposed the next problem. Every jump counted as leaving the ship, so the player was dropped and picked up again about once a second. The fix uses the engine's own setting for staying attached to a moving base while airborne, which we read in the 5.8 source before using. Six jumps in place on the moving deck afterwards: <b>zero disembarks</b>. Early the next morning the founder left the deck during play and the log shows exactly one disembark line, which is what should happen.</p>
+
+    <h2>Step Two: Real Ships</h2>
+    <p>A test hull is not a Strider. On 22 September six Grindwalker meshes went into Unreal with collision on the decks, the hull set off at a slow 3.89 m/s, and the founder boarded it in play and stayed aboard for <b>about 128 seconds</b>. The log line that matters:</p>
+    <pre class="logline">LogSRFRider: BP_CogheimPlayerCharacter_C_0 boarded SRFHullActor_1 at frame 0</pre>
+    <p>No disembark line follows it before the session ends.</p>
+    <p>On 24 September it was the Drifter's turn. Its 139 parts were merged into one ride mesh of 180,667 triangles, set moving at the full 28 kilometres an hour, and a player rode it for <b>about 134 seconds</b> while it covered roughly 793 metres, with zero disembarks. In that run the player stood still. Walking came next.</p>
+
+    <h2>Step Three: A Robot That Walks the Deck</h2>
+    <p>We want to test the ship on every build without someone sitting at the machine, so we built <b>AutoWalk</b>: a test driver that walks the player along a scripted route on a moving hull and writes a pass or fail with every counter attached. It compiled, loaded, and passed its first route the same day: from spawn, down the corridor, out onto the stern deck and back, <b>8 of 8 points</b>, with the hull under way the whole time.</p>
+    <figure class="fig">
+      <img src="slice-autowalk-corridor.webp" alt="In engine screenshot: the player character walking away down a narrow green corridor inside the Drifter toward a bright doorway" loading="lazy" width="1280" height="524">
+      <figcaption>AutoWalk's own screenshot, 24 September: corridor midpoint on the Drifter's stern route. The Drifter in this build is a rough draft, and it looks like one.</figcaption>
+    </figure>
+    <p>Then it found real problems, which is its whole job:</p>
+    <ul class="dots">
+      <li><b>The stairs.</b> The longer circuit stopped at the stair head both times. The opening there is 0.58 m and the player capsule is 0.68 m wide. A person might wiggle through. The robot reported STUCK. New rule: about 0.9 m clear on every walking path, every stair checked with a real capsule.</li>
+      <li><b>A slow editor hid bugs.</b> With the editor throttled to about 3 frames a second, a walk logged 0 disembarks. At 52 frames a second the same walk logged 5. Low frame rates can hide timing bugs, so tests now carry a minimum frame rate.</li>
+      <li><b>The grating.</b> The decks are iron grating, and stepping over a gap briefly lost the floor, so the ship let go of the player. We added a short grace window: lose the deck briefly, find it again quickly, and the ship keeps hold of you.</li>
+    </ul>
+    <p>To prove the grace window and not just believe it, we ran the same route both ways. <b>Grace off: RESULT FAIL, 4 disembarks.</b> <b>Grace on: RESULT PASS, 8 of 8, 7 recoveries, longest gap 3 frames.</b> The founder settled the length on 25 September: "Half second is good." That is 15 frames at the simulation's 30 frames a second.</p>
+    <figure class="fig">
+      <img src="slice-autowalk-rear-deck.webp" alt="In engine screenshot: the player character standing on the iron grating of the Drifter's stern deck, framed by a doorway" loading="lazy" width="1280" height="524">
+      <figcaption>The stern deck, from the passing run. Every AutoWalk point writes a screenshot like this beside its log.</figcaption>
+    </figure>
+
+    <h2>Step Four: Passengers That Measure</h2>
+    <p>Last, two scripted passengers on the moving Drifter on 25 September, checked purely on numbers:</p>
+    <ul class="dots">
+      <li>A standing passenger's world speed stayed within <b>0.000004 m/s</b> of the hull's 7.7778 m/s across samples spanning 2,730 frames.</li>
+      <li>A walking passenger read <b>9.2778 m/s</b>, which is the hull's speed plus its own 1.5 m/s walk, and covered 78.0 metres in 52.0 seconds.</li>
+    </ul>
+
+    <div class="boiler">
+      <p><b>What this proves:</b> a real player can board a moving hull in Unreal 5.8, then stand, walk, jump, step off and climb back on, on one machine and on a small listen server, and the server's movement checks hold in the ship's own frame.</p>
+      <p style="margin-top:.8rem"><b>What it does not prove:</b> anything about scale. One hull at a time, at most three players, no multi Strider load test yet. It does not prove client smoothness, and it does not prove the finished Drifter interior, which is still a draft. The vertical slice milestone itself is <b>not closed</b>: we are holding it open until the full walk circuit passes on the Drifter.</p>
+    </div>
+
+    <h2>What We're Acting On</h2>
+    <ol class="numlist">
+      <li><b>Smooth the client clock</b> so the hull stops running fast and snapping between corrections.</li>
+      <li><b>Finish the Drifter's walk circuit</b>: doors, ladders and that stairwell, then pass the full route.</li>
+      <li><b>Prove every build with AutoWalk</b>, with a minimum frame rate so a slow editor cannot hide a bug.</li>
+      <li><b>Start the multi Strider load test</b>, the first real evidence about more than one ship at a time.</li>
+    </ol>
+    <div class="tags">
+      <span class="tag">Vertical Slice</span>
+      <span class="tag">Netcode</span>
+      <span class="tag">Drifter</span>
+      <span class="tag">Grindwalker</span>
+      <span class="tag">Testing</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">For months the moving city was a promise. This week it carried someone. <em>Now we make it carry everyone.</em></p>
+    <a class="btn-ghost" href="devlog.html" style="margin-top:1.6rem">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector('.burger');
+if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});})();
+</script>
+</body>
+</html>
