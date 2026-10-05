@@ -16,7 +16,7 @@
 [x] (2026-10-02) Landed the Slipstreamer on the moving Grindwalker, got out, and the ship drove off without it.
 [x] (2026-10-03) The Grindwalker's new cooling tower came out too small and read like a grain silo.
 [x] (2026-10-04) Found out that an editor throttled to 3 frames a second was hiding bugs that showed up the moment it ran at full speed.
-[ ] (2026-10-05) The falling snow rendered upside down and turned with the player before it finally fell the right way.
+[x] (2026-10-05) The falling snow rendered upside down and turned with the player before it finally fell the right way.
 [ ] (2026-10-06) A builder's report and the saved file disagreed about the Colossus model's size, and only measuring the file caught it.
 [ ] (2026-10-07) Moved the day and night cycle onto the simulation clock so every player sees the same sky at the same moment.
 [ ] (2026-10-08) The new rain was invisible on screen because each streak texture was only about two millimetres wide.

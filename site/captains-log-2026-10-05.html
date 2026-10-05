@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Snow Finally Falling Down — Captain's Log, 5 Oct 2026 | COGHEIM</title>
+<meta name="description" content="Captain's Log, Log 029, 5 Oct 2026 — a real production entry from Michael Einwechter, founder of COGHEIM.">
+<link rel="canonical" href="https://cogheim.com/captains-log-2026-10-05.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Snow Finally Falling Down — Captain's Log, 5 Oct 2026">
+<meta property="og:description" content="Log 029 — a real production entry from the road to COGHEIM.">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Article", "headline": "Snow Finally Falling Down", "datePublished": "2026-10-05",
+      "author": {"@type": "Person", "name": "Michael Einwechter"},
+      "publisher": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/captains-log-2026-10-05.html"}
+  ]
+}
+</script>
+<style>
+:root{--iron:#0C0F12;--frost:#2A4F6F;--ember:#E26A26;--bronze:#B7903C;--steel:#4B515B;--ash:#A2A2A0;--parchment:#E8E2D4;--nav-safe-bottom:110px;--display:'Cinzel',serif;--body:'Saira',sans-serif;--label:'Saira Condensed',sans-serif;--mono:'JetBrains Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65}
+a{color:var(--bronze);text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:1.3rem;letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:1.6rem;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash)}
+.plain-header{padding:7rem 1.25rem 2rem;max-width:640px;margin:0 auto}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.8rem}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,4.4vw,2.3rem);color:#E8D08A;margin:.6rem 0 .3rem}
+.meta-line{font-family:var(--mono);font-size:.75rem;letter-spacing:.04em;color:var(--steel);text-transform:uppercase}
+.log-hero{max-width:640px;margin:1.4rem auto 0;border-radius:3px;overflow:hidden;border:1px solid rgba(183,144,60,.28)}
+.log-hero img{width:100%;height:auto;display:block}
+section{padding:0 1.25rem 3.5rem}
+.wrap-n{max-width:640px;margin:0 auto}
+.tx{border:1px solid rgba(183,144,60,.28);background:linear-gradient(180deg,rgba(42,79,111,.08),rgba(12,15,18,.5));padding:1.6rem 1.7rem;margin-top:1.2rem}
+.tx p{font-size:1rem;margin-bottom:.9rem}
+.tx-sign{font-family:var(--label);font-size:.8rem;letter-spacing:.1em;color:var(--steel);margin-top:1rem;text-align:right;font-style:italic}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block;margin-top:1.8rem}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem;text-align:center;color:var(--steel);font-size:.9rem}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a class="wordmark" href="index.html">COGHEIM</a>
+<div class="nav-links"><a href="index.html">Home</a><a href="devlog.html">Devlog</a><a href="captains-log.html">Captain's Log</a></div>
+</div></nav>
+<div class="plain-header">
+  <p class="eyebrow">Captain's Log</p>
+  <h1>Snow Finally Falling Down</h1>
+  <p class="meta-line">Log 029 &middot; 5 Oct 2026</p>
+</div>
+
+<div class="log-hero">
+  <img src="captains-log-hero-pool/tavern-01.webp" alt="A crowded tavern deck aboard the Drifter, music and lantern-light over a full house of crew off-shift" loading="eager">
+</div>
+
+<section><div class="wrap-n">
+  <div class="tx">
+      <p>Spent more time than I'd like to admit chasing a particle system bug where the falling snow was rendering upside down. Not subtly wrong — visibly, embarrassingly upside down, rising from the ground like the world had decided gravity was optional. Then, once I got the orientation corrected, the snowflakes started rotating with the player camera, so every time you turned, the whole blizzard spun with you like some kind of snow globe.</p>
+      <p>Fixing it meant going back into the particle emitter settings and untangling how the billboard orientation was being calculated relative to world space versus camera space. Simple in theory. Less simple when you're staring at it at hour three.</p>
+      <p>It's working now — snow falls down, stays put when you turn, looks like snow. Which sounds like a low bar, but these are the details that quietly break immersion when they're wrong and that nobody notices when they're right. That invisibility is the whole goal. On to the next one.</p>
+      <div class="tx-sign">&mdash; Boom</div>
+  </div>
+  <a class="btn-ghost" href="captains-log.html">&larr; All Transmissions</a>
+</div></section>
+<footer>&copy; 2026 Limitless Game Makers LLC &middot; Build. Move. Conquer.</footer>
+</body>
+</html>
