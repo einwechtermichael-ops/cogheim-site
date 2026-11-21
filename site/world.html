@@ -106,11 +106,15 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
       <a href="cogworks.html">Cogworks</a>
       <a href="devlog.html">Devlog</a>
       <a href="players.html">Players</a>
-      <a href="game-progress.html">Game Progress</a>
+      <a href="game-progress.html">Live Tracker</a>
       <div class="nav-drop">
         <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
         <div class="nav-drop-menu">
           <a href="world.html">World of Cogheim</a>
+          <a href="the-disc.html">The Disc</a>
+          <a href="characters.html">Characters</a>
+          <a href="features.html">Features</a>
+          <a href="threats.html">Threats</a>
           <a href="gallery.html">Gallery</a>
           <a href="books.html">Books</a>
           <a href="creators.html">Creators</a>
@@ -128,11 +132,27 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
 <header class="page-hero">
   <p class="eyebrow">World of Cogheim</p>
   <h1>Everything That Makes This World</h1>
-  <p class="sub">The Strider classes, the Drifter, the Syndicates that hold them together, the language the world was built on, and the ground they all walk across. This is the living index &mdash; it grows as each piece gets built.</p>
+  <p class="sub">The Strider classes, the Drifter, the Syndicates that hold them together, the language the world was built on, the things that hunt them, and the ground they all walk across. This is the living index &mdash; it grows as each piece gets built.</p>
 </header>
 
 <section>
   <div class="wrap">
+    <h2>Start Here</h2>
+    <p class="sechint">The long look, the people and the plan.</p>
+    <div class="grid">
+      <a class="card" href="the-disc.html">
+        <div class="ci" style="background-image:url(regions-hero.webp)"></div>
+        <div class="cc"><h3>The Disc</h3><p>A long look at the world in 2526</p><span class="badge live">Full Page Live</span></div>
+      </a>
+      <a class="card" href="characters.html">
+        <div class="ci" style="background-image:url(devlog-portraits-hero.webp)"></div>
+        <div class="cc"><h3>The Cast</h3><p>The crew of the Drifter and beyond</p><span class="badge live">Full Page Live</span></div>
+      </a>
+      <a class="card" href="features.html">
+        <div class="ci" style="background-image:url(hero-03-cogworks.jpg)"></div>
+        <div class="cc"><h3>Features</h3><p>What you will do, and how far along it is</p><span class="badge live">Full Page Live</span></div>
+      </a>
+    </div>
     <h2>The Strider Classes</h2>
     <p class="sechint">Five hulls, five heritages, five ways to live inside a moving city.</p>
     <div class="grid">
@@ -180,6 +200,18 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
       </div>
     </div>
 
+    <h2>Threats</h2>
+    <p class="sechint">What hunts a moving city.</p>
+    <div class="grid">
+      <a class="card" href="threats.html">
+        <div class="ci" style="background-image:url(gallery/11_production_images/001_auger_concept.webp)"></div>
+        <div class="cc"><h3>The Auger</h3><p>A kilometre of machine under the ground</p><span class="badge live">Full Page Live</span></div>
+      </a>
+      <a class="card" href="threats.html">
+        <div class="ci" style="background-image:url(gallery/11_production_images/013_colossus_goal.webp);background-position:center 20%"></div>
+        <div class="cc"><h3>The Colossus</h3><p>300 metres tall with a city in its chest</p><span class="badge live">Full Page Live</span></div>
+      </a>
+    </div>
     <h2>Language</h2>
     <p class="sechint">A real, learnable language &mdash; the way Star Trek has Klingon.</p>
     <div class="grid">
@@ -203,7 +235,7 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
 <footer>
   <div class="wordmark">COGHEIM</div>
   <div class="foot-lines">
-    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:studio@cogheim.com">studio@cogheim.com</a><br>
     Build. Move. Conquer.
   </div>
 </footer>
@@ -222,5 +254,6 @@ document.addEventListener('click',function(){
   document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
 });})();
 </script>
+<script src="cog-meter.js" defer></script>
 </body>
 </html>

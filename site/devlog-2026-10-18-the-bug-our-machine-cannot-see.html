@@ -161,11 +161,15 @@ code{font-family:'JetBrains Mono',monospace;font-size:.88em;color:var(--bronze)}
       <a href="cogworks.html">Cogworks</a>
       <a href="devlog.html">Devlog</a>
       <a href="players.html">Players</a>
-      <a href="game-progress.html">Game Progress</a>
+      <a href="game-progress.html">Live Tracker</a>
       <div class="nav-drop">
         <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
         <div class="nav-drop-menu">
           <a href="world.html">World of Cogheim</a>
+          <a href="the-disc.html">The Disc</a>
+          <a href="characters.html">Characters</a>
+          <a href="features.html">Features</a>
+          <a href="threats.html">Threats</a>
           <a href="gallery.html">Gallery</a>
           <a href="books.html">Books</a>
           <a href="creators.html">Creators</a>
@@ -248,7 +252,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.88em;color:var(--bronze)}
 <footer>
   <div class="wordmark">COGHEIM</div>
   <div class="foot-lines">
-    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:studio@cogheim.com">studio@cogheim.com</a><br>
     Build. Move. Conquer.
   </div>
 </footer>
@@ -266,5 +270,6 @@ document.addEventListener('click',function(){
   document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
 });})();
 </script>
+<script src="cog-meter.js" defer></script>
 </body>
 </html>

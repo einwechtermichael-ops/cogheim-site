@@ -119,6 +119,19 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
   .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
   .nav-drop-trigger{display:none}
 }
+.buildlog{list-style:none;margin:1.4rem 0 0;padding:0;border-left:2px solid rgba(183,144,60,.4)}
+.buildlog li{position:relative;padding:0 0 1.25rem 1.3rem}
+.buildlog li::before{content:'';position:absolute;left:-6px;top:.45rem;width:10px;height:10px;border-radius:50%;background:#F2A93B;box-shadow:0 0 8px rgba(242,169,59,.8)}
+.buildlog li.plan::before{background:#0b1418;border:1.5px solid #8FD3DF;box-shadow:0 0 7px rgba(143,211,223,.7);border-radius:1px;transform:rotate(45deg)}
+.buildlog .bl-d{display:block;font-family:var(--label,'Saira Condensed',sans-serif);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.74rem;color:#E9B866}
+.buildlog li.plan .bl-d{color:#8FD3DF}
+.buildlog .bl-t{color:var(--parchment);font-weight:600}
+.buildlog p{margin:.15rem 0 0;color:var(--ash);font-size:.95rem}
+.bl-note{font-size:.88rem;color:var(--steel);margin-top:.6rem}
+.bl-live{display:inline-block;font-family:var(--label,'Saira Condensed',sans-serif);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#7FBF6A;border:1px solid rgba(127,191,106,.45);border-radius:999px;padding:.12rem .6rem;margin-bottom:.6rem}
+.bl-live::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#7FBF6A;margin-right:.45em;animation:blp 1.8s ease-in-out infinite}
+@keyframes blp{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.bl-live::before{animation:none}}
 </style>
 </head>
 <body>
@@ -131,11 +144,15 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
       <a href="cogworks.html">Cogworks</a>
       <a href="devlog.html">Devlog</a>
       <a href="players.html">Players</a>
-      <a href="game-progress.html">Game Progress</a>
+      <a href="game-progress.html">Live Tracker</a>
       <div class="nav-drop">
         <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
         <div class="nav-drop-menu">
           <a href="world.html">World of Cogheim</a>
+          <a href="the-disc.html">The Disc</a>
+          <a href="characters.html">Characters</a>
+          <a href="features.html">Features</a>
+          <a href="threats.html">Threats</a>
           <a href="gallery.html">Gallery</a>
           <a href="books.html">Books</a>
           <a href="creators.html">Creators</a>
@@ -271,6 +288,16 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
   </div>
 </section>
 
+<section id="build-log">
+  <div class="wrap-n">
+    <span class="bl-live">Construction Feed</span>
+    <h2>Build Log</h2>
+    <p>The Grindwalker is the hull getting the most hands on work right now. Newest first. Amber marks are work that happened. The cyan mark is what comes next.</p>
+    <ul class="buildlog"><li class="plan"><span class="bl-d">Next</span><span class="bl-t">Dress the new hulls</span><p>Streets, towers, both train lines and the mixed city go back on, then railings and wear.</p></li><li><span class="bl-d">20 Nov 2026</span><span class="bl-t">Onto new hulls</span><p>The ship moved onto two newly made hulls. The arch, the crown, the streets, the air field and the music hall all carry across.</p></li><li><span class="bl-d">20 Nov 2026</span><span class="bl-t">A train on both hulls</span><p>The elevated L train gets a line on each hull, ramping up from deck level with the tower as a stop.</p></li><li><span class="bl-d">19 Nov 2026</span><span class="bl-t">The bridge war table</span><p>A floor map of the ground around the ship went into the crown, with a hanging projector of rotating lenses that throws holograms onto it. The founder on the projector: "perfect."</p></li><li><span class="bl-d">18 Nov 2026</span><span class="bl-t">Ferris wheel comes off</span><p>Removed so it can be rebuilt properly. Its place on the deck is kept.</p></li><li><span class="bl-d">2 Nov 2026</span><span class="bl-t">Chairlift out, train in</span><p>The chairlift across the deck was retired in favour of an elevated trolley.</p></li><li><span class="bl-d">30 Oct 2026</span><span class="bl-t">Lattice arch towers</span><p>The lumpy arch towers were rebuilt as open lattice with a lookout above the crown.</p></li><li><span class="bl-d">29 Oct 2026</span><span class="bl-t">Real buildings on deck</span><p>Hundreds of solid model houses started giving way to kit buildings with real doors and rooms.</p></li><li><span class="bl-d">28 Oct 2026</span><span class="bl-t">Fastest class</span><p>Top speed raised to 30 km/h. It runs on tyres, so it should be able to run anything down.</p></li><li><span class="bl-d">3 Oct 2026</span><span class="bl-t">First terrain ride</span><p>Covered in the devlog: <a href="devlog-grindwalker-v18-runway-retires.html">V8 to V18</a>.</p></li></ul>
+    <p class="bl-note">Dates are when the work or the decision happened. Nothing here is a release date, and direction can still change. Last updated 20 November 2026. The <a href="game-progress.html" style="color:var(--ember)">live tracker</a> covers the whole project.</p>
+  </div>
+</section>
+
 <section>
   <div class="wrap-n">
     <h2>Other Classes</h2>
@@ -287,7 +314,7 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
 <footer>
   <div class="wordmark">COGHEIM</div>
   <div class="foot-lines">
-    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:studio@cogheim.com">studio@cogheim.com</a><br>
     Build. Move. Conquer.
   </div>
 </footer>
@@ -306,5 +333,6 @@ document.addEventListener('click',function(){
   document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
 });})();
 </script>
+<script src="cog-meter.js" defer></script>
 </body>
 </html>

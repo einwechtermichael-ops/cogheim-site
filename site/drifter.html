@@ -108,6 +108,19 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
   .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
   .nav-drop-trigger{display:none}
 }
+.buildlog{list-style:none;margin:1.4rem 0 0;padding:0;border-left:2px solid rgba(183,144,60,.4)}
+.buildlog li{position:relative;padding:0 0 1.25rem 1.3rem}
+.buildlog li::before{content:'';position:absolute;left:-6px;top:.45rem;width:10px;height:10px;border-radius:50%;background:#F2A93B;box-shadow:0 0 8px rgba(242,169,59,.8)}
+.buildlog li.plan::before{background:#0b1418;border:1.5px solid #8FD3DF;box-shadow:0 0 7px rgba(143,211,223,.7);border-radius:1px;transform:rotate(45deg)}
+.buildlog .bl-d{display:block;font-family:var(--label,'Saira Condensed',sans-serif);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.74rem;color:#E9B866}
+.buildlog li.plan .bl-d{color:#8FD3DF}
+.buildlog .bl-t{color:var(--parchment);font-weight:600}
+.buildlog p{margin:.15rem 0 0;color:var(--ash);font-size:.95rem}
+.bl-note{font-size:.88rem;color:var(--steel);margin-top:.6rem}
+.bl-live{display:inline-block;font-family:var(--label,'Saira Condensed',sans-serif);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#7FBF6A;border:1px solid rgba(127,191,106,.45);border-radius:999px;padding:.12rem .6rem;margin-bottom:.6rem}
+.bl-live::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#7FBF6A;margin-right:.45em;animation:blp 1.8s ease-in-out infinite}
+@keyframes blp{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.bl-live::before{animation:none}}
 </style>
 </head>
 <body>
@@ -120,11 +133,15 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
       <a href="cogworks.html">Cogworks</a>
       <a href="devlog.html">Devlog</a>
       <a href="players.html">Players</a>
-      <a href="game-progress.html">Game Progress</a>
+      <a href="game-progress.html">Live Tracker</a>
       <div class="nav-drop">
         <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
         <div class="nav-drop-menu">
           <a href="world.html">World of Cogheim</a>
+          <a href="the-disc.html">The Disc</a>
+          <a href="characters.html">Characters</a>
+          <a href="features.html">Features</a>
+          <a href="threats.html">Threats</a>
           <a href="gallery.html">Gallery</a>
           <a href="books.html">Books</a>
           <a href="creators.html">Creators</a>
@@ -192,7 +209,17 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
   <div class="wrap-n">
     <h2>The First Voice You'll Hear</h2>
     <p class="hook">"You're not a passenger here. Nobody is."</p>
-    <p class="dim">That's Tiffany Cloud-Field &mdash; Captain of the Drifter, and the first voice every player hears in all of Cogheim. Not a tutorial narrator reading you a script. A person, actually in command of the ship you're standing on, actually talking to you.</p>
+    <p class="dim">That's Suzette Rayo-Amor &mdash; Captain of the Drifter, and the first voice every player hears in all of Cogheim. Not a tutorial narrator reading you a script. A person, actually in command of the ship you're standing on, actually talking to you.</p>
+  </div>
+</section>
+
+<section id="build-log">
+  <div class="wrap-n">
+    <span class="bl-live">Construction Feed</span>
+    <h2>Build Log</h2>
+    <p>The Drifter is where every player starts, so it is the ship closest to playable. Newest first. Amber marks are work that happened. The cyan mark is what comes next.</p>
+    <ul class="buildlog"><li class="plan"><span class="bl-d">Next</span><span class="bl-t">Crew aboard and a full walk circuit</span><p>Finished characters at their posts, beds and seats you can use, and every door and stair passable.</p></li><li><span class="bl-d">17 Nov 2026</span><span class="bl-t">Becoming one drop in ship</span><p>The Drifter is being turned into a single placeable ship so every new player can be given one. Wheel and track covers came off and the railings were rebuilt in rusted square tube.</p></li><li><span class="bl-d">15 Nov 2026</span><span class="bl-t">The crew gets faces</span><p>Head and body work started on the characters who live aboard. <a href="characters.html">Meet them</a>.</p></li><li><span class="bl-d">24 Oct 2026</span><span class="bl-t">Walked while under way</span><p>A player walked the inside of the Drifter while it travelled.</p></li><li><span class="bl-d">12 Oct 2026</span><span class="bl-t">A village on wheels and tracks</span><p>The old shell came off. Walls and roofs were rebuilt from modular kits, the helm was raised, and the roof became a launch pad for the Slipstreamer.</p></li><li><span class="bl-d">11 Oct 2026</span><span class="bl-t">New running gear</span><p>Tracks rebuilt five links wide with sprockets and bogies on every row.</p></li><li><span class="bl-d">24 Sep 2026</span><span class="bl-t">First ride</span><p>A player rode the Drifter for about 134 seconds at full speed. <a href="devlog-moving-city-first-ride.html">Read the post</a>.</p></li></ul>
+    <p class="bl-note">Dates are when the work or the decision happened. Nothing here is a release date, and direction can still change. Last updated 20 November 2026. The <a href="game-progress.html" style="color:var(--ember)">live tracker</a> covers the whole project.</p>
   </div>
 </section>
 
@@ -212,7 +239,7 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
 <footer>
   <div class="wordmark">COGHEIM</div>
   <div class="foot-lines">
-    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:studio@cogheim.com">studio@cogheim.com</a><br>
     Build. Move. Conquer.
   </div>
 </footer>
@@ -231,5 +258,6 @@ document.addEventListener('click',function(){
   document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
 });})();
 </script>
+<script src="cog-meter.js" defer></script>
 </body>
 </html>

@@ -156,11 +156,15 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
       <a href="cogworks.html">Cogworks</a>
       <a href="devlog.html">Devlog</a>
       <a href="players.html">Players</a>
-      <a href="game-progress.html">Game Progress</a>
+      <a href="game-progress.html">Live Tracker</a>
       <div class="nav-drop">
         <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
         <div class="nav-drop-menu">
           <a href="world.html">World of Cogheim</a>
+          <a href="the-disc.html">The Disc</a>
+          <a href="characters.html">Characters</a>
+          <a href="features.html">Features</a>
+          <a href="threats.html">Threats</a>
           <a href="gallery.html">Gallery</a>
           <a href="books.html">Books</a>
           <a href="creators.html">Creators</a>
@@ -199,6 +203,16 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
     <p>These bars measure how much of the declared scope has reached which verification state. They are not a schedule, and not a measure of time remaining. Nothing here counts as finished until it has been built, run, and verified against a log. Cogheim is in development; targets on this page are targets, not achievements.</p>
   </div>
 </header>
+
+<section id="meter">
+  <div class="wrap-n" style="max-width:1100px">
+    <p class="eyebrow">The Whole Project On One Gauge</p>
+    <h2>Milestones Hit, Goals Ahead</h2>
+    <p class="dim">Amber is behind us. Cyan is still ahead. The fluid fills to today's date, so this gauge shows time and milestones, not a percentage of work done. Goal dates are goals. They are not release dates and they can move.</p>
+    <div id="cog-meter-big"></div>
+  </div>
+</section>
+
 
 <section>
   <div class="wrap-n">
@@ -258,7 +272,7 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
 <footer>
   <div class="wordmark">COGHEIM</div>
   <div class="foot-lines">
-    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:studio@cogheim.com">studio@cogheim.com</a><br>
     Build. Move. Conquer.
   </div>
 </footer>
@@ -298,5 +312,6 @@ if(reduceMotion){
 }
 })();
 </script>
+<script src="cog-meter.js" defer></script>
 </body>
 </html>

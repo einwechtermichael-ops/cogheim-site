@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Threats of Cogheim: The Auger and the Colossus | COGHEIM</title>
+<meta name="description" content="Meet the Auger, a kilometre long burrowing machine that breaches like a whale, and the 300 metre Colossus with a city in its chest. Concept art and first pass Unreal captures from COGHEIM.">
+<link rel="canonical" href="https://cogheim.com/threats.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Threats of Cogheim: The Auger and the Colossus | COGHEIM">
+<meta property="og:description" content="A kilometre of machine under the ground and a walking fortress above it. Concept art and first pass engine captures.">
+<meta property="og:image" content="https://cogheim.com/threats-hero.jpg">
+<meta property="og:image:width" content="1600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/threats-hero.jpg">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "WebPage", "name": "Threats of Cogheim: the Auger and the Colossus", "url": "https://cogheim.com/threats.html", "dateModified": "2026-11-14",
+     "publisher": {"@type": "Organization", "name": "Limitless Game Makers LLC"}},
+    {"@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+      {"@type": "ListItem", "position": 2, "name": "World of Cogheim", "item": "https://cogheim.com/world.html"},
+      {"@type": "ListItem", "position": 3, "name": "Threats", "item": "https://cogheim.com/threats.html"}
+    ]}
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.wordmark-logo{display:flex;align-items:center;flex-shrink:0}
+.wordmark-logo img{width:clamp(120px,16vw,170px);height:auto;display:block}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.numlist{list-style:none;counter-reset:step;margin:1rem 0 0;max-width:720px}
+.numlist li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.6rem;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.35)}
+.numlist li:last-child{border-bottom:0}
+.numlist li::before{content:counter(step);position:absolute;left:0;top:.6rem;font-family:var(--display);font-weight:700;color:var(--ember);font-size:1rem;width:1.9rem;text-align:center}
+.numlist li b{color:var(--parchment);font-weight:600}
+.evidence{width:100%;border-collapse:collapse;margin:1.3rem 0 1.8rem;font-size:.92rem}
+.evidence th,.evidence td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid rgba(75,81,91,.35);vertical-align:top}
+.evidence th{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem;color:var(--bronze);border-bottom:1px solid rgba(183,144,60,.4)}
+.evidence td{color:var(--ash)}
+.evidence td:first-child{color:var(--parchment)}
+.evidence tr:last-child td{border-bottom:0}
+.srclist{list-style:none;margin:1rem 0 0;max-width:720px;font-size:.9rem}
+.srclist li{padding:.5rem 0;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.25)}
+.srclist li:last-child{border-bottom:0}
+.srclist code{font-family:'JetBrains Mono',monospace;color:var(--bronze);font-size:.85rem}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;padding:.9rem 2.2rem;border-radius:3px;cursor:pointer;transition:box-shadow .25s;display:inline-block;border:1px solid #E8956A;background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff;box-shadow:0 0 18px rgba(226,106,38,.4)}
+.btn:hover{box-shadow:0 0 30px rgba(226,106,38,.7)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+a.inline-link{color:var(--ember);border-bottom:1px solid rgba(226,106,38,.35)}
+a.inline-link:hover{border-bottom-color:var(--ember)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .evidence{font-size:.82rem}
+  .evidence th,.evidence td{padding:.55rem .5rem}
+}
+.page-hero.devlog{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(threats-hero.jpg) center/cover no-repeat}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+.fig{margin:1.6rem 0}
+.fig img{width:100%;height:auto;border:1px solid rgba(183,144,60,.28);border-radius:3px}
+.fig figcaption{font-family:var(--label);font-size:.85rem;letter-spacing:.04em;color:var(--steel);margin-top:.5rem}
+.pairrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.6rem 0}
+.pairrow .fig{margin:0}
+@media (max-width:640px){.pairrow{grid-template-columns:1fr}}
+ul.dots{list-style:none;margin:.4rem 0 1.2rem}
+ul.dots li{position:relative;padding:.35rem 0 .35rem 1.4rem;color:var(--ash)}
+ul.dots li::before{content:"";position:absolute;left:.2rem;top:.95rem;width:6px;height:6px;background:var(--ember);transform:rotate(45deg)}
+ul.dots li b{color:var(--parchment)}
+pre.logline{font-family:'JetBrains Mono',monospace;font-size:.8rem;white-space:pre-wrap;word-break:break-word;background:rgba(0,0,0,.35);border:1px solid rgba(75,81,91,.5);border-left:3px solid var(--frost);padding:.8rem 1rem;color:#9fc3dd;margin:0 0 1rem}
+code{font-family:'JetBrains Mono',monospace;font-size:.88em;color:var(--bronze)}
+.triorow{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.6rem 0}
+.triorow .fig{margin:0}
+@media (max-width:760px){.triorow{grid-template-columns:1fr}}
+.stage{display:inline-block;font-family:var(--label);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.1rem .55rem;margin-right:.4rem}
+.narrowfig{max-width:420px;margin-left:auto;margin-right:auto}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark-logo" href="index.html"><img src="cogheim-logo.webp" alt="COGHEIM" width="560" height="190"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Live Tracker</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="the-disc.html">The Disc</a>
+          <a href="characters.html">Characters</a>
+          <a href="features.html">Features</a>
+          <a href="threats.html">Threats</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero devlog">
+  <div class="ph-content">
+    <p class="eyebrow">World of Cogheim &middot; Threats</p>
+    <h1>What Hunts the Disc</h1>
+    <p class="sub">A Strider is a city, and a city is a lot of metal to notice. This page covers the machines that notice it: the Auger under the ground, the Colossus above it, and the enemies still on the drawing board. Everything here is marked as concept art, first pass engine work or design, so you always know which one you are looking at.</p>
+    <div class="facts">
+      <div class="fact"><b>Featured</b><span>The Auger</span></div>
+      <div class="fact"><b>Also Here</b><span>The Colossus and its garrison</span></div>
+      <div class="fact"><b>Status</b><span>In development, nothing final</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <h2>The Auger</h2>
+    <p>You hear it before you see it. A low rumble under your boots, then the ground ahead lifts into a hill that was not there a moment ago. The hill splits, and a machine about a kilometre long comes out of it like a whale leaving the sea.</p>
+    <p>The crews call it <b>the Auger</b>. It is sealed. No doors, no ladders, no railings, no way in. Nobody built it for people. It lives under the disc, it follows old routes down there, and it comes up for one reason: something on the surface is worth eating.</p>
+    <figure class="fig">
+      <img src="gallery/11_production_images/001_auger_concept.webp" alt="Concept painting of the Auger, a vast armoured burrowing machine, bursting out of rocky ground beside a walking Strider city" loading="lazy" width="1280" height="720">
+      <figcaption><span class="stage">Concept art</span>The Auger breaching beside a Strider. This painting set the scale we are building toward.</figcaption>
+    </figure>
+    <div class="facts">
+      <div class="fact"><b>Length</b><span>About a kilometre, most of it underground</span></div>
+      <div class="fact"><b>Head</b><span>110 metres tall</span></div>
+      <div class="fact"><b>Speed</b><span>About 36 km/h below, 23 km/h on the surface</span></div>
+      <div class="fact"><b>How Many</b><span>Five or six on the whole disc</span></div>
+      <div class="fact"><b>A Visit</b><span>About 30 minutes, then it goes back under</span></div>
+      <div class="fact"><b>Spacing</b><span>Never two in the same region or the one next door</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--steel);margin-top:.7rem">These are the numbers we are building to today. They will be tuned by play.</p>
+
+    <h2>The Head</h2>
+    <p>The face of the Auger is a wall of cutting domes in warm brass and bronze, the one place in the world where we let brass take over from dark iron. Behind the domes is the throat, and the throat is fire. It is meant to be the last place on the disc you want to be standing near.</p>
+    <div class="pairrow">
+      <figure class="fig">
+      <img src="gallery/11_production_images/002_auger_head_turnaround.webp" alt="Concept sheet showing the Auger head from the front, side, back and three quarter view, with a 110 metre height marker" loading="lazy" width="1280" height="853">
+      <figcaption><span class="stage">Concept art</span>The head turnaround that went forward to production.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/003_auger_fire_throat.webp" alt="In engine close view into the Auger mouth: rings of cutting teeth around a glowing orange throat" loading="lazy" width="1280" height="659">
+      <figcaption><span class="stage">In engine, first pass</span>The fire throat, built in Unreal.</figcaption>
+    </figure>
+    </div>
+
+    <h2>How It Arrives</h2>
+    <p>The breach is the whole show, so it gets the most work. The ground swells first. Then it bursts, the head corkscrews out, and the Auger tips over and lands on its belly. From there it swims, with the body following the head round in one long curve while the tail is still coming out of the hole.</p>
+    <div class="triorow">
+      <figure class="fig">
+      <img src="gallery/11_production_images/004_auger_breach_head.webp" alt="In engine capture: the Auger head corkscrewing out of a sand dune, throwing dust" loading="lazy" width="1200" height="578">
+      <figcaption><span class="stage">In engine, first pass</span>The head comes out.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/005_auger_breach_slabs.webp" alt="In engine capture: the Auger rising from a dune with slabs of ground thrown into the air" loading="lazy" width="960" height="462">
+      <figcaption><span class="stage">In engine, first pass</span>Ground thrown at the peak.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/006_auger_belly_landing.webp" alt="In engine capture: the Auger landed on its belly across a dune in a cloud of dust" loading="lazy" width="960" height="462">
+      <figcaption><span class="stage">In engine, first pass</span>The belly landing.</figcaption>
+    </figure>
+    </div>
+    <div class="pairrow">
+      <figure class="fig">
+      <img src="gallery/11_production_images/008_auger_ten_segments.webp" alt="In engine capture: the long segmented body of the Auger curving across a dune, with torn joints between segments" loading="lazy" width="1200" height="578">
+      <figcaption><span class="stage">In engine, first pass</span>Ten segments with torn joints between them.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/009_auger_tail.webp" alt="In engine capture: the tail cap of the Auger crossing a dune after the head has dived back under" loading="lazy" width="1200" height="578">
+      <figcaption><span class="stage">In engine, first pass</span>The tail still crossing after the head has gone under.</figcaption>
+    </figure>
+    </div>
+    <div class="boiler">
+      <p><b>What you are looking at:</b> captures from the Unreal editor on a test stretch of ground, first pass. The founder's review of the first breach was "ok first pass, a lot to improve," and that is where it stands. The shapes, the dust and the sound are all still being worked. This is the look only. The hunting behaviour has been written and has not yet been compiled or tested.</p>
+    </div>
+
+    <h2>What It Does When It Finds You</h2>
+    <ul class="dots">
+      <li><b>It hunts like a shark.</b> It stays under until there is something to eat or attack, comes up for it, then goes back down.</li>
+      <li><b>It picks one target.</b> Put two Striders in front of it and it cannot chase both, so it chooses one and commits.</li>
+      <li><b>People and small vehicles are in real danger.</b> If you are on foot or in something light, you run.</li>
+      <li><b>A Strider gets shoved, not sunk.</b> The Auger does go after a Strider, but it can barely hurt one. Expect a hard nudge, dents, sparks, smoke and maybe a broken drivetrain. It never destroys a whole Strider.</li>
+      <li><b>It leaves the monuments alone.</b> It can circle one. It cannot destroy one, and it steers around large stone structures.</li>
+    </ul>
+
+    <h2>How You Survive It</h2>
+    <p>You do not fight the Auger head on. You out run it or you out smart it.</p>
+    <ul class="dots">
+      <li><b>Make it surface.</b> Underground it is faster than any Strider. On the surface it slows down, and a hull at speed can pull away.</li>
+      <li><b>Throw a decoy.</b> A decoy pulls the Auger to itself. It can never be used to drop the Auger onto someone else's hull.</li>
+      <li><b>Turn it with fire.</b> Heavy enough fire, meaning a main gun crew or several crews together, can change its course.</li>
+      <li><b>Watch the ground.</b> You feel the tremors and hear it coming. In the shallows you see the water swell. The warning is always there if you are paying attention.</li>
+    </ul>
+    <p>Whether an Auger can ever be killed is an open design question. We have not decided, so we are not going to pretend.</p>
+
+    <h2>What It Leaves Behind</h2>
+    <p>An Auger cuts a trench through whatever it crossed. For five to ten minutes that trench is a warning: it came through here, and it may come back. After that it is a payday. Felled trees, broken stone and cracked ground stay behind for crews to collect once the danger has moved on. So an Auger arriving is a threat for half an hour and a reason to come back afterwards.</p>
+    <div class="triorow">
+      <figure class="fig">
+      <img src="gallery/11_production_images/010_auger_in_trees.webp" alt="In engine capture: the rusted segmented body of the Auger passing through a stand of small trees" loading="lazy" width="1200" height="578">
+      <figcaption><span class="stage">In engine, first pass</span>Through tree cover. The trees give it scale.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/011_auger_trench.webp" alt="In engine capture: a dark dug trench curving through a stand of trees after the Auger has passed" loading="lazy" width="1200" height="578">
+      <figcaption><span class="stage">In engine, first pass</span>The trench afterwards.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/012_auger_trail_above.webp" alt="In engine capture from straight above: a dark curved trail scarred into pale ground beside a small lake" loading="lazy" width="1200" height="578">
+      <figcaption><span class="stage">In engine, first pass</span>From straight above, the trail reads at a glance.</figcaption>
+    </figure>
+    </div>
+    <p style="font-size:.9rem;color:var(--steel)">The trail and the harvest are design direction. Today the trench is a visual test on one machine. The version every player sees and collects from is still to be built.</p>
+
+    <h2>The Colossus</h2>
+    <p>If the Auger is the thing under the ground, the Colossus is the thing you can see from two regions away. It stands about 300 metres tall, roughly twice the height of the tallest Strider, and it carries a city in its chest.</p>
+    <div class="pairrow">
+      <figure class="fig">
+        <img src="gallery/11_production_images/013_colossus_goal.webp" alt="Concept painting of the Colossus, a towering humanoid machine with a lit city built into its chest, standing over a dusty plain at sunset" loading="lazy" width="1024" height="1536">
+        <figcaption><span class="stage">Concept art</span>The goal image for the Colossus.</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="gallery/11_production_images/014_colossus_garrison_bot.webp" alt="Concept render of a lean iron android with two red eyes, the Colossus garrison bot" loading="lazy" width="1064" height="1478">
+        <figcaption><span class="stage">Concept art</span>A garrison bot. Lean, iron, two red eyes.</figcaption>
+      </figure>
+    </div>
+    <ul class="dots">
+      <li><b>It is not hunting you.</b> The Colossus defends itself. Attack it and it answers everything that is shooting at it.</li>
+      <li><b>It is crewed.</b> Garrison bots stand on its balconies, man its guns and guard its feet. They carry an electric rifle called the Leyden Longarm, and they are tough.</li>
+      <li><b>It wakes slowly.</b> Before a Colossus rises it stirs: shoulders above the ground, lights on, the city inside coming alive, the bots already at the guns.</li>
+      <li><b>It can be brought down.</b> A Colossus falls in the end. It can do heavy damage on the way, but it can never destroy a whole Strider.</li>
+      <li><b>It takes a crowd.</b> A Colossus event is planned to run for days, not minutes, and no single Strider ends it alone.</li>
+    </ul>
+    <figure class="fig">
+      <img src="gallery/11_production_images/015_colossus_stirring.webp" alt="In engine capture: the upper body of the Colossus, spires and arches, standing above flat ground as it stirs" loading="lazy" width="1280" height="663">
+      <figcaption><span class="stage">In engine, test scene</span>The stirring pose in a test scene: shoulders and spires above the ground line before the rise.</figcaption>
+    </figure>
+    <div class="triorow">
+      <figure class="fig">
+      <img src="gallery/11_production_images/016_colossus_whole_body.webp" alt="In engine capture: the full Colossus model standing in an empty test scene with its weapons mounted" loading="lazy" width="1279" height="716">
+      <figcaption><span class="stage">In engine, test scene</span>The whole body with its weapons mounted.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/017_colossus_crown.webp" alt="In engine capture: mortar batteries set among the spires on the crown of the Colossus" loading="lazy" width="1279" height="716">
+      <figcaption><span class="stage">In engine, test scene</span>Mortar batteries among the crown spires.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/018_colossus_gun_crew.webp" alt="In engine capture: small garrison bots standing on top of a huge turret on the Colossus" loading="lazy" width="1280" height="716">
+      <figcaption><span class="stage">In engine, test scene</span>Garrison bots on a turret. The bots are a little over two metres tall.</figcaption>
+    </figure>
+    </div>
+    <p style="font-size:.9rem;color:var(--steel)">These are captures from a bare test scene with plain materials. A more detailed production build of the Colossus is planned.</p>
+
+    <h2>Enemies on Foot and on the Road</h2>
+    <p>The big machines are not the whole list. The world needs enemies you meet at eye level too, and that work is in design now.</p>
+    <ul class="dots">
+      <li><b>Mostly mechanical, with some living things.</b> The disc is a machine world and most of what fights you will be machine.</li>
+      <li><b>No two alike.</b> Enemies on foot are being built on ten body types with mixed faces and mixed clothing so a crowd of them never looks like copies.</li>
+      <li><b>Runs for a crowd.</b> We are designing forty enemy runs across foot, vehicle, air and water for groups of thirty to forty players, so newer players can ride along with veterans. Loot is never shared out of one pile. Everyone gathers their own.</li>
+      <li><b>You can take their machines.</b> Capturing enemy machines and stripping them for parts is planned as a big part of the game.</li>
+    </ul>
+    <div class="boiler">
+      <p><b>Honest status:</b> there is nothing to show for this group yet, so we are not showing anything. Names and art will go up here when they are real.</p>
+      <p style="margin-top:.8rem"><b>One rule already holds:</b> nothing about any enemy can be bought. No paid escapes, no paid repairs, no paid loot. Zero pay to win covers the monsters too.</p>
+    </div>
+    <div class="tags">
+      <span class="tag">The Auger</span>
+      <span class="tag">Colossus</span>
+      <span class="tag">Garrison Bots</span>
+      <span class="tag">Enemies</span>
+      <span class="tag">In Development</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">The city moves because standing still was never safe. <em>Now you know what is under it.</em></p>
+    <a class="btn-ghost" href="world.html" style="margin-top:1.6rem">&larr; World of Cogheim</a>
+    <a class="btn-ghost" href="gallery.html" style="margin-top:1.6rem;margin-left:.6rem">Production Images &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:studio@cogheim.com">studio@cogheim.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector('.burger');
+if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});})();
+</script>
+<script src="cog-meter.js" defer></script>
+</body>
+</html>

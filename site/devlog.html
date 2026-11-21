@@ -117,11 +117,15 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
       <a href="cogworks.html">Cogworks</a>
       <a href="devlog.html">Devlog</a>
       <a href="players.html">Players</a>
-      <a href="game-progress.html">Game Progress</a>
+      <a href="game-progress.html">Live Tracker</a>
       <div class="nav-drop">
         <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
         <div class="nav-drop-menu">
           <a href="world.html">World of Cogheim</a>
+          <a href="the-disc.html">The Disc</a>
+          <a href="characters.html">Characters</a>
+          <a href="features.html">Features</a>
+          <a href="threats.html">Threats</a>
           <a href="gallery.html">Gallery</a>
           <a href="books.html">Books</a>
           <a href="creators.html">Creators</a>
@@ -165,6 +169,16 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
         <div class="ptags"><span class="ptag">Unreal Engine</span><span class="ptag">Threading</span><span class="ptag">Tools</span></div>
         <p>Two crashes this week, one in the engine and one in our own tools, came from the same small gap: the moment between checking that something is safe and actually using it.</p>
         <a class="readmore" href="devlog-2026-11-15-between-the-check-and-the-use.html">Read the full post &rarr;</a>
+      </div>
+    </div>
+    <div class="post-card">
+      <img src="threats-hero.jpg" alt="Concept painting of the Auger, a vast burrowing machine, bursting from the ground beside a walking Strider city" loading="lazy">
+      <div class="copy">
+        <p class="peyebrow">14 November 2026 &middot; Enemies</p>
+        <h3>The Auger: Building a Kilometre of Bad News</h3>
+        <div class="ptags"><span class="ptag">The Auger</span><span class="ptag">Enemies</span><span class="ptag">First Pass</span></div>
+        <p>COGHEIM's burrowing giant went from one line of direction to a first breach in the engine. What it is, what the founder said about the first pass, and what is still not built.</p>
+        <a class="readmore" href="devlog-the-auger-first-breach.html">Read the full post &rarr;</a>
       </div>
     </div>
     <div class="post-card">
@@ -424,7 +438,7 @@ footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5re
 <footer>
   <div class="wordmark">COGHEIM</div>
   <div class="foot-lines">
-    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:studio@cogheim.com">studio@cogheim.com</a><br>
     Build. Move. Conquer.
   </div>
 </footer>
@@ -442,5 +456,6 @@ document.addEventListener('click',function(){
   document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
 });})();
 </script>
+<script src="cog-meter.js" defer></script>
 </body>
 </html>

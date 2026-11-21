@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Auger: Building a Kilometre of Bad News</title>
+<meta name="description" content="COGHEIM's burrowing giant, from one line of direction to a first breach in Unreal. What it is, what the first pass looked like, and what is still not built.">
+<link rel="canonical" href="https://cogheim.com/devlog-the-auger-first-breach.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Auger: Building a Kilometre of Bad News">
+<meta property="og:description" content="A kilometre long machine that breaches like a whale. The first pass, the review, and the honest limits.">
+<meta property="og:image" content="https://cogheim.com/threats-hero.jpg">
+<meta property="og:image:width" content="1600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/threats-hero.jpg">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "TechArticle", "headline": "The Auger: Building a Kilometre of Bad News", "datePublished": "2026-11-14",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"}, "url": "https://cogheim.com/devlog-the-auger-first-breach.html"},
+    {"@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+      {"@type": "ListItem", "position": 3, "name": "The Auger", "item": "https://cogheim.com/devlog-the-auger-first-breach.html"}
+    ]}
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.wordmark-logo{display:flex;align-items:center;flex-shrink:0}
+.wordmark-logo img{width:clamp(120px,16vw,170px);height:auto;display:block}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.numlist{list-style:none;counter-reset:step;margin:1rem 0 0;max-width:720px}
+.numlist li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.6rem;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.35)}
+.numlist li:last-child{border-bottom:0}
+.numlist li::before{content:counter(step);position:absolute;left:0;top:.6rem;font-family:var(--display);font-weight:700;color:var(--ember);font-size:1rem;width:1.9rem;text-align:center}
+.numlist li b{color:var(--parchment);font-weight:600}
+.evidence{width:100%;border-collapse:collapse;margin:1.3rem 0 1.8rem;font-size:.92rem}
+.evidence th,.evidence td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid rgba(75,81,91,.35);vertical-align:top}
+.evidence th{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem;color:var(--bronze);border-bottom:1px solid rgba(183,144,60,.4)}
+.evidence td{color:var(--ash)}
+.evidence td:first-child{color:var(--parchment)}
+.evidence tr:last-child td{border-bottom:0}
+.srclist{list-style:none;margin:1rem 0 0;max-width:720px;font-size:.9rem}
+.srclist li{padding:.5rem 0;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.25)}
+.srclist li:last-child{border-bottom:0}
+.srclist code{font-family:'JetBrains Mono',monospace;color:var(--bronze);font-size:.85rem}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;padding:.9rem 2.2rem;border-radius:3px;cursor:pointer;transition:box-shadow .25s;display:inline-block;border:1px solid #E8956A;background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff;box-shadow:0 0 18px rgba(226,106,38,.4)}
+.btn:hover{box-shadow:0 0 30px rgba(226,106,38,.7)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+a.inline-link{color:var(--ember);border-bottom:1px solid rgba(226,106,38,.35)}
+a.inline-link:hover{border-bottom-color:var(--ember)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .evidence{font-size:.82rem}
+  .evidence th,.evidence td{padding:.55rem .5rem}
+}
+.page-hero.devlog{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(threats-hero.jpg) center/cover no-repeat}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+.fig{margin:1.6rem 0}
+.fig img{width:100%;height:auto;border:1px solid rgba(183,144,60,.28);border-radius:3px}
+.fig figcaption{font-family:var(--label);font-size:.85rem;letter-spacing:.04em;color:var(--steel);margin-top:.5rem}
+.pairrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.6rem 0}
+.pairrow .fig{margin:0}
+@media (max-width:640px){.pairrow{grid-template-columns:1fr}}
+ul.dots{list-style:none;margin:.4rem 0 1.2rem}
+ul.dots li{position:relative;padding:.35rem 0 .35rem 1.4rem;color:var(--ash)}
+ul.dots li::before{content:"";position:absolute;left:.2rem;top:.95rem;width:6px;height:6px;background:var(--ember);transform:rotate(45deg)}
+ul.dots li b{color:var(--parchment)}
+pre.logline{font-family:'JetBrains Mono',monospace;font-size:.8rem;white-space:pre-wrap;word-break:break-word;background:rgba(0,0,0,.35);border:1px solid rgba(75,81,91,.5);border-left:3px solid var(--frost);padding:.8rem 1rem;color:#9fc3dd;margin:0 0 1rem}
+code{font-family:'JetBrains Mono',monospace;font-size:.88em;color:var(--bronze)}
+.triorow{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.6rem 0}
+.triorow .fig{margin:0}
+@media (max-width:760px){.triorow{grid-template-columns:1fr}}
+.stage{display:inline-block;font-family:var(--label);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.1rem .55rem;margin-right:.4rem}
+.narrowfig{max-width:420px;margin-left:auto;margin-right:auto}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark-logo" href="index.html"><img src="cogheim-logo.webp" alt="COGHEIM" width="560" height="190"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Live Tracker</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="the-disc.html">The Disc</a>
+          <a href="characters.html">Characters</a>
+          <a href="features.html">Features</a>
+          <a href="threats.html">Threats</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero devlog">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; Enemies</p>
+    <h1>The Auger: Building a Kilometre of Bad News</h1>
+    <p class="sub">COGHEIM's burrowing giant went from one line of direction to a first breach in the engine. Here is what it is, what the first pass looked like, what the founder said about it, and what is still not built.</p>
+    <div class="facts">
+      <div class="fact"><b>Published</b><span>14 November 2026</span></div>
+      <div class="fact"><b>Category</b><span>Enemies</span></div>
+      <div class="fact"><b>Systems Touched</b><span>The Auger, ground effects, sound, target choice</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p>The brief was short: a giant mechanical burrowing enemy that players out run or out smart. On 10 October it got its name. The founder picked <b>the Auger</b> because it is "easy for npc characters to talk about," and a name people can shout across a deck matters when the ground starts to move.</p>
+    <p>This post covers the five weeks since. We keep our own records with each claim tagged by the evidence behind it, and this is written the same way.</p>
+
+    <h2>The Shape of It</h2>
+    <p>The numbers we are building to: about a kilometre long, most of it underground, with a head 110 metres tall. Five or six of them on the whole disc. About 36 kilometres an hour underground and 23 on the surface, because once it breaches it has less to grab.</p>
+    <p>That speed gap is the design. Underground, no Strider out runs it. On the surface a hull at speed can pull away. So getting away is about making it come up, turning it, or pulling it onto a decoy.</p>
+    <div class="pairrow">
+      <figure class="fig">
+      <img src="gallery/11_production_images/001_auger_concept.webp" alt="Concept painting of the Auger bursting out of rocky ground beside a walking Strider city" loading="lazy" width="1280" height="720">
+      <figcaption>Concept art, 10 October. The painting that set the scale.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/002_auger_head_turnaround.webp" alt="Concept sheet showing the Auger head from four angles with a 110 metre height marker" loading="lazy" width="1280" height="853">
+      <figcaption>The head turnaround. One note came back the same day: lose the doors and the ladders, no railings. The Auger is sealed.</figcaption>
+    </figure>
+    </div>
+
+    <h2>A Breach Like a Whale</h2>
+    <p>The direction for the breach was specific. Not shattered rock. The earth should open like a sand hill forming and parting, with the beast breaking out of it fast, tremors first, the sound of it getting near, "almost like a whale breaching the ocean surface."</p>
+    <p>The first pass ran in the Unreal editor on 10 November on a test stretch of dunes. The ground swells, the head corkscrews out, the machine tips and lands on its belly, and then it swims.</p>
+    <div class="triorow">
+      <figure class="fig">
+      <img src="gallery/11_production_images/004_auger_breach_head.webp" alt="In engine capture of the Auger head corkscrewing out of a dune" loading="lazy" width="1200" height="578">
+      <figcaption>The head comes out.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/005_auger_breach_slabs.webp" alt="In engine capture of the Auger rising with slabs of ground in the air" loading="lazy" width="960" height="462">
+      <figcaption>The peak of the breach.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/006_auger_belly_landing.webp" alt="In engine capture of the Auger landed on its belly in a dust cloud" loading="lazy" width="960" height="462">
+      <figcaption>The belly landing.</figcaption>
+    </figure>
+    </div>
+    <p>The founder's review, in full: "ok first pass, a lot to improve." He was right, and the list he gave is the work that followed.</p>
+
+    <h2>What the Review Changed</h2>
+    <ul class="dots">
+      <li><b>The sound.</b> The first grinding take had a high pitched edge that he described as "like change dropping." Nothing about a kilometre of machine should be high pitched. The next pass went lower, with loud, chunky chomps, and came back as "much better."</li>
+      <li><b>The body.</b> It read too short. It now runs as ten segments, and the gaps between them carry ripped, torn accordion joints instead of clean ones.</li>
+      <li><b>The ground.</b> Broken ground has to look like the ground it came from: gravel, earth and rock of that place, never chips. Trees in its path should tip and fall like felled trees.</li>
+      <li><b>The trail.</b> It should leave a trench that stays for five to ten minutes so crews can see where it went and where not to be.</li>
+    </ul>
+    <div class="pairrow">
+      <figure class="fig">
+      <img src="gallery/11_production_images/008_auger_ten_segments.webp" alt="In engine capture of the long segmented body of the Auger curving over a dune" loading="lazy" width="1200" height="578">
+      <figcaption>Ten segments with torn joints.</figcaption>
+    </figure>
+      <figure class="fig">
+      <img src="gallery/11_production_images/011_auger_trench.webp" alt="In engine capture of a dark trench cut through trees after the Auger passed" loading="lazy" width="1200" height="578">
+      <figcaption>The trench it leaves in tree cover.</figcaption>
+    </figure>
+    </div>
+
+    <h2>How It Chooses</h2>
+    <p>On 12 November the question changed from how it looks to how it thinks. The founder did not want it running the same loop of track. If two Striders are in front of it, it cannot chase both, so, in his words, maybe it does the "eny meenie minie moe choice."</p>
+    <p>That became the rule. The Auger tracks targets, picks one by weighted chance, commits to it for a while, then chooses again. He also set what a hit on a Strider means: it goes after a Strider, but it can barely do damage. It nudges the hull, leaves dents, throws sparks and smoke, and may break a drivetrain. People on foot and small vehicles are the ones in real danger.</p>
+
+    <div class="boiler">
+      <p><b>What exists today:</b> the look of the breach, the body, the fire throat, the trench and the sound, running in the editor on one machine as a first pass.</p>
+      <p style="margin-top:.8rem"><b>What does not:</b> the target choice code is written and has not been compiled or tested. The trench is a visual test that only one machine sees. Collecting from the trail, what happens to a player who gets eaten, and whether an Auger can ever be killed are all still open. Nothing here has run on a server with players.</p>
+    </div>
+
+    <h2>What We're Acting On</h2>
+    <ol class="numlist">
+      <li><b>Fix the debris.</b> Rubble that slows down and hangs in the air looks like zero gravity. It has to fall, and fall into the trench.</li>
+      <li><b>Give the trench collision</b> so the wreckage is something you have to drive around.</li>
+      <li><b>Build and test the target choice,</b> on foot and from a Strider.</li>
+      <li><b>Move the trail to the server</b> so every player sees the same scar and the harvest can be real.</li>
+    </ol>
+    <p>The full picture of the Auger, the Colossus and the enemies still in design is on the new <a href="threats.html">Threats page</a>.</p>
+    <div class="tags">
+      <span class="tag">The Auger</span>
+      <span class="tag">Enemies</span>
+      <span class="tag">VFX</span>
+      <span class="tag">Sound</span>
+      <span class="tag">First Pass</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">It is a first pass, and it already makes you look at the ground differently. <em>That is the job.</em></p>
+    <a class="btn-ghost" href="devlog.html" style="margin-top:1.6rem">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:studio@cogheim.com">studio@cogheim.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector('.burger');
+if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});})();
+</script>
+<script src="cog-meter.js" defer></script>
+</body>
+</html>

@@ -290,6 +290,7 @@ footer{{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem;text-alig
   <a class="btn-ghost" href="{prev_href}">&larr; All Transmissions</a>
 </div></section>
 <footer>&copy; 2026 Limitless Game Makers LLC &middot; Build. Move. Conquer.</footer>
+<script src="cog-meter.js" defer></script>
 </body>
 </html>
 """
