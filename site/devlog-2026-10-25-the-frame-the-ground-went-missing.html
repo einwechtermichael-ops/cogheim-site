@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Frame the Ground Went Missing</title>
+<meta name="description" content="One warning line from a test flight, what it says about ray tracing memory in a world that streams its own ground, and how we read the week&#x27;s engine updates.">
+<link rel="canonical" href="https://cogheim.com/devlog-2026-10-25-the-frame-the-ground-went-missing.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Frame the Ground Went Missing">
+<meta property="og:description" content="One warning line from a test flight, what it says about ray tracing memory in a world that streams its own ground, and how we read the week&#x27;s engine updates.">
+<meta property="og:image" content="https://cogheim.com/devlog-2026-10-25-the-frame-the-ground-went-missing-og.jpg">
+<meta property="og:image:width" content="1600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cogheim.com/devlog-2026-10-25-the-frame-the-ground-went-missing-og.jpg">
+<meta name="theme-color" content="#0C0F12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Saira:wght@300;400;600&family=Saira+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "The Frame the Ground Went Missing",
+      "datePublished": "2026-10-25",
+      "author": {"@type": "Organization", "name": "Limitless Game Makers LLC"},
+      "url": "https://cogheim.com/devlog-2026-10-25-the-frame-the-ground-went-missing.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogheim.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Devlog", "item": "https://cogheim.com/devlog.html"},
+        {"@type": "ListItem", "position": 3, "name": "The Frame the Ground Went Missing", "item": "https://cogheim.com/devlog-2026-10-25-the-frame-the-ground-went-missing.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --iron:#0C0F12; --frost:#2A4F6F; --ember:#E26A26; --bronze:#B7903C;
+  --steel:#4B515B; --ash:#A2A2A0; --parchment:#E8E2D4;
+  --nav-safe-bottom:110px;
+  --display:'Cinzel',serif; --body:'Saira',sans-serif; --label:'Saira Condensed',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--iron);color:var(--parchment);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--bronze);text-decoration:none}
+::selection{background:var(--ember);color:var(--iron)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(183,144,60,.25);padding-top:env(safe-area-inset-top)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,3vw,1.45rem);letter-spacing:.14em;background:linear-gradient(175deg,#E8D08A 10%,#B7903C 45%,#7A5E22 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.wordmark-logo{display:flex;align-items:center;flex-shrink:0}
+.wordmark-logo img{width:clamp(120px,16vw,170px);height:auto;display:block}
+.nav-links{display:flex;gap:1.3rem;align-items:center;font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase}
+.nav-links a{color:var(--ash);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:#E8D08A}
+.nav-cta{background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff!important;padding:.45rem 1.1rem;border:1px solid #E8956A;border-radius:3px;box-shadow:0 0 12px rgba(226,106,38,.35)}
+.burger{display:none;background:none;border:1px solid var(--bronze);color:var(--bronze);font-size:1.2rem;padding:.3rem .65rem;border-radius:3px;cursor:pointer}
+.running-lights{height:3px;background:linear-gradient(90deg,transparent,#FFB35C 18%,#E26A26 50%,#FFB35C 82%,transparent);background-size:200% 100%;animation:rl 6s linear infinite;opacity:.85}
+@keyframes rl{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.running-lights{animation:none}html{scroll-behavior:auto}}
+.page-hero{position:relative;min-height:56svh;display:flex;align-items:flex-end}
+.ph-art{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+.ph-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,18,.55) 0%,transparent 40%,rgba(12,15,18,.95) 96%,var(--iron) 100%)}
+.ph-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:7rem 1.25rem 2.6rem}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-size:.85rem;display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:.04em;color:#E8D08A;margin:.6rem 0 .4rem;text-shadow:0 2px 18px rgba(0,0,0,.8);line-height:1.25}
+.sub{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--parchment);max-width:68ch}
+section{padding:clamp(2.4rem,6vw,4rem) 1.25rem}
+.wrap{max-width:1200px;margin:0 auto}
+.wrap-n{max-width:720px;margin:0 auto}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);letter-spacing:.03em;color:#E8D08A;margin:0 0 1rem}
+p{margin-bottom:1.1rem;color:var(--parchment)}
+.dim{color:var(--ash)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(183,144,60,.3);border:1px solid rgba(183,144,60,.3);margin:1.8rem 0 0}
+.fact{background:rgba(12,15,18,.85);padding:1rem 1.1rem}
+.fact b{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);display:block;margin-bottom:.2rem}
+.fact span{color:var(--parchment);font-size:.95rem}
+.boiler{border-left:3px solid var(--bronze);background:rgba(42,79,111,.1);padding:1.2rem 1.4rem;color:var(--ash);font-size:.97rem;margin:1.3rem 0}
+.boiler p{margin-bottom:0;color:var(--ash)}
+.boiler b{color:var(--parchment)}
+.numlist{list-style:none;counter-reset:step;margin:1rem 0 0;max-width:720px}
+.numlist li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.6rem;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.35)}
+.numlist li:last-child{border-bottom:0}
+.numlist li::before{content:counter(step);position:absolute;left:0;top:.6rem;font-family:var(--display);font-weight:700;color:var(--ember);font-size:1rem;width:1.9rem;text-align:center}
+.numlist li b{color:var(--parchment);font-weight:600}
+.evidence{width:100%;border-collapse:collapse;margin:1.3rem 0 1.8rem;font-size:.92rem}
+.evidence th,.evidence td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid rgba(75,81,91,.35);vertical-align:top}
+.evidence th{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem;color:var(--bronze);border-bottom:1px solid rgba(183,144,60,.4)}
+.evidence td{color:var(--ash)}
+.evidence td:first-child{color:var(--parchment)}
+.evidence tr:last-child td{border-bottom:0}
+.srclist{list-style:none;margin:1rem 0 0;max-width:720px;font-size:.9rem}
+.srclist li{padding:.5rem 0;color:var(--ash);border-bottom:1px solid rgba(75,81,91,.25)}
+.srclist li:last-child{border-bottom:0}
+.srclist code{font-family:'JetBrains Mono',monospace;color:var(--bronze);font-size:.85rem}
+.bigline{border-top:1px solid rgba(183,144,60,.2)}
+.bigline .hook{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,3vw,1.7rem);line-height:1.5;color:var(--parchment);max-width:52ch;margin:0 auto;text-align:center}
+.bigline .hook em{font-style:normal;color:var(--ember)}
+.btn{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;padding:.9rem 2.2rem;border-radius:3px;cursor:pointer;transition:box-shadow .25s;display:inline-block;border:1px solid #E8956A;background:linear-gradient(180deg,#D87B35,#B5521C);color:#fff;box-shadow:0 0 18px rgba(226,106,38,.4)}
+.btn:hover{box-shadow:0 0 30px rgba(226,106,38,.7)}
+.btn-ghost{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;border:1px solid var(--bronze);color:var(--bronze);padding:.55rem 1.2rem;border-radius:3px;display:inline-block}
+footer{border-top:1px solid rgba(183,144,60,.25);padding:3rem 1.25rem calc(2.5rem + env(safe-area-inset-bottom));text-align:center}
+.foot-lines{margin-top:1.1rem;font-size:.9rem;color:var(--steel);line-height:2}
+.foot-lines a{color:var(--ash)}
+a.inline-link{color:var(--ember);border-bottom:1px solid rgba(226,106,38,.35)}
+a.inline-link:hover{border-bottom-color:var(--ember)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(183,144,60,.2)}
+.tag{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--bronze);border:1px solid rgba(183,144,60,.4);border-radius:999px;padding:.35rem .9rem;background:rgba(183,144,60,.06)}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:calc(3.4rem + env(safe-area-inset-top));left:0;right:0;background:rgba(12,15,18,.97);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid rgba(183,144,60,.25)}
+  .nav-links.open{max-height:560px;padding:.5rem 0 1rem}
+  .nav-links a{padding:.8rem 1.5rem;width:100%;text-align:center}
+  .nav-cta{margin:0 1.5rem;width:calc(100% - 3rem)}
+  .burger{display:block}
+  body{padding-bottom:var(--nav-safe-bottom)}
+  .evidence{font-size:.82rem}
+  .evidence th,.evidence td{padding:.55rem .5rem}
+}
+.page-hero.devlog{background:linear-gradient(180deg,rgba(12,15,18,.5),rgba(12,15,18,.95)),url(devlog-2026-10-25-the-frame-the-ground-went-missing-hero.jpg) center/cover no-repeat}
+.nav-drop{position:relative}
+.nav-drop-trigger{background:none;border:none;color:var(--ash);font-family:var(--label);font-weight:500;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0;display:flex;align-items:center;gap:.3rem}
+.nav-drop-trigger:hover{color:#E8D08A}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.9rem;background:rgba(12,15,18,.97);border:1px solid rgba(183,144,60,.3);border-radius:4px;padding:.5rem 0;min-width:150px;display:none;flex-direction:column;z-index:50}
+.nav-drop:hover .nav-drop-menu,.nav-drop.force-open .nav-drop-menu{display:flex}
+.nav-drop.force-open .nav-drop-trigger{color:#E8D08A}
+.nav-drop-menu a{padding:.55rem 1.1rem;white-space:nowrap;font-size:.9rem;color:var(--ash)}
+.nav-drop-menu a:hover{color:#E8D08A;background:rgba(183,144,60,.08)}
+@media (max-width:840px){
+  .nav-drop-menu{position:static;transform:none;display:flex !important;background:none;border:none;padding:0;margin-top:0}
+  .nav-drop-trigger{display:none}
+}
+.fig{margin:1.6rem 0}
+.fig img{width:100%;height:auto;border:1px solid rgba(183,144,60,.28);border-radius:3px}
+.fig figcaption{font-family:var(--label);font-size:.85rem;letter-spacing:.04em;color:var(--steel);margin-top:.5rem}
+.pairrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.6rem 0}
+.pairrow .fig{margin:0}
+@media (max-width:640px){.pairrow{grid-template-columns:1fr}}
+ul.dots{list-style:none;margin:.4rem 0 1.2rem}
+ul.dots li{position:relative;padding:.35rem 0 .35rem 1.4rem;color:var(--ash)}
+ul.dots li::before{content:"";position:absolute;left:.2rem;top:.95rem;width:6px;height:6px;background:var(--ember);transform:rotate(45deg)}
+ul.dots li b{color:var(--parchment)}
+pre.logline{font-family:'JetBrains Mono',monospace;font-size:.8rem;white-space:pre-wrap;word-break:break-word;background:rgba(0,0,0,.35);border:1px solid rgba(75,81,91,.5);border-left:3px solid var(--frost);padding:.8rem 1rem;color:#9fc3dd;margin:0 0 1rem}
+code{font-family:'JetBrains Mono',monospace;font-size:.88em;color:var(--bronze)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="wordmark-logo" href="index.html"><img src="cogheim-logo.webp" alt="COGHEIM" width="560" height="190"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',document.getElementById('nl').classList.toggle('open'));">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="why-cogheim.html">Why Cogheim</a>
+      <a href="cogworks.html">Cogworks</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="players.html">Players</a>
+      <a href="game-progress.html">Game Progress</a>
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" type="button" aria-expanded="false">More &#9662;</button>
+        <div class="nav-drop-menu">
+          <a href="world.html">World of Cogheim</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="books.html">Books</a>
+          <a href="creators.html">Creators</a>
+          <a href="press.html">Press</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#enlist">Enlist Now</a>
+    </div>
+  </div>
+  <div class="running-lights" aria-hidden="true"></div>
+</nav>
+
+<header class="page-hero devlog">
+  <div class="ph-content">
+    <p class="eyebrow">Devlog &middot; Engine &amp; Tooling</p>
+    <h1>The Frame the Ground Went Missing</h1>
+    <p class="sub">One warning line from a test flight, what it says about ray tracing memory in a world that streams its own ground, and how we read the week's engine updates.</p>
+    <div class="facts">
+      <div class="fact"><b>Published</b><span>25 October 2026</span></div>
+      <div class="fact"><b>Category</b><span>Engine &amp; Tooling</span></div>
+      <div class="fact"><b>Series</b><span>Dev Brief</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-n">
+    <p class="dim" style="font-size:.9rem"><b>Header image:</b> A lamp lit hall inside one of COGHEIM's structures: a caged lift, ring walkways and a sweeping stair, with light falling across the floor. Engine capture, work in progress.</p>
+<p>This week a single line appeared in one of our editor logs during a test flight. Nothing crashed and nothing looked wrong. The engine wrote one sentence and carried on.</p>
+<p>The sentence said, in effect: a piece of ground was not in memory when we went to draw it, so we skipped it.</p>
+<p>That one line turned out to be a good lesson in how a game that builds its world as you move has to think about memory, and why we read warnings even when nothing visibly breaks.</p>
+<h2>A world that lays its own floor</h2>
+<p>The cities of COGHEIM walk. A world built for walking cities cannot be a handful of hand made maps; it has to be large, and it has to come to you. One of the ways we approach that is ground that is generated in tiles around the player at runtime. As you move, tiles ahead of you are built and tiles far behind you are released. Each tile is a piece of geometry the engine has never seen before it was made.</p>
+<p>A rock placed by hand is known in advance; the engine can prepare it and keep it ready. A generated tile appears, is drawn for a while, and is gone.</p>
+<h2>Two copies of every surface</h2>
+<p>COGHEIM is lit with Lumen, Unreal Engine's global illumination, and we run it with hardware ray tracing. That matters for this story, because ray tracing means the graphics card keeps a second representation of the scene. Alongside the triangles you see, there is an acceleration structure: a spatial index that lets the card ask "what does this ray hit?" very quickly. Bounce light, reflections and many shadows come from those questions.</p>
+<p>That second copy costs video memory. So the engine keeps a budget for ray tracing geometry. When the budget fills up, it evicts geometry that the current frame is not using, so that geometry the frame does need can stay resident. We read the policy in the engine source: geometry the scene is not referencing goes first when space runs short.</p>
+<h2>Where the two meet</h2>
+<p>Here is what we believe happened, and we want to be precise about which parts we know.</p>
+<p>What we know: during a test session, flying fast and low over the generated ground, the engine logged that a ground tile's ray tracing geometry had been evicted at the moment the renderer tried to use it. The renderer did the safe thing. It skipped that tile for that frame and asked for the geometry to be brought back.</p>
+<p>What we read in the engine source: the component we use for generated ground hands its ray tracing geometry to the renderer after checking only that the geometry exists. It does not check whether that geometry is currently resident. The renderer checks, notices, warns and skips.</p>
+<p>What we believe but have not proven: the budget was under pressure, a tile that had been out of view was evicted, and when it came back into view it was submitted before it had been made resident again. If that is right, the ground was missing from the ray traced view of the world for roughly one frame. At normal frame rates that is far too short to see, and if anything it would show as a flicker in bounce light rather than a hole in the floor.</p>
+<p>So why care about a frame nobody can see?</p>
+<h2>Why one line matters</h2>
+<p>Three reasons.</p>
+<p>First, it tells us something about our budget. If eviction is happening at all, the ray tracing geometry in that scene is bumping against its limit. That is exactly the kind of number we want to know early, before the world gets denser, not after.</p>
+<p>Second, it happens on the path a player will take most. Fast movement across freshly generated ground is not an edge case for a game about travelling. A warning that fires once on a test flight could fire far more often with more players, more tiles and more things in the sky.</p>
+<p>Third, it is the kind of thing that teaches people to ignore warnings. A log that fills up with "known, harmless" lines is a log nobody reads. We would rather understand this one line now, write down exactly what it means, and keep the rule that every other warning still counts.</p>
+<h2>What we are doing about it</h2>
+<p>None of this is a fix yet. It is a plan.</p>
+<ul class="dots">
+<li><strong>Measure before changing anything.</strong> We will watch how often the warning appears, where, and how fast the camera was moving at the time.</li>
+<li><strong>Test the explanation.</strong> One controlled session with a larger ray tracing budget should tell us whether memory pressure really is the cause. If the warning disappears, the reading is supported. If it does not, we were wrong and we look again.</li>
+<li><strong>Do not hide the ground from ray tracing.</strong> There is a switch that leaves generated meshes out of ray tracing entirely. It would silence the warning, and it would also take the ground out of the lighting that makes the world feel solid. That is the wrong trade.</li>
+<li><strong>Set the budget on paper.</strong> Ray tracing memory joins our streaming and level of detail budgets, so the next dense region is planned against a number rather than discovered by a warning.</li>
+</ul>
+<h2>The engine moved this week too</h2>
+<p>Epic released a new hotfix for Unreal Engine 5.8 on 20 October. Among its fixes are an assert around water zones when level visibility is toggled, a regression where Lumen's lighting cache was cleared every frame while a scene capture was rendering, and a fix to how the build tools compare library timestamps. Several of those touch systems we use, so we will move to it through our normal process: one change at a time, with a full rebuild and a clean editor start before we trust it.</p>
+<p>Early reports from other developers mention new shader pipeline crashes and higher memory use after updating, and some people could not get the new launcher to update their engine at all. Those are reports, not confirmed problems, but they are why we upgrade carefully rather than on release day.</p>
+<p>One more report caught our eye. A developer measured slow memory growth over several hours with hardware ray tracing and Lumen enabled, in a mode very close to ours. It is unconfirmed and not yet reproduced in a clean project. For an online game, though, hours long sessions are normal, so long play tests will now record that memory figure every hour.</p>
+<h2>The point of writing this down</h2>
+<p>The hall in the picture above is lit by the same system this post is about: light bouncing off iron, stone and stair treads, worked out by asking rays what they hit. When that works, nobody notices it. Our job is to notice the one frame where it might not, long before anyone else does.</p>
+<p>If you have shipped generated geometry with hardware ray tracing in Unreal Engine and kept its memory budget honest, we would like to hear how.</p>
+    <div class="tags">
+      <span class="tag">Unreal Engine</span>
+      <span class="tag">Rendering</span>
+      <span class="tag">Ray Tracing</span>
+      <span class="tag">Lumen</span>
+      <span class="tag">Streaming</span>
+      <span class="tag">Engineering</span>
+    </div>
+  </div>
+</section>
+
+<section class="bigline" style="text-align:center">
+  <div class="wrap">
+    <p class="hook">Dated notes from the shop floor. <em>No hype, no release dates.</em></p>
+    <a class="btn-ghost" href="devlog.html" style="margin-top:1.6rem">&larr; All Devlog Posts</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark">COGHEIM</div>
+  <div class="foot-lines">
+    &copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>
+    Build. Move. Conquer.
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector('.burger');
+if(b){document.querySelectorAll('#nl a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nl').classList.remove('open');b.setAttribute('aria-expanded','false');});});}
+document.querySelectorAll('.nav-drop-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var drop=btn.parentElement, open=drop.classList.toggle('force-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nav-drop.force-open').forEach(function(d){d.classList.remove('force-open');d.querySelector('.nav-drop-trigger').setAttribute('aria-expanded','false');});
+});})();
+</script>
+</body>
+</html>

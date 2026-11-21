@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Scavenger, in Progress | COGHEIM</title>
+<meta name="description" content="The new Scavenger Strider in blockout: an articulated train of capsule sections that grows from three to five, with a salvage yard on top and an aerodrome on the centre section.">
+<link rel="canonical" href="https://cogheim.com/scavenger-in-progress.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Scavenger, in Progress | COGHEIM">
+<meta property="og:description" content="The new Scavenger Strider in blockout: an articulated train of capsule sections that grows from three to five, with a salvage yard on top and an aerodrome on the centre section.">
+<meta property="og:image" content="https://cogheim.com/gallery/week_2026_10_12/scavenger/sc01_max_hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+:root{--iron-950:#0b0d10;--iron-900:#101319;--iron-850:#151920;--iron-800:#1b2129;--iron-700:#232b34;
+--iron-600:#303a45;--brass:#c9a24b;--brass-deep:#8b6f30;--copper:#b4703a;--verd:#54988a;--cyan:#7fb7c4;
+--parch:#eae1cd;--muted:#9aa5b0;--display:"Oswald","Arial Narrow",sans-serif;
+--body:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(1100px 520px at 15% -12%,#1a2028 0%,transparent 62%),linear-gradient(180deg,#0b0d10,#090b0e);
+color:var(--parch);font-family:var(--body);font-size:16.5px;line-height:1.65;min-height:100vh}
+img{max-width:100%;display:block}
+a{color:var(--brass)}a:hover{color:#e2c06b}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--brass);color:#000;padding:6px 10px;z-index:99}
+header.site{border-bottom:1px solid var(--iron-700);background:linear-gradient(180deg,#141920,#0e1116);position:sticky;top:0;z-index:30}
+.hbar{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo img{height:34px;width:auto;color:var(--parch);font-family:var(--display);letter-spacing:.2em}
+.logo span{font-family:var(--display);letter-spacing:.2em;font-size:19px;color:var(--parch);text-decoration:none}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px}
+nav.main{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto}
+nav.main a{font-family:var(--display);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+text-decoration:none;padding:8px 10px;border-bottom:2px solid transparent}
+nav.main a:hover,nav.main a[aria-current]{color:var(--brass);border-bottom-color:var(--brass)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.narrow{max-width:760px}
+.hero{position:relative;border-bottom:1px solid var(--iron-700);overflow:hidden;background:#0d1014}
+.hero img{width:100%;height:clamp(240px,46vw,560px);object-fit:cover;opacity:.92}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 26px;background:linear-gradient(180deg,transparent,rgba(9,11,14,.94))}
+.hero .cap .wrap{padding:0}
+.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(30px,5vw,54px);line-height:1.05;letter-spacing:.03em;margin:8px 0 6px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(22px,3vw,30px);letter-spacing:.05em;margin:56px 0 10px;color:var(--parch);text-wrap:balance}
+h2 .n{color:var(--brass);margin-right:10px}
+h3{font-family:var(--display);font-weight:500;font-size:19px;letter-spacing:.06em;color:var(--copper);margin:30px 0 6px}
+p{margin:0 0 16px}
+.lede{font-size:19px;color:#d9d0bc;max-width:62ch}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.honest{border-left:3px solid var(--brass-deep);background:var(--iron-850);padding:14px 18px;margin:24px 0;font-size:15px;color:#cfc6b2}
+.honest strong{color:var(--parch)}
+.st{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+padding:2px 7px;border-radius:2px;margin-right:6px;vertical-align:2px;white-space:nowrap;color:#0b0d10}
+.st-play{background:#63b781}.st-comp{background:#82ab7e}.st-ue{background:#54988a}.st-bl{background:#c9a24b}
+.st-dir{background:#657588;color:#eae1cd}.st-con{background:#8b6f30;color:#eae1cd}.st-open{background:#c4574a;color:#fff}
+ul.facts{list-style:none;padding:0;margin:0 0 18px}
+ul.facts li{padding:9px 0;border-bottom:1px solid var(--iron-800)}
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0 26px}
+.spec div{background:var(--iron-850);border:1px solid var(--iron-700);padding:12px 14px}
+.spec b{display:block;font-family:var(--display);font-weight:500;font-size:26px;color:var(--brass);line-height:1.1}
+.spec span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+figure{margin:26px 0}
+figure img{width:100%;height:auto;border:1px solid var(--iron-700);background:#101319}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+figcaption .st{font-size:9.5px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pair figure,.trio figure{margin:0}
+@media(max-width:760px){.pair,.trio{grid-template-columns:1fr}nav.main{margin-left:0}}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:20px 0}
+.card{background:var(--iron-850);border:1px solid var(--iron-700);text-decoration:none;color:var(--parch);display:flex;flex-direction:column}
+.card:hover{border-color:var(--brass-deep)}
+.card img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.card div{padding:12px 14px}
+.card b{font-family:var(--display);font-weight:500;letter-spacing:.05em;font-size:18px;display:block}
+.card small{color:var(--muted);font-size:13.5px}
+.btn{display:inline-block;font-family:var(--display);letter-spacing:.14em;text-transform:uppercase;font-size:13px;
+padding:11px 18px;border:1px solid var(--brass);color:var(--brass);text-decoration:none;margin:6px 8px 6px 0}
+.btn.fill{background:var(--brass);color:#0b0d10}
+.btn:hover{background:#e2c06b;color:#0b0d10;border-color:#e2c06b}
+footer.site{margin-top:80px;border-top:1px solid var(--iron-700);padding:28px 20px 40px;text-align:center;font-size:13px;color:var(--muted)}
+footer.site b{font-family:var(--display);letter-spacing:.2em;color:var(--parch);font-weight:500}
+/* gallery */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 10px}
+.chips button{font-family:var(--display);letter-spacing:.1em;text-transform:uppercase;font-size:12.5px;background:var(--iron-850);
+color:var(--muted);border:1px solid var(--iron-600);padding:7px 12px;cursor:pointer}
+.chips button[aria-pressed="true"]{color:#0b0d10;background:var(--brass);border-color:var(--brass)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:14px}
+.tile{background:var(--iron-850);border:1px solid var(--iron-700);cursor:zoom-in;padding:0;color:inherit;text-align:left;font:inherit;display:flex;flex-direction:column}
+.tile[hidden]{display:none}
+.tile img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.tile .t{display:block;padding:9px 11px 11px}
+.tile .t b{font-family:var(--display);font-weight:500;letter-spacing:.04em;font-size:15.5px;display:block;margin-bottom:3px}
+.tile .t small{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.tile:focus-visible,.chips button:focus-visible,.btn:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.lb{position:fixed;inset:0;background:rgba(5,6,8,.95);display:none;z-index:100;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb figure{margin:0;max-width:1400px;width:100%}
+.lb img{max-height:78vh;width:auto;max-width:100%;margin:0 auto;border:1px solid var(--iron-600)}
+.lb figcaption{text-align:center;max-width:780px;margin:12px auto 0;color:#cfc6b2;font-size:15px}
+.lb button{position:absolute;background:none;border:1px solid var(--iron-600);color:var(--parch);font-size:22px;width:46px;height:46px;cursor:pointer}
+.lb .x{top:16px;right:16px}.lb .pv{left:14px;top:50%}.lb .nx{right:14px;top:50%}
+@media(prefers-reduced-motion:no-preference){.tile img{transition:opacity .2s}.tile:hover img{opacity:.85}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="hbar">
+<a class="logo" href="/"><img src="/cogheim-logo.webp" alt="COGHEIM"></a>
+<nav class="main" aria-label="Main"><a href="/why-cogheim.html">Why Cogheim</a><a href="/cogworks.html">Cogworks</a><a href="/devlog.html">Devlog</a><a href="/players.html">Players</a><a href="/game-progress.html">Game Progress</a><a href="/world.html" aria-current="page">World</a><a href="/gallery.html">Gallery</a><a href="/faq.html">FAQ</a></nav>
+</div></header>
+<main id="main">
+
+<section class="hero">
+<img src="/gallery/week_2026_10_12/scavenger/sc01_max_hero.webp" alt="Scavenger blockout at full length, Blender render" width="1616" height="954" style="object-fit:contain;background:#dcdde0">
+<div class="cap"><div class="wrap narrow">
+<div class="kicker">Strider Class &middot; Work in progress</div>
+<h1>The Scavenger, in Progress</h1>
+</div></div>
+</section>
+<article class="wrap narrow">
+<p class="lede" style="margin-top:28px">The Scavenger is the Strider built from whatever survived. This is its new look taking shape, version by version, before any of it reaches the engine.</p>
+<p class="meta" style="margin-top:14px">How to read the labels: <span class="st st-play">Seen in play</span> ran in the editor's play mode. <span class="st st-comp">Compiled</span> the code builds and loads, not yet tried in play. <span class="st st-ue">In Unreal</span> the asset is in the engine. <span class="st st-bl">Blender only</span> modelled, not yet in the engine. <span class="st st-dir">Design direction</span> decided, not built. <span class="st st-con">Concept</span> reference art.</p>
+<div class="honest"><strong>Blockout, not final art.</strong> Every image on this page is a Blender render of a working model. Parts are stand ins, some still clash, and none of it is in Unreal yet. The class page has the design as it stands; this page is the workshop.</div>
+<div class="spec">
+<div><b>287 m</b><span>Length at founding, 3 sections</span></div>
+<div><b>473 m</b><span>Full length, 5 sections</span></div>
+<div><b>133 m</b><span>Height cap</span></div>
+<div><b>6</b><span>Aircraft pads</span></div>
+</div>
+
+<h2>A city that grows</h2>
+<p>The Scavenger is an articulated train of capsule sections joined by accordion bellows, with a chisel prow at the bow. A new Syndicate starts with three sections: the bow, one middle section and the stern. As it completes research, it can add middle sections until it reaches five. Its height is capped so it never stands taller than the Grindwalker's deck.</p>
+<div class="pair"><figure><img src="/gallery/week_2026_10_12/scavenger/sc02_founding_hero.webp" alt="Scavenger at founding" width="1274" height="776" loading="lazy" decoding="async"><figcaption><span class="st st-bl">Blender build</span>11 Oct &middot; A new Syndicate starts with three sections, about 287 metres. More sections are earned through research.</figcaption></figure><figure><img src="/gallery/week_2026_10_12/scavenger/sc03_elevation.webp" alt="Side elevation" width="1800" height="675" loading="lazy" decoding="async"><figcaption><span class="st st-bl">Blender build</span>11 Oct &middot; Capsule sections joined by accordion bellows, tracks under every section, a command tower at the bow.</figcaption></figure></div>
+
+<h2>Industry on top, people inside</h2>
+<p>The Scavenger is not a luxury hull. Its top is a salvage yard: smokestacks of every kind, an electric grid, cranes and weapon stations. The people live inside the sections, where the homes, trade, crafting and farming are, through doors that load into their own interiors. The centre section carries an aerodrome with six pads for aircraft that take off and land straight up.</p>
+<div class="pair"><figure><img src="/gallery/week_2026_10_12/scavenger/sc04_salvage_yard.webp" alt="The salvage yard" width="1800" height="1000" loading="lazy" decoding="async"><figcaption><span class="st st-bl">Blender build</span>11 Oct &middot; The top of the Scavenger is a working yard: stacks, cranes, an electric grid and weapon stations.</figcaption></figure><figure><img src="/gallery/week_2026_10_12/scavenger/sc05_yard_deck.webp" alt="Yard deck, centre section" width="1800" height="1000" loading="lazy" decoding="async"><figcaption><span class="st st-bl">Blender build</span>11 Oct &middot; Looking across the yard deck from the bow side.</figcaption></figure></div>
+
+<h2>Getting around</h2>
+<p>A chairlift runs the length of the hull with a drop off at every joint, and freight lifts fold away when they are not in use. The bridge sits in a command tower at the bow with windows all the way round, so the face of the Scavenger has a crew behind it.</p>
+<div class="pair"><figure><img src="/gallery/week_2026_10_12/scavenger/sc06_command_tower.webp" alt="Command tower" width="1600" height="1200" loading="lazy" decoding="async"><figcaption><span class="st st-bl">Blender build</span>11 Oct &middot; The bridge sits in a tower at the bow with windows all the way round.</figcaption></figure><figure><img src="/gallery/week_2026_10_12/scavenger/sc07_gear_house.webp" alt="Chairlift gear house" width="1600" height="1000" loading="lazy" decoding="async"><figcaption><span class="st st-bl">Blender build</span>12 Oct &middot; A chairlift runs the length of the hull with a drop off at every joint. This is its gear house at the bow.</figcaption></figure></div>
+
+<h2>Nine versions in a week</h2>
+<ul class="facts">
+<li><span class="st st-bl">V1</span> First blockout: five sections, tracks on each.</li>
+<li><span class="st st-bl">V3</span> Freight lift cages and the chairlift added, with a drop off at every joint.</li>
+<li><span class="st st-bl">V5</span> Smaller chisel nose, a triangle tread set between the nose skis, the salvage yard and the aerodrome.</li>
+<li><span class="st st-bl">V7 and V8</span> The founder's own hull pieces placed, a running gear kit of 64 parts, and real track loops.</li>
+<li><span class="st st-bl">V9</span> Tracks moved outward into their own wells, scaffolds that reached the ground removed, lifts shown stowed.</li>
+<li><span class="st st-bl">V9c</span> A proper gear house for the chairlift at the bow.</li>
+</ul>
+<figure><img src="/gallery/week_2026_10_12/scavenger/sc08_joint_dropoff.webp" alt="Joint drop off" width="1800" height="1000" loading="lazy" decoding="async"><figcaption><span class="st st-bl">Blender build</span>11 Oct &middot; Where two sections meet: the bellows joint and a chairlift drop off.</figcaption></figure>
+
+<h2>Still open</h2>
+<ul class="facts">
+<li><span class="st st-open">Open</span> The nose tracks still sit almost entirely inside the bow.</li>
+<li><span class="st st-open">Open</span> The chairlift passes too close to the aircraft pads, and one crane crosses the chair line.</li>
+<li><span class="st st-open">Open</span> The model carries around twelve million triangles in Blender. How it performs as a moving Strider in the engine is not known yet.</li>
+</ul>
+<p><a class="btn" href="/scavenger.html">The Scavenger class page</a> <a class="btn" href="/devlog-2026-10-12-drifter-iron-tide-academy.html">This week's devlog</a> <a class="btn" href="/gallery-week-2026-10-12.html">This week in pictures</a></p>
+</article>
+
+</main>
+<footer class="site"><b>COGHEIM</b><br>&copy; 2026 Limitless Game Makers LLC &middot; <a href="mailto:limitlessgamemakers@gmail.com">limitlessgamemakers@gmail.com</a><br>Build. Move. Conquer.</footer>
+</body>
+</html>
