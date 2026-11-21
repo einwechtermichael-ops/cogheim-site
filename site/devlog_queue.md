@@ -20,7 +20,7 @@
 [x] (2026-10-06) A builder's report and the saved file disagreed about the Colossus model's size, and only measuring the file caught it.
 [x] (2026-10-07) Moved the day and night cycle onto the simulation clock so every player sees the same sky at the same moment.
 [x] (2026-10-08) The new rain was invisible on screen because each streak texture was only about two millimetres wide.
-[ ] (2026-11-21) The Auger's first breach came back with the note "a lot to improve," so the ground now swells before it bursts.
+[x] (2026-11-21) The Auger's first breach came back with the note "a lot to improve," so the ground now swells before it bursts.
 [ ] (2026-11-22) The Auger's grinding sounded like change dropping, so the sound was rebuilt lower with loud, chunky chomps.
 [ ] (2026-11-23) Rubble that slowed down and hung in the sky looked like zero gravity, so making debris fall into the trench went to the top of the Auger list.
 [ ] (2026-11-24) Named the garrison bots' electric rifle the Leyden Longarm after the first name turned out too close to another game's.
