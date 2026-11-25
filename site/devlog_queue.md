@@ -24,7 +24,7 @@
 [x] (2026-11-22) The Auger's grinding sounded like change dropping, so the sound was rebuilt lower with loud, chunky chomps.
 [ ] (2026-11-23) Rubble that slowed down and hung in the sky looked like zero gravity, so making debris fall into the trench went to the top of the Auger list.
 [x] (2026-11-24) Named the garrison bots' electric rifle the Leyden Longarm after the first name turned out too close to another game's.
-[ ] (2026-11-25) Settled the Colossus stirring pose with its shoulders above the ground so the big guns show before it rises.
+[x] (2026-11-25) Settled the Colossus stirring pose with its shoulders above the ground so the big guns show before it rises.
 [ ] (2026-11-26) Decided the Auger picks its target by a roll of the dice, because it cannot chase two Striders at once.
 [ ] (2026-11-27) The monument got a ring of market stalls at its foot and went into the world beside the lakes.
 [ ] (2026-11-28) The Blackjack got put together in the engine and I walked all the way round it for the first time.
