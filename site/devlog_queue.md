@@ -25,7 +25,7 @@
 [ ] (2026-11-23) Rubble that slowed down and hung in the sky looked like zero gravity, so making debris fall into the trench went to the top of the Auger list.
 [x] (2026-11-24) Named the garrison bots' electric rifle the Leyden Longarm after the first name turned out too close to another game's.
 [x] (2026-11-25) Settled the Colossus stirring pose with its shoulders above the ground so the big guns show before it rises.
-[ ] (2026-11-26) Decided the Auger picks its target by a roll of the dice, because it cannot chase two Striders at once.
+[x] (2026-11-26) Decided the Auger picks its target by a roll of the dice, because it cannot chase two Striders at once.
 [ ] (2026-11-27) The monument got a ring of market stalls at its foot and went into the world beside the lakes.
 [ ] (2026-11-28) The Blackjack got put together in the engine and I walked all the way round it for the first time.
 [ ] (2026-11-29) The Vector went from six legs to eight, one under the middle of each side, because that is how I always pictured it.
